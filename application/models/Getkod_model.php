@@ -56,7 +56,7 @@ class Getkod_model extends CI_Model {
         return "ORD".$kd;
     }
     function get_kodpel(){
-        $q = $this->db->query("SELECT MAX(RIGHT(kd_pelanggan,3)) AS kd_max FROM tbl_pelanggan");
+        $q = $this->db->query("SELECT MAX(RIGHT(kd_musteri,3)) AS kd_max FROM musteri");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){

@@ -49,20 +49,20 @@
 									<div class="row">
 										<div class="col-sm-8">
 											<h5 class="card-title">ID card number</h5>
-											<p class="card-text"><?php echo $profile['no_ktp_pelanggan'] ?></p>
+											<p class="card-text"><?php echo $profile['no_ktp_musteri'] ?></p>
 											<h5 class="card-title">Name</h5>
-											<p class="card-text"><?php echo $profile['nama_pelanggan'] ?></p>
+											<p class="card-text"><?php echo $profile['isim_musteri'] ?></p>
 											<h5 class="card-title">Email</h5>
-											<p class="card-text"><?php echo $profile['email_pelanggan']?></p>
+											<p class="card-text"><?php echo $profile['email_musteri']?></p>
 											<h5 class="card-title">Mobile number</h5>
-											<p class="card-text"><?php echo $profile['telpon_pelanggan'] ?></p>
+											<p class="card-text"><?php echo $profile['telpon_musteri'] ?></p>
 										</div>
 										<div class="col-sm-14">
 											<h5 class="card-title">Address</h5>
-											<p class="card-text"><?php echo $profile['alamat_pelanggan']?></p>
+											<p class="card-text"><?php echo $profile['adres_musteri']?></p>
 											<h5 class="card-title">Photo Profile</h5>
-											<p><img src="<?php echo base_url($profile['img_pelanggan'])?>" height="50" width="50" ></p>
-											<p><a href="<?php echo base_url('profile/changepassword/'.$profile['kd_pelanggan']) ?>" class="btn btn-primary">Change Password</a></p>
+											<p><img src="<?php echo base_url($profile['resim_musteri'])?>" height="50" width="50" ></p>
+											<p><a href="<?php echo base_url('profile/changepassword/'.$profile['kd_musteri']) ?>" class="btn btn-primary">Change Password</a></p>
 											<p><button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">Edit Account</button></p>
 										</div>
 									</div>
@@ -88,28 +88,28 @@
 											<div class="col-sm-14">
 												<div class="row form-group">
 													<label for="nama" class="control-label">ID card number</label>
-													<input type="text" class="form-control" name="ktp" value="<?php echo $profile['no_ktp_pelanggan']?>" >
-													<input type="hidden" name="kode" value="<?php echo $profile['kd_pelanggan']?>">
+													<input type="text" class="form-control" name="ktp" value="<?php echo $profile['no_ktp_musteri']?>" >
+													<input type="hidden" name="kode" value="<?php echo $profile['kd_musteri']?>">
 												</div>
 												<div class="row form-group">
 													<label for="nama" class="control-label">Name</label>
-													<input type="text" class="form-control" name="nama" value="<?php echo $profile['nama_pelanggan']?>" >
+													<input type="text" class="form-control" name="nama" value="<?php echo $profile['isim_musteri']?>" >
 												</div>
 												<div class="row form-group">
 													<label for="nama" class="control-label">Email</label>
-													<input type="email" class="form-control" name="email" value="<?php echo $profile['email_pelanggan']?>" >
+													<input type="email" class="form-control" name="email" value="<?php echo $profile['email_musteri']?>" >
 												</div>
 												<div class="row form-group">
 													<label for="nama" class="control-label">Mobilenumber</label>
-													<input type="text" class="form-control" name="hp" value="<?php echo $profile['telpon_pelanggan']?>" >
+													<input type="text" class="form-control" name="hp" value="<?php echo $profile['telpon_musteri']?>" >
 												</div>
 												<div class="row form-group">
 													<label for="nama" class="control-label">Address</label>
-													<input type="text" class="form-control" name="alamat" value="<?php echo $profile['alamat_pelanggan']?>" >
+													<input type="text" class="form-control" name="alamat" value="<?php echo $profile['adres_musteri']?>" >
 												</div>
 												<div class="row form-group">
 													<label for="" class="control-label">Photo Profile</label>
-													<img src="<?php echo base_url($profile['img_pelanggan'])?>" alt="<?php echo $this->session->userdata('ktp') ?>" style="width:150px;height:150px"><input type="file" class="form-control" value="<?php echo base_url($this->session->userdata('nama_lengkap')) ?>" name="img"  >
+													<img src="<?php echo base_url($profile['resim_musteri'])?>" alt="<?php echo $this->session->userdata('ktp') ?>" style="width:150px;height:150px"><input type="file" class="form-control" value="<?php echo base_url($this->session->userdata('nama_lengkap')) ?>" name="img"  >
 												</div>
 											</div>
 										</div>

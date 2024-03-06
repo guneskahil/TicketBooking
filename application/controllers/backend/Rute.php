@@ -17,28 +17,26 @@ class Rute extends CI_Controller {
 		}
 	}
 	public function index(){
-		$data['title'] = "Destination/Terminal List";
-		$data['tujuan'] = $this->db->query("SELECT * FROM tbl_tujuan")->result_array();
-		// die(print_r($data));
+		$data['title'] = "Varış/Nihai Durak Listesi";
+		$data['tujuan'] = $this->db->query("SELECT * FROM varis")->result_array();
 		$this->load->view('backend/tujuan', $data);
 	}
-	/* Log on to codeastro.com for more projects */
+
 	public function viewrute($id=''){
-		$data['title'] = "Destination/Terminal List";
-		$data['rute'] = $this->db->query("SELECT * FROM tbl_tujuan WHERE kd_tujuan = '".$id."' ")->row_array();
-		// die(print_r($data));
+		$data['title'] = "Varış/Nihai Durak Listesi";
+		$data['rute'] = $this->db->query("SELECT * FROM varis WHERE kd_varis = '".$id."' ")->row_array();
 		$this->load->view('backend/view_tujuan', $data);
 	}
+
 	public function tambahtujuan(){
 		$kode = $this->getkod_model->get_kodtuj();
 		$data = array(
-			'kota_tujuan' => $this->input->post('tujuan'),
-			'kd_tujuan' => $kode,
-			'terminal_tujuan' => $this->input->post('terminal'),
-			 );
-		// die(print_r($data));
-		$this->db->insert('tbl_tujuan', $data);
-		$this->session->set_flashdata('message', 'swal("Data Added Successfully");');
+			'sehir_varis' => $this->input->post('tujuan'),
+			'kd_varis' => $kode,
+			'terminal_varis' => $this->input->post('terminal'),
+		);
+		$this->db->insert('varis', $data);
+		$this->session->set_flashdata('message', 'swal("Veri Başarıyla Eklendi");');
 		redirect('backend/rute');
 	}
 }

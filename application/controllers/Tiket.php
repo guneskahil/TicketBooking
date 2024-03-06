@@ -17,9 +17,9 @@ class Tiket extends CI_Controller {
 	public function index(){
 		$this->session->unset_userdata(array('jadwal','asal','tanggal'));
 		$data['title'] = "Check Schedule";
-		$data['asal'] = $this->db->query("SELECT * FROM `tbl_tujuan` ORDER BY kota_tujuan ASC ")->result_array();
-		$data['tujuan'] = $this->db->query("SELECT * FROM `tbl_tujuan` group by kota_tujuan ORDER BY kota_tujuan ASC ")->result_array();
-		$data['list'] = $this->db->query("SELECT * FROM `tbl_tujuan` ORDER BY kota_tujuan ASC ")->result_array();
+		$data['asal'] = $this->db->query("SELECT * FROM `varis` ORDER BY sehir_varis ASC ")->result_array();
+        $data['tujuan'] = $this->db->query("SELECT * FROM `varis` GROUP BY sehir_varis ORDER BY sehir_varis ASC ")->result_array();
+        $data['list'] = $this->db->query("SELECT * FROM `varis` ORDER BY sehir_varis ASC ")->result_array();
 		$this->load->view('frontend/cektanggal',$data);
 	}
 	/* Log on to codeastro.com for more projects */
