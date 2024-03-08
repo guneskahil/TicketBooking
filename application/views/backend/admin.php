@@ -42,17 +42,17 @@
                 <?php $i=1;foreach ($admin as $row) { ?>
                   <tr>
                     <td><?= $i++; ?></td>
-                    <td><?= $row['kd_admin']; ?></td>
-                    <td><?= $row['nama_admin']; ?></td>
-                    <td><?= $row['username_admin']; ?></td>
-                    <td><?= $row['email_admin']; ?></td>
-                    <td><?php if ($row['level_admin'] == '1') { ?>
+                    <td><?= $row['kd_yonetici']; ?></td>
+                    <td><?= $row['isim_yonetici']; ?></td>
+                    <td><?= $row['kullanici_adi_yonetici']; ?></td>
+                    <td><?= $row['email_yonetici']; ?></td>
+                    <td><?php if ($row['seviye_yonetici'] == '1') { ?>
                       OWNER
                     <?php }else{ ?>
                       ADMIN
                     <?php } ?>
                     </td>
-                    <!-- <td><a href="<?= base_url('backend/home/viewadmin/'.$row['kd_admin']) ?>" class="btn btn btn-info">View</a></td> -->
+                    <!-- <td><a href="<?= base_url('backend/home/viewadmin/'.$row['kd_yonetici']) ?>" class="btn btn btn-info">View</a></td> -->
                   </tr>
                 <?php } ?>
             </tbody>

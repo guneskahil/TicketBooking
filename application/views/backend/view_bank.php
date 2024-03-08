@@ -136,16 +136,16 @@
 		<!-- Basic Card Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">Bank code [<?= $bank['kd_bank']; ?>] </h6>
+				<h6 class="m-0 font-weight-bold text-primary">Bank code [<?= $bank['kd_banka']; ?>] </h6>
 			</div>
 			<div class="card-body">
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-6">
-							<p>Bank Name : <b> <?= $bank['nama_bank']?></b></p>
-							<p>Customer Name: <b><?= strtoupper($bank['nasabah_bank']) ?></b></p>
-							<p>Account number : <b><?= $bank['nomrek_bank']; ?></b></p>
-							<p>Bank Logo : <img id="myImg" src="<?= base_url($bank['photo_bank']) ?>" alt="<?= $bank['nama_bank'] ?>"
+							<p>Bank Name : <b> <?= $bank['isim_banka']?></b></p>
+							<p>Customer Name: <b><?= strtoupper($bank['musteri_banka']) ?></b></p>
+							<p>Account number : <b><?= $bank['hesapno_banka']; ?></b></p>
+							<p>Bank Logo : <img id="myImg" src="<?= base_url($bank['resim_banka']) ?>" alt="<?= $bank['isim_banka'] ?>"
 									style="width:100%;max-width:300px"></p>
 						</div>
 						<div class="col-sm-6">

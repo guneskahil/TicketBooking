@@ -54,9 +54,9 @@
 									<select name="asal" class="form-control js-example-basic-single" required>
 										<option value="" selected disabled="">Choose Origin</option>
 										<?php foreach ($asal as $row ) { ?>
-										<option value="<?php echo $row['kd_tujuan'] ?>">
-											<?php echo strtoupper($row['kota_tujuan']) ?>
-											- <br><?php echo $row['terminal_tujuan']; ?> </option>
+										<option value="<?php echo $row['kd_varis'] ?>">
+											<?php echo strtoupper($row['sehir_varis']) ?>
+											- <br><?php echo $row['terminal_varis']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>
@@ -65,8 +65,8 @@
 									<select name="tujuan" class="form-control js-example-basic-single">
 										<option value="" selected disabled="">Choose Destination</option>
 										<?php foreach ($tujuan as $row ) { ?>
-										<option value="<?php echo $row['kota_tujuan'] ?>">
-											<?php echo strtoupper($row['kota_tujuan']); ?></option>
+										<option value="<?php echo $row['sehir_varis'] ?>">
+											<?php echo strtoupper($row['sehir_varis']); ?></option>
 										<?php } ?>
 									</select>
 								</div>
@@ -93,8 +93,8 @@
 									<?php foreach ($list as $value) { ?>
 									<tr>
 										<td style="text-align:center;vertical-align:middle">
-											<?php echo strtoupper($value['kota_tujuan']) ?></td>
-										<td style="vertical-align:middle;"><?php echo $value['terminal_tujuan'] ?></td>
+											<?php echo strtoupper($value['sehir_varis']) ?></td>
+										<td style="vertical-align:middle;"><?php echo $value['terminal_varis'] ?></td>
 									</tr>
 									<?php } ?>
 								</tbody>

@@ -49,12 +49,12 @@
 									<tbody>
 										<?php for ($i=0; $i < count($jadwal)  ; $i++) { ?>
 										<tr>
-											<td><?php echo strtoupper($asal['kota_tujuan'])." - ".strtoupper($jadwal[$i]['kota_tujuan'])." [".$jadwal[$i]['kd_jadwal']."]"; ?></td>
-											<td><?php echo $jadwal[$i]['terminal_tujuan'] ?></td>
-											<td><?php echo hari_indo(date('N',strtotime($tanggal))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$tanggal.''))).', '.date('H:i',strtotime($jadwal[$i]['jam_berangkat_jadwal'])); ?></td>
-											<td><?php echo $jadwal[$i]['kapasitas_bus']-$kursi[$i][0]['count(no_kursi_order)'] ?></td>
-											<td>$<?php echo number_format((float)($jadwal[$i]['harga_jadwal']),0,",","."); ?></td>
-											<td><a href="<?php echo base_url('tiket/beforebeli/').$jadwal[$i]['kd_jadwal'].'/'.$asal['kd_tujuan'].'/'.$tanggal ?>" class=" btn btn-outline-success">Select</a></td>
+											<td><?php echo strtoupper($asal['sehir_varis'])." - ".strtoupper($jadwal[$i]['sehir_varis'])." [".$jadwal[$i]['kd_sefer']."]"; ?></td>
+											<td><?php echo $jadwal[$i]['terminal_varis'] ?></td>
+											<td><?php echo hari_indo(date('N',strtotime($tanggal))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$tanggal.''))).', '.date('H:i',strtotime($jadwal[$i]['kalkis_saati_sefer'])); ?></td>
+											<td><?php echo $jadwal[$i]['kapasite_otobus']-$kursi[$i][0]['count(no_koltuk_siparis)'] ?></td>
+											<td>$<?php echo number_format((float)($jadwal[$i]['fiyat_sefer']),0,",","."); ?></td>
+											<td><a href="<?php echo base_url('tiket/beforebeli/').$jadwal[$i]['kd_sefer'].'/'.$asal['kd_varis'].'/'.$tanggal ?>" class=" btn btn-outline-success">Select</a></td>
 										</tr>
 										<?php } ?>
 									</tbody>

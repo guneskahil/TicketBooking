@@ -42,16 +42,16 @@
                 <?php $i = 1 ; foreach ($bus as $row ) { ?>
                 <tr>
                   <td><?= $i++; ?></td>
-                  <td><?= strtoupper($row['kd_bus']); ?></td>
-                  <td><?= strtoupper($row['nama_bus']); ?></td>
-                  <td><?= strtoupper($row['plat_bus']); ?></td>
-                  <td><?= $row['kapasitas_bus'] ?></td>
-                  <?php if ($row['status_bus'] == '1') { ?>
+                  <td><?= strtoupper($row['kd_otobus']); ?></td>
+                  <td><?= strtoupper($row['isim_otobus']); ?></td>
+                  <td><?= strtoupper($row['plaka_otobus']); ?></td>
+                  <td><?= $row['kapasite_otobus'] ?></td>
+                  <?php if ($row['durum_otobus'] == '1') { ?>
                     <td class="btn-success"> Active</td> 
                     <?php } else { ?>
                     <td class="btn-danger">InActive</td>
                   <?php } ?>
-                  <td align="center"><a href="<?= base_url('backend/bus/viewbus/'.$row['kd_bus'])?>" class="btn btn btn-info">View</a></a>
+                  <td align="center"><a href="<?= base_url('backend/bus/viewbus/'.$row['kd_otobus'])?>" class="btn btn btn-info">View</a></a>
                 </td>
               </tr>
               <?php } ?>
@@ -82,11 +82,11 @@
     <form action="<?= base_url()?>backend/bus/tambahbus" method="post">
       <div class="form-group">
         <label for="platbus" class="">Bus Name</label>
-        <input type="text" class="form-control" name="nama_bus" placeholder="Bus Name">
+        <input type="text" class="form-control" name="isim_otobus" placeholder="Bus Name">
       </div>
       <div class="form-group">
         <label for="platbus" class="">Bus Number Plate</label>
-        <input type="text" class="form-control" name="plat_bus" placeholder="Bus Plate">
+        <input type="text" class="form-control" name="plaka_otobus" placeholder="Bus Plate">
       </div>
       <div class="form-group">
         <label for="seat" class="">Number of Seats (Max.23)</label>

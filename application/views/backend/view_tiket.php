@@ -20,7 +20,7 @@
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Ticket Code[<?= $tiket['kd_tiket']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Ticket Code[<?= $tiket['kd_bilet']; ?>]  </h6>
         </div>
         <div class="card-body">
           <form action="" method="post" enctype="multipart/form-data">
@@ -28,10 +28,10 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Booking Code    : <b><?= $tiket['kd_order']; ?></b></p>
-                  <p>Passenger's Name : <b><?= $tiket['nama_tiket']; ?></b></p>
-                  <p>Passenger's Age : <b><?= $tiket['umur_tiket']; ?></b></p>
-                  <p>Seat Number   : <b><?= $tiket['kursi_tiket'] ?></b></p>
+                  <p>Booking Code    : <b><?= $tiket['kd_siparis']; ?></b></p>
+                  <p>Passenger's Name : <b><?= $tiket['isim_bilet']; ?></b></p>
+                  <p>Passenger's Age : <b><?= $tiket['yas_bilet']; ?></b></p>
+                  <p>Seat Number   : <b><?= $tiket['koltuk_bilet'] ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>

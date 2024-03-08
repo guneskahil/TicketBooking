@@ -109,18 +109,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Schedule Code [<?= $jadwal['kd_jadwal']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Schedule Code [<?= $jadwal['kd_sefer']; ?>]  </h6>
         </div>
         <div class="card-body">             
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Bus     : <b> <?= $jadwal['kd_bus']." [".$jadwal['nama_bus'].'-'.$jadwal['plat_bus'] ?>]</b></p>
-                  <p>Origin :  <b><?= strtoupper($asal['kota_tujuan'])." - ".$asal['terminal_tujuan']; ?></b></p>
-                  <p>Destination  : <b><?= strtoupper($jadwal['kota_tujuan'])." - ".$jadwal['terminal_tujuan']; ?></b></p>
-                  <p>Departure    : <b><?= date('H:i',strtotime($jadwal['jam_berangkat_jadwal'])) ?></b></p>
-                  <p>Arrival : <b><?= date('H:i',strtotime($jadwal['jam_tiba_jadwal'])) ?></b></p>
-                  <p>Schedule Price : <b>$<?= $jadwal['harga_jadwal']; ?></b></p>
+                  <p>Bus     : <b> <?= $jadwal['kd_otobus']." [".$jadwal['isim_otobus'].'-'.$jadwal['plaka_otobus'] ?>]</b></p>
+                  <p>Origin :  <b><?= strtoupper($asal['sehir_varis'])." - ".$asal['terminal_varis']; ?></b></p>
+                  <p>Destination  : <b><?= strtoupper($jadwal['sehir_varis'])." - ".$jadwal['terminal_varis']; ?></b></p>
+                  <p>Departure    : <b><?= date('H:i',strtotime($jadwal['kalkis_saati_sefer'])) ?></b></p>
+                  <p>Arrival : <b><?= date('H:i',strtotime($jadwal['varis_saati_sefer'])) ?></b></p>
+                  <p>Schedule Price : <b>$<?= $jadwal['fiyat_sefer']; ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>

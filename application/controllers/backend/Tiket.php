@@ -16,22 +16,22 @@ class Tiket extends CI_Controller {
 			redirect('backend/login');
 		}
 	}
-	public function index() {
-        $data['title'] = "Bilet Listesi";
-        $data['bilet'] = $this->db->query("SELECT * FROM bilet WHERE durum_bilet = '2' ")->result_array();
-        $this->load->view('backend/tiket', $data);
-    }
-
-    public function viewtiket($bilet) {
-        $data['title'] = "Bilet Detayları";
-        $data['bilet'] = $this->db->query("SELECT * FROM bilet WHERE kd_bilet = '" . $bilet . "' ")->row_array();
-        if ($data['bilet']) {
-            $this->load->view('backend/view_tiket', $data);
-        } else {
-            $this->session->set_flashdata('message', 'swal("Boş", "Bilet bulunamadı", "error");');
-            redirect('backend/tiket');
-        }
-    }
+	public function index(){
+	$data['title'] = "Ticket List";
+	$data['tiket'] = $this->db->query("SELECT * FROM bilet WHERE durum_bilet = 2 ")->result_array();
+	$this->load->view('backend/tiket', $data);	
+	}
+	/* Log on to codeastro.com for more projects */
+	public function viewtiket($tiket){
+		$data['title'] = "Ticket List";
+		$data['tiket'] = $this->db->query("SELECT * FROM bilet WHERE kd_bilet = '".$tiket."' ")->row_array();
+		if ($data['tiket']) {
+			$this->load->view('backend/view_tiket', $data);
+		}else{
+			$this->session->set_flashdata('message', 'swal("Empty", "No Ticket", "error");');
+    		redirect('backend/tiket');
+		}	
+	}
 
 }
 

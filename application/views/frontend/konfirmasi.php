@@ -38,7 +38,7 @@
 					    <form action="<?= base_url() ?>tiket/insertkonfirmasi" method="post" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="exampleInputEmail1">Booking Code</label>
-										<input type="text" id="" class="form-control" id="" name="kd_order" value="<?= $id ?>" placeholder="Ticket Code">
+										<input type="text" id="" class="form-control" id="" name="kd_siparis" value="<?= $id ?>" placeholder="Ticket Code">
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail1">Your BANK</label>

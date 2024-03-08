@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- Log on to codeastro.com for more projects -->
-<title>E-Ticket(<?php echo $cetak[0]['kd_order'];?>)</title>
+<title>E-Ticket(<?php echo $cetak[0]['kd_siparis'];?>)</title>
 
 <style type="text/css">
     * {
@@ -90,14 +90,14 @@
             <pre>
                 <b><span style='font-size:15px'>Ticket Details </span></b>
                 </br>
-                Booking Code : <?php echo $cetak[0]['kd_order'];?></br>
-                Schedule Code : <?php echo $cetak[0]['kd_jadwal'];?></br>
-                Date : <?php echo $cetak[0]['tgl_beli_order'];?></br>
-                Customer : <?php echo $cetak[0]['nama_order'];?></br>
-                Schedule : <?php echo hari_indo(date('N',strtotime($cetak[0]['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$cetak[0]['tgl_berangkat_order'].'')));?><br>
-                Departure DateTime : <?php echo date('H:i',strtotime($cetak[0]['jam_berangkat_jadwal'])).' To '.date('H:i',strtotime($cetak[0]['jam_tiba_jadwal'])) ?>
-                Departing from : <?php echo strtoupper($asal['kota_tujuan']);?></br>
-                Destination to : <?php echo strtoupper($cetak[0]['kota_tujuan']); ?>
+                Booking Code : <?php echo $cetak[0]['kd_siparis'];?></br>
+                Schedule Code : <?php echo $cetak[0]['kd_sefer'];?></br>
+                Date : <?php echo $cetak[0]['tarih_alis_siparis'];?></br>
+                Customer : <?php echo $cetak[0]['isim_siparis'];?></br>
+                Schedule : <?php echo hari_indo(date('N',strtotime($cetak[0]['tarih_kalkis_siparis']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$cetak[0]['tarih_kalkis_siparis'].'')));?><br>
+                Departure DateTime : <?php echo date('H:i',strtotime($cetak[0]['kalkis_saati_sefer'])).' To '.date('H:i',strtotime($cetak[0]['jam_tiba_jadwal'])) ?>
+                Departing from : <?php echo strtoupper($asal['sehir_varis']);?></br>
+                Destination to : <?php echo strtoupper($cetak[0]['sehir_varis']); ?>
             </pre>
         </td>
     </tr>

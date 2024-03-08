@@ -104,7 +104,7 @@
 															<select class="form-control" name="bank" required>
 																<option value="" selected disabled="">Select Bank</option>
 																<?php foreach ($bank as $row) { ?>
-																<option value="<?php echo $row['kd_bank'] ?>"><?php echo $row['nama_bank']; ?></option>
+																<option value="<?php echo $row['kd_banka'] ?>"><?php echo $row['isim_banka']; ?></option>
 																<?php } ?>
 															</select>
 														</div>

@@ -43,21 +43,21 @@
                 <?php $i=1;foreach ($order as $row) { ?>
                   <tr>
                     <td><?= $i++; ?></td>
-                    <td><?= $row['kd_order']; ?></td>
-                    <td><?= $row['kd_jadwal']; ?></td>
-                    <td><?= hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].'')));?></td>
-                    <td><?= $row['nama_order']; ?></td>
-                    <td><?= $row['tgl_beli_order']; ?></td>
-                    <?php $sqlcek = $this->db->query("SELECT * FROM tbl_order WHERE kd_order LIKE '".$row['kd_order']."'")->result_array(); ?>
+                    <td><?= $row['kd_siparis']; ?></td>
+                    <td><?= $row['kd_sefer']; ?></td>
+                    <td><?= hari_indo(date('N',strtotime($row['tarih_kalkis_siparis']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tarih_kalkis_siparis'].'')));?></td>
+                    <td><?= $row['isim_siparis']; ?></td>
+                    <td><?= $row['tarih_alis_siparis']; ?></td>
+                    <?php $sqlcek = $this->db->query("SELECT * FROM siparis WHERE kd_siparis LIKE '".$row['kd_siparis']."'")->result_array(); ?>
                     <td><?= count($sqlcek); ?></td>
-                    <?php if ($row['status_order'] == '1') { ?>
+                    <?php if ($row['durum_siparis'] == '1') { ?>
                           <td class="btn-danger"> Unpaid</td> 
-                          <?php } elseif($row['status_order'] == '2') { ?>
+                          <?php } elseif($row['durum_siparis'] == '2') { ?>
                           <td class="btn-success"> Paid</td>
                         <?php } else { ?>
                           <td class="btn-warning"> Cancelled</td>
                           <?php } ?>
-                    <td><a href="<?= base_url('backend/order/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-info">View</a></td>
+                    <td><a href="<?= base_url('backend/order/vieworder/'.$row['kd_siparis']) ?>" class="btn btn btn-info">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

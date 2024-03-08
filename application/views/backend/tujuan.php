@@ -39,10 +39,10 @@
                 <?php $i = 1 ; foreach ($tujuan as $row ) { ?>
                 <tr>
                   <td><?= $i++; ?></td>
-                  <td><?= $row['kd_tujuan']; ?></td>
-                  <td><?= strtoupper($row['kota_tujuan']); ?></td>
-                  <td><?=  substr($row['terminal_tujuan'], 0, 15); ?></td>
-                  <td align="center"><a href="<?= base_url('backend/rute/viewrute/'.$row['kd_tujuan']) ?>" class="btn btn-info">View</a></td>
+                  <td><?= $row['kd_varis']; ?></td>
+                  <td><?= strtoupper($row['sehir_varis']); ?></td>
+                  <td><?=  substr($row['terminal_varis'], 0, 15); ?></td>
+                  <td align="center"><a href="<?= base_url('backend/rute/viewrute/'.$row['kd_varis']) ?>" class="btn btn-info">View</a></td>
                 </tr>
                 <?php } ?>
               </tbody>

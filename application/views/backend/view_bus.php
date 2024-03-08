@@ -109,22 +109,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Bus Code [<?= $bus['kd_bus']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Bus Code [<?= $bus['kd_otobus']; ?>]  </h6>
         </div>
         <div class="card-body">             
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Bus Name : <b> <?= $bus['nama_bus']?>]</b></p>
-                  <p>Bus Plate: <b><?= strtoupper($bus['plat_bus']) ?></b></p>
-                  <p>Seat Capacity : <b><?= $bus['kapasitas_bus']; ?> Seat</b></p>
-                  <p>Status Bus    : <b><?= $bus['status_bus'] ?></td>
-                  <?php if ($bus['status_bus'] == '1') { ?>
+                  <p>Bus Name : <b> <?= $bus['isim_otobus']?>]</b></p>
+                  <p>Bus Plate: <b><?= strtoupper($bus['plaka_otobus']) ?></b></p>
+                  <p>Seat Capacity : <b><?= $bus['kapasite_otobus']; ?> Seat</b></p>
+                  <p>Status Bus    : <b><?= $bus['durum_otobus'] ?></td>
+                  <?php if ($bus['durum_otobus'] == '1') { ?>
                     <td class="btn-success"> Active</td> 
                     <?php } else { ?>
                     <td class="btn-danger">InActive</td>
                   <?php } ?></b></p>
-                  <p>Information : <b><?= $bus['desc_bus'] ?></b></p>
+                  <p>Information : <b><?= $bus['aciklama_otobus'] ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>

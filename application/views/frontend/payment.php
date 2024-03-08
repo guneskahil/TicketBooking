@@ -32,7 +32,7 @@
 						<!-- Default Card Example -->
 						<div class="card mb-5">
 							<div class="card-header" align="center">
-								<b><i class="fas fa-ticket-alt"></i> BOOKING CODE <?= $tiket[0]['kd_order']; ?></b>
+								<b><i class="fas fa-ticket-alt"></i> BOOKING CODE <?= $tiket[0]['kd_siparis']; ?></b>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
@@ -119,7 +119,7 @@
 										</div>
 									</div>
 								</div>
-								<a href="<?= base_url('tiket/konfirmasi/'.$tiket[0]['kd_order'].'/'.$total) ?>" class="btn btn-primary pull-center">Submit for Payment Confirmation </a>
+								<a href="<?= base_url('tiket/konfirmasi/'.$tiket[0]['kd_siparis'].'/'.$total) ?>" class="btn btn-primary pull-center">Submit for Payment Confirmation </a>
 							</div>
 						</div>
 					</div>

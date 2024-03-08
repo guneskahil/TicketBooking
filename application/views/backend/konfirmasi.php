@@ -40,13 +40,13 @@
                 <?php $i=1;foreach ($konfirmasi as $row) { ?>
                   <tr>
                     <td><?= $i++; ?></td>
-                    <td><?= $row['kd_konfirmasi']; ?></td>
-                    <td><?= $row['kd_order']; ?></td>
-                    <td><?= $row['nama_konfirmasi']; ?></td>
-                    <td><?= $row['nama_bank_konfirmasi']; ?></td>
-                    <td><?= $row['norek_konfirmasi']; ?></td>
-                    <td>$<?= $row['total_konfirmasi']; ?></td>
-                    <td><a href="<?= base_url('backend/konfirmasi/viewkonfirmasi/'.$row['kd_order']) ?>" class="btn btn btn-info">View</a></td>
+                    <td><?= $row['kd_onaylama']; ?></td>
+                    <td><?= $row['kd_siparis']; ?></td>
+                    <td><?= $row['isim_onaylama']; ?></td>
+                    <td><?= $row['isim_banka_onaylama']; ?></td>
+                    <td><?= $row['hesapno_onaylama']; ?></td>
+                    <td>$<?= $row['toplam_onaylama']; ?></td>
+                    <td><a href="<?= base_url('backend/konfirmasi/viewkonfirmasi/'.$row['kd_siparis']) ?>" class="btn btn btn-info">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

@@ -16,7 +16,7 @@ class Profile extends CI_Controller {
 	}
 	public function editprofile($id=''){
 		$id = $this->input->post('kode');
-		$where = array('kd_pelanggan' => $id );
+		$where = array('kd_musteri' => $id );
 		$update = array(
 			'no_ktp_pelanggan'			=> $this->input->post('ktp'),
 			'nama_pelanggan'  => $this->input->post('nama'),
@@ -31,13 +31,13 @@ class Profile extends CI_Controller {
 	}
 	public function tiketsaya($id=''){
 		$this->getsecurity();
-		$data['tiket'] = $this->db->query("SELECT * FROM tbl_order WHERE kd_pelanggan ='".$id."' group by kd_order ")->result_array();
+		$data['tiket'] = $this->db->query("SELECT * FROM siparis WHERE kd_musteri ='".$id."' group by kd_siparis ")->result_array();
 		// die(print_r($data));
 		$this->load->view('frontend/tiketmu',$data);
 	}
 	public function changepassword($id=''){
 		$this->load->library('form_validation');
-		$pelanggan = $this->db->query("SELECT password_pelanggan FROM tbl_pelanggan where kd_pelanggan ='".$id."'")->row_array();
+		$pelanggan = $this->db->query("SELECT password_pelanggan FROM tbl_pelanggan where kd_musteri ='".$id."'")->row_array();
 		// die(print_r($pelanggan));
 		$this->form_validation->set_rules('currentpassword', 'currentpassword', 'trim|required|min_length[8]',array(
 			'required' => 'Enter Password',
@@ -69,7 +69,7 @@ class Profile extends CI_Controller {
 				redirect('profile/changepassword');
 			}else{
 				$password_hash = password_hash($newpassword, PASSWORD_DEFAULT);
-				$where = array('kd_pelanggan' => $id );
+				$where = array('kd_musteri' => $id );
 				$update = array(
 				'password_pelanggan'			=> $password_hash,
 				 );

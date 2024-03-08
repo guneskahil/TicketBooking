@@ -43,11 +43,11 @@
 							<?php $i = 1 ; foreach ($bank as $row ) { ?>
 							<tr>
 								<td><?= $i++; ?></td>
-								<td><?= $row['kd_bank']; ?></td>
-								<td><?= $row['nama_bank']; ?></td>
-								<td><?= $row['nomrek_bank']; ?></td>
-								<td><?= $row['nasabah_bank']; ?></td>
-								<td align="center"><a href="<?= base_url('backend/bank/viewbank/'.$row['kd_bank']) ?>"
+								<td><?= $row['kd_banka']; ?></td>
+								<td><?= $row['isim_banka']; ?></td>
+								<td><?= $row['hesapno_banka']; ?></td>
+								<td><?= $row['musteri_banka']; ?></td>
+								<td align="center"><a href="<?= base_url('backend/bank/viewbank/'.$row['kd_banka']) ?>"
 										class="btn btn btn-info">View</a></a>
 								</td>
 							</tr>

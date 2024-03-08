@@ -58,7 +58,7 @@
 									<p><a class="d-block mt-3" href="<?php echo base_url() ?>login/daftar">Register Now</a>
 									<hr>
 									<b><a class="d-block mt-3" style="font-size:15px;" href="<?php echo base_url() ?>backend/login">Login as Admin</a></b>
-									<!-- <a class="d-block small" href="<?php echo base_url() ?>login/lupapassword">Forgot Password</a> -->
+									 <a class="d-block small" href="<?php echo base_url() ?>login/lupapassword">Forgot Password</a> 
 								</p>
 									
 								</div>

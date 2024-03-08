@@ -110,7 +110,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Booking Code [<?= $konfirmasi[0]['kd_order']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Booking Code [<?= $konfirmasi[0]['kd_siparis']; ?>]  </h6>
         </div>
         <div class="card-body">
           <form action="" method="post" enctype="multipart/form-data">
@@ -122,37 +122,37 @@ body {font-family: Arial, Helvetica, sans-serif;}
                   <div class="row form-group">
                     <label for="nama" class="col-sm-4 control-label">Confirmation code</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="kd_konfirmasi" value="<?= $row['kd_konfirmasi'] ?>" readonly>
+                      <input type="text" class="form-control" name="kd_onaylama" value="<?= $row['kd_onaylama'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="nama" class="col-sm-4 control-label">Bank name</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="nama" value="<?= $row['nama_bank_konfirmasi'] ?>" readonly>
+                      <input type="text" class="form-control" name="nama" value="<?= $row['isim_banka_onaylama'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Sender's Name</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="a/n" value="<?= $row['nama_konfirmasi'] ?>" readonly>
+                      <input type="text" class="form-control" name="a/n" value="<?= $row['isim_onaylama'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Account Number</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="harga" value="<?php  echo $row['norek_konfirmasi']?>" readonly>
+                      <input type="text" class="form-control" name="harga" value="<?php  echo $row['hesapno_onaylama']?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Total Payment</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="tgl_beli" value="<?= $row['total_konfirmasi'] ?>" readonly>
+                      <input type="text" class="form-control" name="tgl_beli" value="<?= $row['toplam_onaylama'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Payment proof</label>
                     <div class="col-sm-8">
-                      <img id="myImg" src="<?= base_url($row['photo_konfirmasi']) ?>" alt="<?= $row['nama_konfirmasi'] ?>" style="width:100%;max-width:300px">
+                      <img id="myImg" src="<?= base_url($row['resim_onaylama']) ?>" alt="<?= $row['isim_onaylama'] ?>" style="width:100%;max-width:300px">
                     </div>
                   </div>
                 </div>

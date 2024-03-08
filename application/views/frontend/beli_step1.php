@@ -37,15 +37,15 @@
 							</div>
 							<div class="card-body">
 								<ul>
-									<li>► Destination <b><?php echo $asal['kota_tujuan']." - ".$jadwal['kota_tujuan']." [".$jadwal['kd_jadwal']."]"; ?></b></li>
-									<li>► Name of Bus  <b><?php echo $jadwal['nama_bus'];  ?></b></li>
-									<li>► Bus Number  <b><?php echo $jadwal['plat_bus'];  ?></b></li>
-									<li>► Departure <b><?php echo strtoupper($asal['kota_tujuan'])." - ".$asal['terminal_tujuan']; ?></b></li>
-									<li>► Arrival <b><?php echo strtoupper($jadwal['kota_tujuan'])." - ".$jadwal['terminal_tujuan']; ?></b></li>
-									<li>► Prices: <b>$<?php echo number_format((float)($jadwal['harga_jadwal']),0,",",".") ; ?></b></li>
+									<li>► Destination <b><?php echo $asal['sehir_varis']." - ".$jadwal['sehir_varis']." [".$jadwal['kd_sefer']."]"; ?></b></li>
+									<li>► Name of Bus  <b><?php echo $jadwal['isim_otobus'];  ?></b></li>
+									<li>► Bus Number  <b><?php echo $jadwal['plaka_otobus'];  ?></b></li>
+									<li>► Departure <b><?php echo strtoupper($asal['sehir_varis'])." - ".$asal['terminal_varis']; ?></b></li>
+									<li>► Arrival <b><?php echo strtoupper($jadwal['sehir_varis'])." - ".$jadwal['terminal_varis']; ?></b></li>
+									<li>► Prices: <b>$<?php echo number_format((float)($jadwal['fiyat_sefer']),0,",",".") ; ?></b></li>
 									<li>► Depart Date <b><?php echo nama_hari($tanggal).",".tgl_indo($tanggal) ?></b></li>
-									<li>► Depart. Time <b>at <?php echo $jadwal['jam_berangkat_jadwal']; ?></b></li>
-									<li>► Arrival Time <b>at <?php echo $jadwal['jam_tiba_jadwal']; ?> </b></li>
+									<li>► Depart. Time <b>at <?php echo $jadwal['kalkis_saati_sefer']; ?></b></li>
+									<li>► Arrival Time <b>at <?php echo $jadwal['varis_saati_sefer']; ?> </b></li>
 									<li>► Please select a seat</li>
 									<li>► Select a maximum of 4 seats</li>
 								</ul>
@@ -208,7 +208,7 @@
 													<div class="alert alert-success" role="alert">
 														<p>After selecting a seat, please click the 'Next' button to proceed.</p>
 														<div class='btn-group'>
-															<a href="<?php echo base_url('tiket/cekjadwal/'.$tanggal.'/'.$asal['kd_tujuan'].'/'.$jadwal['kota_tujuan']) ?>" class='btn btn-default'>Go Back</a>
+															<a href="<?php echo base_url('tiket/cekjadwal/'.$tanggal.'/'.$asal['kd_varis'].'/'.$jadwal['sehir_varis']) ?>" class='btn btn-default'>Go Back</a>
 															<input class="btn btn-info pull-right" disabled="disabled" type="submit" value="Next">
 															
 														</div>
