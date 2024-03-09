@@ -9,23 +9,26 @@ class Profile extends CI_Controller {
 	public function index(){
 		$this->load->view('frontend/profile');
 	}
-	public function profilesaya($id=''){
-		$data['profile'] = $this->db->query("SELECT * FROM musteri WHERE kd_musteri LIKE '".$id."'")->row_array();
-		// die(print_r($data));
-		$this->load->view('frontend/profile',$data);
+	public function profilesaya($id = ''){
+		$id = $this->session->userdata('kd_musteri');
+		  // Mevcut kullanıcının profil bilgilerini veritabanından çek
+		$data['profile'] = $this->db->query("SELECT * FROM musteri WHERE kd_musteri = '".$id."'")->row_array();
+		$this->load->view('frontend/profile', $data);
 	}
+	
+	
 	public function editprofile($id=''){
 		$id = $this->input->post('kode');
 		$where = array('kd_musteri' => $id );
 		$update = array(
-			'no_ktp_pelanggan'			=> $this->input->post('ktp'),
-			'nama_pelanggan'  => $this->input->post('nama'),
-			'email_pelanggan'	    	=> $this->input->post('email'),
-			'img_pelanggan'		=> 'assets/frontend/img/default.png',
-			'alamat_pelanggan'		=> $this->input->post('alamat'),
-			'telpon_pelanggan'		=> $this->input->post('hp'),
+			'no_ktp_musteri'			=> $this->input->post('ktp'),
+			'isim_musteri'  => $this->input->post('nama'),
+			'email_musteri'	    	=> $this->input->post('email'),
+			'resim_musteri'		=> 'assets/frontend/img/default.png',
+			'adres_musteri'		=> $this->input->post('alamat'),
+			'telpon_musteri'		=> $this->input->post('hp'),
 			 );
-		$this->db->update('tbl_pelanggan', $update,$where);
+		$this->db->update('musteri', $update,$where);
 		$this->session->set_flashdata('message', 'swal("Success", "Data Edited", "success");');
 		redirect('profile/profilesaya/'.$id);
 	}
@@ -37,7 +40,7 @@ class Profile extends CI_Controller {
 	}
 	public function changepassword($id=''){
 		$this->load->library('form_validation');
-		$pelanggan = $this->db->query("SELECT password_pelanggan FROM tbl_pelanggan where kd_musteri ='".$id."'")->row_array();
+		$pelanggan = $this->db->query("SELECT sifre_musteri FROM musteri where kd_musteri ='".$id."'")->row_array();
 		// die(print_r($pelanggan));
 		$this->form_validation->set_rules('currentpassword', 'currentpassword', 'trim|required|min_length[8]',array(
 			'required' => 'Enter Password',
@@ -57,7 +60,7 @@ class Profile extends CI_Controller {
 		} else {
 			$currentpassword = $this->input->post('currentpassword');
 			$newpassword 	 = $this->input->post('new_password1');
-			if (!password_verify($currentpassword, $pelanggan['password_pelanggan'])) {
+			if (!password_verify($currentpassword, $pelanggan['sifre_musteri'])) {
 				$this->session->set_flashdata('gagal', '<div class="alert alert-danger" role="alert">
 				Previous Password Wrong
 					</div>');
@@ -71,9 +74,9 @@ class Profile extends CI_Controller {
 				$password_hash = password_hash($newpassword, PASSWORD_DEFAULT);
 				$where = array('kd_musteri' => $id );
 				$update = array(
-				'password_pelanggan'			=> $password_hash,
+				'sifre_musteri'			=> $password_hash,
 				 );
-				$this->db->update('tbl_pelanggan', $update,$where);
+				$this->db->update('musteri', $update,$where);
 				$this->session->set_flashdata('message', 'swal("Success", "Your password has been changed successfully", "success");');
 				redirect('profile/profilesaya/'.$id);
 			}

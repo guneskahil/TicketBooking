@@ -10,7 +10,7 @@ class Order extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 	}
 	function getsecurity($value=''){
-		if (empty($this->session->userdata('username_admin'))) {
+		if (empty($this->session->userdata('kullanici_adi_yonetici'))) {
 			$this->session->sess_destroy();
 			redirect('backend/login');
 		}

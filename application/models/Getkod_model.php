@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Getkod_model extends CI_Model {
 
      function get_kodjad(){
-        $q = $this->db->query("SELECT MAX(RIGHT(kd_jadwal,3)) AS kd_max FROM tbl_jadwal");
+        $q = $this->db->query("SELECT MAX(RIGHT(kd_sefer,3)) AS kd_max FROM sefer");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
@@ -17,7 +17,7 @@ class Getkod_model extends CI_Model {
         return "J".$kd;
     }
     function get_kodtuj(){
-        $q = $this->db->query("SELECT MAX(RIGHT(kd_tujuan,3)) AS kd_max FROM tbl_tujuan");
+        $q = $this->db->query("SELECT MAX(RIGHT(kd_varis,3)) AS kd_max FROM varis");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
@@ -30,7 +30,7 @@ class Getkod_model extends CI_Model {
         return "TJ".$kd;
     }
     function get_kodbus(){
-        $q = $this->db->query("SELECT MAX(RIGHT(kd_bus,3)) AS kd_max FROM tbl_bus");
+        $q = $this->db->query("SELECT MAX(RIGHT(kd_otobus,3)) AS kd_max FROM otobus");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
@@ -43,7 +43,7 @@ class Getkod_model extends CI_Model {
         return "B".$kd;
     }
     function get_kodtmporder(){
-        $q = $this->db->query("SELECT MAX(RIGHT(kd_order,3)) AS kd_max FROM tbl_order");
+        $q = $this->db->query("SELECT MAX(RIGHT(kd_siparis,3)) AS kd_max FROM siparis");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
@@ -69,7 +69,7 @@ class Getkod_model extends CI_Model {
         return "CA".$kd;
     }
     function get_kodkon(){
-        $q = $this->db->query("SELECT MAX(RIGHT(kd_konfirmasi,3)) AS kd_max FROM tbl_konfirmasi");
+        $q = $this->db->query("SELECT MAX(RIGHT(kd_onaylama,3)) AS kd_max FROM onaylama");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
@@ -83,7 +83,7 @@ class Getkod_model extends CI_Model {
     } 
 
     function get_kodadm(){
-        $q = $this->db->query("SELECT MAX(RIGHT(kd_admin,3)) AS kd_max FROM tbl_admin");
+        $q = $this->db->query("SELECT MAX(RIGHT(kd_yonetici,3)) AS kd_max FROM yonetici");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
@@ -97,7 +97,7 @@ class Getkod_model extends CI_Model {
     }
 
     function get_kodbank(){
-        $q = $this->db->query("SELECT MAX(RIGHT(kd_bank,3)) AS kd_max FROM tbl_bank");
+        $q = $this->db->query("SELECT MAX(RIGHT(kd_banka,3)) AS kd_max FROM banka");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){

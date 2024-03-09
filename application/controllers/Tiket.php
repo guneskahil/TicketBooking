@@ -91,7 +91,7 @@ class Tiket extends CI_Controller {
                WHERE kd_varis ='".$this->session->userdata('asal')."'")->row_array();		
 		$getkode =  $this->getkod_model->get_kodtmporder();
 		$kd_sefer = $this->session->userdata('jadwal');
-		$kd_pelanggan = $this->session->userdata('kd_pelanggan');
+		$kd_musteri = $this->session->userdata('kd_musteri');
 		$tglberangkat = $this->input->post('tgl');
 		$jambeli = date("Y-m-d H:i:s");
 		$nama =  $this->input->post('nama');
@@ -112,23 +112,23 @@ class Tiket extends CI_Controller {
 		for($i=0; $i<$count; $i++) {
 			$simpan = array(
 				'kd_siparis' => $getkode,
-				'kd_tiket' => 'T'.$getkode.$kd_sefer.str_replace('-','',$tglberangkat).$kursi[$i],
+				'kd_bilet' => 'T'.$getkode.$kd_sefer.str_replace('-','',$tglberangkat).$kursi[$i],
 				'kd_sefer'	=> $kd_sefer,
-				'kd_pelanggan' => $kd_pelanggan,
+				'kd_musteri' => $kd_musteri,
 				'kalkis_siparis' => $asal['kd_varis'],
-				'nama_order'	=> $nama_pemesan,
-				'tgl_beli_order'	=> $tanggal,
+				'isim_siparis'	=> $nama_pemesan,
+				'tarih_alis_siparis'	=> $tanggal,
 				'tarih_kalkis_siparis' => $tglberangkat,
 				'no_koltuk_siparis'		=> $kursi[$i],
-				'nama_kursi_order' => $nama[$i],
-				'umur_kursi_order' => $tahun[$i],
-				'no_ktp_order'	=> $no_ktp,
-				'no_tlpn_order'	=> $hp,
-				'alamat_order'	=> $alamat,
-				'email_order'		=> $email,
+				'isim_koltuk_siparis' => $nama[$i],
+				'yas_koltuk_siparis' => $tahun[$i],
+				'no_ktp_siparis'	=> $no_ktp,
+				'no_tel_siparis'	=> $hp,
+				'adres_siparis'	=> $alamat,
+				'email_siparis'		=> $email,
 				'kd_banka' => $bank,
-				'expired_order'	=> $expired,
-				'qrcode_order'	=> 'assets/frontend/upload/qrcode/'.$getkode.'.png',
+				'gecerlilik_siparis'	=> $expired,
+				'qrcode_siparis'	=> 'assets/frontend/upload/qrcode/'.$getkode.'.png',
 				'durum_siparis'	=> $status
 			);
 			$this->db->insert('siparis', $simpan);
@@ -230,7 +230,7 @@ class Tiket extends CI_Controller {
 					);
 			$this->db->insert('tbl_konfirmasi', $data);
 			$this->session->set_flashdata('message', 'swal("Success", "Thank you. Please wait for the verification!", "success");');
-			redirect('profile/tiketsaya/'.$this->session->userdata('kd_pelanggan'));
+			redirect('profile/tiketsaya/'.$this->session->userdata('kd_musteri'));
 		}
 	}
 	/* Log on to codeastro.com for more projects */
@@ -238,7 +238,7 @@ class Tiket extends CI_Controller {
 		$this->getsecurity();
 		$order = $id;
 		$data['cetak'] = $this->db->query("SELECT * FROM siparis LEFT JOIN otobus on siparis.kd_otobus = otobus.kd_otobus LEFT JOIN sefer on siparis.kd_sefer = sefer.kd_sefer LEFT JOIN varis on sefer.kd_varis = varis.kd_varis WHERE kd_siparis ='".$id."'")->result_array();
-		$tiket = $this->db->query("SELECT email_pelanggan FROM tbl_pelanggan WHERE kd_pelanggan ='".$data['cetak'][0]['kd_pelanggan']."'")->row_array();
+		$tiket = $this->db->query("SELECT email_pelanggan FROM tbl_pelanggan WHERE kd_musteri ='".$data['cetak'][0]['kd_musteri']."'")->row_array();
 		die(print_r($tiket));
 	}
 

@@ -116,11 +116,11 @@
     <tbody>
       <?php foreach ($cetak as $row) { ?>
         <tr>
-           <td scope="row"><?php echo $row['kd_tiket']; ?></td>
-           <td align="left"><?php echo $row['nama_kursi_order']; ?></td>
-           <td align="center"><?php echo $row['umur_kursi_order']; ?> Years</td>
-            <td align="center"><?php echo $row['no_kursi_order']; ?> </td>
-           <td align="left"><?php echo '$'.number_format(($row['harga_jadwal'])); ?></td>
+           <td scope="row"><?php echo $row['kd_bilet']; ?></td>
+           <td align="left"><?php echo $row['isim_koltuk_siparis']; ?></td>
+           <td align="center"><?php echo $row['yas_koltuk_siparis']; ?> Years</td>
+            <td align="center"><?php echo $row['no_koltuk_siparis']; ?> </td>
+           <td align="left"><?php echo '$'.number_format(($row['fiyat_sefer'])); ?></td>
         <tr>
         <?php } ?>
     </tbody>
@@ -128,7 +128,7 @@
         <tr>
             <td colspan="3"></td>
             <td align="right">Total</td>
-            <td align="right" class="gray"><?php $total = count($cetak) * $cetak[0]['harga_jadwal']; echo '$'.number_format(($total));?></td>
+            <td align="right" class="gray"><?php $total = count($cetak) * $cetak[0]['fiyat_sefer']; echo '$'.number_format(($total));?></td>
         </tr>
     </tfoot>
   </table>

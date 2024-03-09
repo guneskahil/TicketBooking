@@ -11,7 +11,7 @@ class Jadwal extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 	}
 	function getsecurity($value=''){
-		$username = $this->session->userdata('username_admin');
+		$username = $this->session->userdata('kullanici_adi_yonetici');
 		if (empty($username)) {
 			$this->session->sess_destroy();
 			redirect('backend/login');
@@ -56,7 +56,7 @@ class Jadwal extends CI_Controller {
 					'fiyat_sefer' =>  $this->input->post('harga'),
 					 );
 			// die(print_r($simpan));
-			$this->db->insert('tbl_jadwal', $simpan);
+			$this->db->insert('sefer', $simpan);
 			$this->session->set_flashdata('message', 'swal("Succeed", "New schedule has been added", "success");');
 			redirect('backend/jadwal');
 			}

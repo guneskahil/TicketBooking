@@ -49,15 +49,15 @@
 										<tbody>
 											<?php $i = 1; foreach ($tiket as $row) { ?>
 											<tr>
-												<?php $now = hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].''))).', '.date('H:i',strtotime($row['jam_berangkat_jadwal']));?>
-												<th scope="row"><?= $row['kd_tiket']; ?></th>
-												<td><?= $row['kd_jadwal']." [".$row['kd_bus'].']' ?></td>
+												<?php $now = hari_indo(date('N',strtotime($row['tarih_kalkis_siparis']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tarih_kalkis_siparis'].''))).', '.date('H:i',strtotime($row['kalkis_saati_sefer']));?>
+												<th scope="row"><?= $row['kd_bilet']; ?></th>
+												<td><?= $row['kd_sefer']." [".$row['kd_otobus'].']' ?></td>
 												<td><?= $now?></td>
-												<td><?= $row['no_kursi_order']; ?></td>
-												<td>$<?= $row['harga_jadwal']; ?></td>
+												<td><?= $row['no_koltuk_siparis']; ?></td>
+												<td>$<?= $row['fiyat_sefer']; ?></td>
 											</tr>
 											<?php } ?>
-											<td colspan="5"> <b class="pull-right">Total $<?php $total = $count * $tiket[0]['harga_jadwal'] ; echo $total ?></b></td>
+											<td colspan="5"> <b class="pull-right">Total $<?php $total = $count * $tiket[0]['fiyat_sefer'] ; echo $total ?></b></td>
 										</tbody>
 									</table>
 								</div>
@@ -75,7 +75,7 @@
 								<h4>Please Complete Your Payment Immediately!</h4><br>
 								<h6>Your payment deadline will end on</h6>
 								<h1><p id="expired"></p></h1>
-								<p>(Before <?php $expired = hari_indo(date('N',strtotime($tiket[0]['expired_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$tiket[0]['expired_order'].''))).', '.date('H:i',strtotime($tiket[0]['expired_order'])); echo $expired;?>)</p>
+								<p>(Before <?php $expired = hari_indo(date('N',strtotime($tiket[0]['gecerlilik_siparis']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$tiket[0]['gecerlilik_siparis'].''))).', '.date('H:i',strtotime($tiket[0]['gecerlilik_siparis'])); echo $expired;?>)</p>
 								<hr>
 								<div class="medium-title col-12 mb-20">
 									<h4><p>Please transfer payment to the following account number</p></h4>
@@ -83,10 +83,10 @@
 								<div class="offset-lg-1 col-lg-10 offset-sm-0 col-sm-12">
 									<div class="row">
 										<div class="col-md-3 col-4 mb-xs-10 pr-xs-0">
-											<img src="<?= base_url().$tiket[0]['photo_bank'] ?>" height="50" width="150" alt="Bank Logo" />
+											<img src="<?= base_url().$tiket[0]['resim_banka'] ?>" height="50" width="150" alt="Bank Logo" />
 										</div>
 										<div class="col-md-6 col-8 mb-xs-10 rekening-text">
-											<p ><input type="hidden" name="" id="myInput" value="<?= $tiket[0]['nomrek_bank']; ?> of <?= $tiket[0]['nama_bank'] ?>"><h4 id="myInput"><?= number_format((float)($tiket[0]['nomrek_bank']),0,"-","-"); ?> of <?= $tiket[0]['nama_bank'] ?></h4></p>
+											<p ><input type="hidden" name="" id="myInput" value="<?= $tiket[0]['hesapno_banka']; ?> of <?= $tiket[0]['isim_banka'] ?>"><h4 id="myInput"><?= number_format((float)($tiket[0]['hesapno_banka']),0,"-","-"); ?> of <?= $tiket[0]['isim_banka'] ?></h4></p>
 										</div>
 										<div class="col-md-3 copy-link">
 											<button onclick="myFunction()" class="btn btn-outline-primary"><i class="fas fa-copy"></i> Copy Account No</button>
@@ -105,11 +105,11 @@
 										<h3 class="mb-20">PAYMENT GUIDE</h3>
 										<div class="">
 											<ol class="ordered-list" align="left">
-												<li>Insert Your <?= $tiket[0]['nama_bank']; ?> ATM Card</li>
+												<li>Insert Your <?= $tiket[0]['isim_banka']; ?> ATM Card</li>
 												<li>Enter your ATM PIN</li>
 												<li>Select Other Transaction Menu</li>
-												<li>Select the Transfer menu and To Account <?= $tiket[0]['nama_bank']; ?></li>
-												<li>Enter account number <?= $tiket[0]['nama_bank']; ?> which is aimed</li>
+												<li>Select the Transfer menu and To Account <?= $tiket[0]['isim_banka']; ?></li>
+												<li>Enter account number <?= $tiket[0]['isim_banka']; ?> which is aimed</li>
 												<li>Enter the nominal amount of money to be transferred</li>
 												<li>The ATM screen will display your transaction data,</li>
 												<li>If the data is correct select "YES" (OK)</li>
@@ -129,7 +129,7 @@
 				<!-- start footer Area -->
 				<?php $this->load->view('frontend/include/base_footer'); ?>
 				<!-- js -->
-				<?php $expired1 = tanggal_ing(date('Y-m-d',strtotime($tiket[0]['expired_order']))).', '.date('Y',strtotime($tiket[0]['expired_order'])).' '.date('H:i',strtotime($tiket[0]['expired_order']))?>
+				<?php $expired1 = tanggal_ing(date('Y-m-d',strtotime($tiket[0]['gecerlilik_siparis']))).', '.date('Y',strtotime($tiket[0]['gecerlilik_siparis'])).' '.date('H:i',strtotime($tiket[0]['gecerlilik_siparis']))?>
 				<script>
 				function myFunction() {
 				var copyText = document.getElementById("myInput");

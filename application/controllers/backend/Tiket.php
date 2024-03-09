@@ -10,7 +10,7 @@ class Tiket extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 	}
 	function getsecurity($value=''){
-		$username = $this->session->userdata('username_admin');
+		$username = $this->session->userdata('kullanici_adi_yonetici');
 		if (empty($username)) {
 			$this->session->sess_destroy();
 			redirect('backend/login');
