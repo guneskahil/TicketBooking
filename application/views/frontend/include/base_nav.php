@@ -2,13 +2,13 @@
 		    <div class="container">
 		    	<div class="row align-items-center justify-content-between d-flex">
 			      <div id="logo">
-			        <a href="<?php echo base_url() ?>"><h3> <i class="fas fa-ticket-alt"></i> <b>B T B S</b></h3></a>
+			        <a href="<?php echo base_url() ?>tiket"><h3> <i class="fas fa-ticket-alt"></i> <b>Umuttepe Turizm</b></h3></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
-			          <li class="menu"><a href="<?php echo base_url() ?>">Home</a></li>
-			          <li><a href="<?php echo base_url() ?>tiket">Make Bookings</a></li>
-			          <li class="menu"><a href="<?php echo base_url() ?>tiket/cektiket">Check Tickets</a></li>
+			          
+			          <li><a href="<?php echo base_url() ?>tiket">Bilet Al</a></li>
+			          <li class="menu"><a href="<?php echo base_url() ?>tiket/cektiket">Bilet Kontrol</a></li>
 			          <?php if ($this->session->userdata('username')) { ?>
 				      	<li class="menu-has-children"><a href="#">Hi, <?php echo $this->session->userdata('nama_lengkap'); ?></a>
 						<ul>
@@ -18,8 +18,8 @@
 						</ul>
 						</li>
 				      <?php }else{ ?>  
-				  	  <li class="menu wobble animated"><a href="<?php echo base_url() ?>login/Daftar">Register</a></li>
- 					  <li><a href="<?php echo base_url() ?>login">Login</a></li>
+				  	  <li class="menu wobble animated"><a href="<?php echo base_url() ?>login/Daftar">Kayıt Ol</a></li>
+ 					  <li><a href="<?php echo base_url() ?>login">Giriş</a></li>
 				  	  <?php } ?>
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
