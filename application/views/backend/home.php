@@ -24,7 +24,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
+          <h1 class="h3 mb-4 text-gray-800">Ana Panel</h1>
           <!-- Content Row -->
           <div class="row">
 
@@ -34,7 +34,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="<?= base_url('backend/order') ?>">Pending Bookings</a></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="<?= base_url('backend/order') ?>">Bekleyen Rezervasyonlar</a></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $order[0]['count(kd_siparis)']; ?></div>
                     </div>
                     <div class="col-auto">
@@ -51,7 +51,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?= base_url('backend/tiket') ?>">Total Tickets Sold</a></div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?= base_url('backend/tiket') ?>">Satılan Toplam Bilet</a></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $tiket[0]['count(kd_bilet)']; ?></div>
                     </div>
                     <div class="col-auto">
@@ -68,7 +68,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"><a href="<?= base_url('backend/konfirmasi') ?>">Payments List</a></div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"><a href="<?= base_url('backend/konfirmasi') ?>">Ödemeler</a></div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $konfirmasi[0]['count(kd_onaylama)']; ?></div>
@@ -96,7 +96,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="<?= base_url('backend/rute') ?>">Total Terminals</a></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="<?= base_url('backend/rute') ?>">Toplam Terminal</a></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $terminal[0]['count(kd_varis)']; ?></div>
                     </div>
                     <div class="col-auto">
@@ -112,7 +112,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?= base_url('backend/jadwal') ?>">Available Schedules</a></div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?= base_url('backend/jadwal') ?>">Mevcut Seferler</a></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $schedules[0]['count(kd_sefer)']; ?></div>
                     </div>
                     <div class="col-auto">
@@ -129,7 +129,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a href="<?= base_url('backend/bus') ?>">Available Bus</a></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a href="<?= base_url('backend/bus') ?>">Mevcut Otobusler</a></div>
                       <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $bus[0]['count(kd_otobus)']; ?></div>
                     </div>
                     <div class="col-auto">

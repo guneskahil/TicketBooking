@@ -20,7 +20,7 @@
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Ticket Code[<?= $tiket['kd_bilet']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Bilet Kodu[<?= $tiket['kd_bilet']; ?>]  </h6>
         </div>
         <div class="card-body">
           <form action="" method="post" enctype="multipart/form-data">
@@ -28,16 +28,16 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Booking Code    : <b><?= $tiket['kd_siparis']; ?></b></p>
-                  <p>Passenger's Name : <b><?= $tiket['isim_bilet']; ?></b></p>
-                  <p>Passenger's Age : <b><?= $tiket['yas_bilet']; ?></b></p>
-                  <p>Seat Number   : <b><?= $tiket['koltuk_bilet'] ?></b></p>
+                  <p>Rezervason Kodu    : <b><?= $tiket['kd_siparis']; ?></b></p>
+                  <p>Müşteri Adı : <b><?= $tiket['isim_bilet']; ?></b></p>
+                  <p>müşteri Yaşı : <b><?= $tiket['yas_bilet']; ?></b></p>
+                  <p>Koltuk No   : <b><?= $tiket['koltuk_bilet'] ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>
             </div>
             <hr>
-                        <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
+                        <a class="btn btn-danger" href="javascript:history.back()"> Geri Dön</a>
 
           </div>
         </form>

@@ -19,7 +19,7 @@
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-        <h1 class="h5 text-gray-800">Payments List</h1>
+        <h1 class="h5 text-gray-800">Ödemeler</h1>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -27,13 +27,13 @@
             <thead class="thead-dark">
                 <tr>
                   <th>#</th>
-                  <th>Code</th>
-                  <th>Booking Code</th>
-                  <th>Sender </th>
-                  <th>Bank </th>
-                  <th>Account No.</th>
-                  <th>Price</th>
-                  <th>TF proof</th>
+                  <th>Kod</th>
+                  <th>Rezervason Kodu</th>
+                  <th>Gönderici </th>
+                  <th>Banka </th>
+                  <th>Hesap No.</th>
+                  <th>Ücret</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -45,8 +45,8 @@
                     <td><?= $row['isim_onaylama']; ?></td>
                     <td><?= $row['isim_banka_onaylama']; ?></td>
                     <td><?= $row['hesapno_onaylama']; ?></td>
-                    <td>$<?= $row['toplam_onaylama']; ?></td>
-                    <td><a href="<?= base_url('backend/konfirmasi/viewkonfirmasi/'.$row['kd_siparis']) ?>" class="btn btn btn-info">View</a></td>
+                    <td><?= $row['toplam_onaylama']; ?> TL</td>
+                    <td><a href="<?= base_url('backend/konfirmasi/viewkonfirmasi/'.$row['kd_siparis']) ?>" class="btn btn btn-info">Görüntüle</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

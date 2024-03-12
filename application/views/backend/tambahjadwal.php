@@ -21,7 +21,7 @@
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Add Schedule</h6>
+          <h6 class="m-0 font-weight-bold text-primary">Sefer Ekle</h6>
         </div>
         <div class="card-body">
           <div class="card-body">
@@ -29,54 +29,54 @@
               <div class="col-sm-12">
                 <form action="<?= base_url()?>backend/jadwal/tambahjadwal" method="post">
                   <div class="form-group">
-                    <label class="">Origin</label>
+                    <label class="">Kalkış</label>
                     <select class="form-control" name="asal" required>
-                      <option value="" selected disabled="">-Choose Origin-</option>
+                      <option value="" selected disabled="">-Seç-</option>
                       <?php foreach ($tujuan as $row ) {?>
                       <option value="<?= $row['kd_varis'] ?>" ><?= strtoupper($row['sehir_varis'])." - ".$row['terminal_varis']; ?></option>
                       <?php } ?>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label class="">Destination</label>
+                    <label class="">Varış</label>
                     <select class="form-control" name="tujuan" required>
-                      <option value="" selected disabled="">-Choose Destination-</option>
+                      <option value="" selected disabled="">-Seç-</option>
                       <?php foreach ($tujuan as $row ) {?>
                       <option value="<?= $row['kd_varis'] ?>" ><?= strtoupper($row['sehir_varis'])." - ".$row['terminal_varis']; ?></option>
                       <?php } ?>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label  class="">Bus</label>
+                    <label  class="">Otobüs</label>
                     <select class="form-control" name="bus">
-                      <option value="" selected disabled="">-Choose Bus-</option>
+                      <option value="" selected disabled="">-Seç-</option>
                       <?php foreach ($bus as $row ) {?>
                       <option value="<?= $row['kd_otobus'] ?>" ><?= strtoupper($row['isim_otobus']); ?> -<?php if ($row['durum_otobus'] == '1') { ?>
-                        Active
+                        Aktif
                         <?php } else { ?>
-                        InActive
+                        Pasif
                       <?php } ?>- </option>
                       <?php } ?>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label  class="">Departure Hours</label>
-                    <input type="text" class="form-control"  id="time" name="berangkat" required="" placeholder="Departure Hours">
+                    <label  class="">Kalkış Saati</label>
+                    <input type="text" class="form-control"  id="time" name="berangkat" required="" placeholder="">
                   </div>
                   <div class="form-group">
-                    <label  class="">Arrival Hour</label>
-                    <input type="text" class="form-control"  id="time2" name="tiba" required="" placeholder="Arrival Hour">
+                    <label  class="">Varış Saati</label>
+                    <input type="text" class="form-control"  id="time2" name="tiba" required="" placeholder="">
                   </div>
                   <div class="form-group">
-                    <label  class="">Schedule Price</label>
-                    <input type="number" class="form-control" name="harga" required="" placeholder="Price">
+                    <label  class="">Sefer Fiyatı</label>
+                    <input type="number" class="form-control" name="harga" required="" placeholder="">
                     <?= form_error('name'),'<small class="text-danger pl-3">','</small>'; ?>
                   </div>
                 </div>
               </div>
               <hr>
-              <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
-              <input  type="submit" class="btn btn-success pull-rigth" value="Add Schedule">
+              <a class="btn btn-danger" href="javascript:history.back()"> Geri Dön</a>
+              <input  type="submit" class="btn btn-success pull-rigth" value="Ekle">
             </form>
           </div>
         </div>

@@ -15,13 +15,13 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h5 text-gray-800">Schedule Management</h1>
+      <h1 class="h5 text-gray-800">Seferler</h1>
       <!-- DataTales Example -->
       <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <a href="<?= base_url('backend/jadwal/tambahjadwal') ?>" class="btn btn-success pull-right" >
-          Add Schedule
+          Sefer Ekle
           </a>
         </div>
         <div class="card-body">
@@ -30,13 +30,13 @@
               <thead class="thead-dark">
                 <tr>
                   <th>#</th>
-                  <th>Code</th>
-                  <th>Origin</th>
-                  <th>Destination</th>
-                  <th>Departure</th>
-                  <th>Arrival</th>
-                  <th>Price</th>
-                  <th>Action</th>
+                  <th>Kod</th>
+                  <th>Kalkış Yeri</th>
+                  <th>Varış Yeri</th>
+                  <th>Kalkış Zamanı</th>
+                  <th>Varış Zamanı</th>
+                  <th>Fiyat</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -49,8 +49,8 @@
                   <td><?= date('H:i',strtotime($row['kalkis_saati_sefer'])); ?></td>
                   <td><?= date('H:i',strtotime($row['varis_saati_sefer'])); ?></td>
                   <!-- <td>$<?= number_format((float)($row['fiyat_sefer']),0,",","."); ?>,-</td> -->
-                  <td>$<?= number_format((float)($row['fiyat_sefer']),0,",","."); ?></td>
-                  <td><a href="<?= base_url('backend/jadwal/viewjadwal/'.$row['kd_sefer']) ?>" class="btn btn-info">View</a></td>
+                  <td><?= number_format((float)($row['fiyat_sefer']),0,",","."); ?> TL</td>
+                  <td><a href="<?= base_url('backend/jadwal/viewjadwal/'.$row['kd_sefer']) ?>" class="btn btn-info">Görüntüle</a></td>
                 </td>
               </tr>
               <?php } ?>

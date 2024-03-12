@@ -109,20 +109,20 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Destination Code [<?= $rute['kd_varis']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Kod [<?= $rute['kd_varis']; ?>]  </h6>
         </div>
         <div class="card-body">             
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Destination City     : <b> <?= strtoupper($rute['sehir_varis']) ?></b></p>
-                  <p>Destination  : <b><?= $rute['terminal_varis']; ?></b></p>
+                  <p>Varış Şehri     : <b> <?= strtoupper($rute['sehir_varis']) ?></b></p>
+                  <p>Terminal  : <b><?= $rute['terminal_varis']; ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>
             </div>
             <hr>
-            <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
+            <a class="btn btn-danger" href="javascript:history.back()"> Geri Dön </a>
             <!-- <button data-toggle="modal" data-target="#edit" class="btn btn-info pull-rigth">Edit</button> -->
           </div>
       </div>

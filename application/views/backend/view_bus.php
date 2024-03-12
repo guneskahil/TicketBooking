@@ -115,22 +115,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Bus Name : <b> <?= $bus['isim_otobus']?>]</b></p>
-                  <p>Bus Plate: <b><?= strtoupper($bus['plaka_otobus']) ?></b></p>
-                  <p>Seat Capacity : <b><?= $bus['kapasite_otobus']; ?> Seat</b></p>
-                  <p>Status Bus    : <b><?= $bus['durum_otobus'] ?></td>
+                  <p>Otobüs Adı: <b> <?= $bus['isim_otobus']?>]</b></p>
+                  <p>Otobüs Plaka: <b><?= strtoupper($bus['plaka_otobus']) ?></b></p>
+                  <p>Koltuk Kapasitesi : <b><?= $bus['kapasite_otobus']; ?> Koltuk</b></p>
+                  <p>Durum    : <b></td>
                   <?php if ($bus['durum_otobus'] == '1') { ?>
-                    <td class="btn-success"> Active</td> 
+                    <td class="btn-success">Aktif</td> 
                     <?php } else { ?>
-                    <td class="btn-danger">InActive</td>
+                    <td class="btn-danger">Pasif</td>
                   <?php } ?></b></p>
-                  <p>Information : <b><?= $bus['aciklama_otobus'] ?></b></p>
+                  <p>Bilgi : <b><?= $bus['aciklama_otobus'] ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>
             </div>
             <hr>
-            <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
+            <a class="btn btn-danger" href="javascript:history.back()"> Geri Dön</a>
             <!-- <button data-toggle="modal" data-target="#edit" class="btn btn-info pull-rigth">Edit</button> -->
           </div>
       </div>

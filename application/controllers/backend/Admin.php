@@ -24,17 +24,17 @@ class Admin extends CI_Controller {
 		$this->load->view('backend/admin', $data);
 	}
 	public function daftar(){
-		$this->form_validation->set_rules('name', 'Name', 'trim|required');
+		$this->form_validation->set_rules('name', 'İsim', 'trim|required');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|is_unique[yonetici.kullanici_adi_yonetici]',array(
-			'required' => 'Email Required.',
-			'is_unique' => 'Username Already In Use'
+			'required' => 'E-Posta Gerekli',
+			'is_unique' => 'Kullanıcı Adı Farklı Olmalı'
 			 ));
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email',array(
-			'required' => 'Email Required.',
+			'required' => 'E-Posta Gerekli',
 			 ));
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|matches[password2]',array(
-			'matches' => 'Password Not Same.',
-			'min_length' => 'Password Minimal 8 Characters.'
+			'matches' => 'Şifre Aynı Değil',
+			'min_length' => 'Şifre En Az Dört Karakter İçermeli'
 			 ));
 		$this->form_validation->set_rules('password2', 'Password2', 'trim|required|matches[password]');
 		if ($this->form_validation->run() == false) {
@@ -55,8 +55,8 @@ class Admin extends CI_Controller {
 				'durum_yonetici' => 1,
 				'olusturma_tarihi_yonetici' => time()
 			);
-			$this->db->insert('tbl_admin', $data);
-			$this->session->set_flashdata('message', 'swal("Succeed", "Successfully Added Account", "success");');
+			$this->db->insert('yonetici', $data);
+			$this->session->set_flashdata('message', 'swal("Succeed", "Başarıyla Eklendi", "success");');
     		redirect('backend/admin');
 		}
 

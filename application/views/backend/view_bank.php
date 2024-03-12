@@ -142,17 +142,17 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-6">
-							<p>Bank Name : <b> <?= $bank['isim_banka']?></b></p>
-							<p>Customer Name: <b><?= strtoupper($bank['musteri_banka']) ?></b></p>
-							<p>Account number : <b><?= $bank['hesapno_banka']; ?></b></p>
-							<p>Bank Logo : <img id="myImg" src="<?= base_url($bank['resim_banka']) ?>" alt="<?= $bank['isim_banka'] ?>"
+							<p>Banka Adı : <b> <?= $bank['isim_banka']?></b></p>
+							<p>Müşteri Adı: <b><?= strtoupper($bank['musteri_banka']) ?></b></p>
+							<p>Hesap No : <b><?= $bank['hesapno_banka']; ?></b></p>
+							<p>Banka Logosu : <img id="myImg" src="<?= base_url($bank['resim_banka']) ?>" alt="<?= $bank['isim_banka'] ?>"
 									style="width:100%;max-width:300px"></p>
 						</div>
 						<div class="col-sm-6">
 						</div>
 					</div>
 					<hr>
-					<a class="btn btn-danger" href="<?= base_url('backend/bank')?>"> Go Back</a>
+					<a class="btn btn-danger" href="<?= base_url('backend/bank')?>"> Geri Dön</a>
 					<!-- <button data-toggle="modal" data-target="#edit" class="btn btn-info float-right">Edit</button> -->
 				</div>
 			</div>
@@ -198,7 +198,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Edit Bank</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Bankayı Düzenle</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>

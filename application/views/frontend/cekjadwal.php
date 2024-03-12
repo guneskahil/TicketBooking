@@ -53,7 +53,7 @@
 											<td><?php echo $jadwal[$i]['terminal_varis'] ?></td>
 											<td><?php echo hari_indo(date('N',strtotime($tanggal))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$tanggal.''))).', '.date('H:i',strtotime($jadwal[$i]['kalkis_saati_sefer'])); ?></td>
 											<td><?php echo $jadwal[$i]['kapasite_otobus']-$kursi[$i][0]['count(no_koltuk_siparis)'] ?></td>
-											<td>$<?php echo number_format((float)($jadwal[$i]['fiyat_sefer']),0,",","."); ?></td>
+											<td><?php echo number_format((float)($jadwal[$i]['fiyat_sefer']),0,",","."); ?> TL</td>
 											<td><a href="<?php echo base_url('tiket/beforebeli/').$jadwal[$i]['kd_sefer'].'/'.$asal['kd_varis'].'/'.$tanggal ?>" class=" btn btn-outline-success">Select</a></td>
 										</tr>
 										<?php } ?>

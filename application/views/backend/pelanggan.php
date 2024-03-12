@@ -19,7 +19,7 @@
       <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-        <h1 class="h5 text-gray-800">Customers List</h1>
+        <h1 class="h5 text-gray-800">Müşteri Listesi</h1>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -27,12 +27,12 @@
             <thead class="thead-dark">
                 <tr>
                   <th>#</th>
-                  <th>Customer Code</th>
-                  <th>ID card number</th>
-                  <th>Name</th>
-                  <th>Address </th>
+                  <th>Müşteri Kodu</th>
+                  <th>ID No</th>
+                  <th>İsim</th>
+                  <th>Adres </th>
                   <th>Email</th>
-                  <th>Contact</th>
+                  <th>İletişim</th>
                   <!-- <th>Action</th> -->
                 </tr>
               </thead>

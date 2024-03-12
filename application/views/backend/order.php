@@ -20,7 +20,7 @@
       <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-        <h1 class="h5 text-gray-800">Booking List</h1>
+        <h1 class="h5 text-gray-800">Rezervasyonlar</h1>
         </div>
         <div class="card-body">
         
@@ -29,14 +29,14 @@
             <thead class="thead-dark">
                 <tr>
                   <th>#</th>
-                  <th>Code</th>
-                  <th>Schedule Code</th>
-                  <th>Departure Date</th>
-                  <th>Customer</th>
-                  <th>Purchase Date</th>
-                  <th>Ticket Qty.</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th>Kod</th>
+                  <th>Sefer Kodu</th>
+                  <th>Kalkış Tarihi</th>
+                  <th>Müşteri</th>
+                  <th>Satış Tarihi</th>
+                  <th>Bilet Adedi</th>
+                  <th>Durum</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -51,13 +51,13 @@
                     <?php $sqlcek = $this->db->query("SELECT * FROM siparis WHERE kd_siparis LIKE '".$row['kd_siparis']."'")->result_array(); ?>
                     <td><?= count($sqlcek); ?></td>
                     <?php if ($row['durum_siparis'] == '1') { ?>
-                          <td class="btn-danger"> Unpaid</td> 
+                          <td class="btn-danger"> Ödenmedi</td> 
                           <?php } elseif($row['durum_siparis'] == '2') { ?>
-                          <td class="btn-success"> Paid</td>
+                          <td class="btn-success"> Ödendi</td>
                         <?php } else { ?>
-                          <td class="btn-warning"> Cancelled</td>
+                          <td class="btn-warning"> İptal Edildi</td>
                           <?php } ?>
-                    <td><a href="<?= base_url('backend/order/vieworder/'.$row['kd_siparis']) ?>" class="btn btn btn-info">View</a></td>
+                    <td><a href="<?= base_url('backend/order/vieworder/'.$row['kd_siparis']) ?>" class="btn btn btn-info">Görüntüle</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

@@ -15,13 +15,13 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h5 text-gray-800">Bus Management</h1>
+      <h1 class="h5 text-gray-800">Otobüsler</h1>
       <!-- DataTales Example -->
       <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
           <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#ModalTujuan">
-          Add Bus
+          Otobüs Ekle
           </button>
         </div>
         <div class="card-body">
@@ -30,12 +30,12 @@
             <thead class="thead-dark">
                 <tr>
                   <th>#</th>
-                  <th>Bus Code</th>
-                  <th>Bus Name</th>
-                  <th>Bus Plate</th>
-                  <th>Seat Capacity</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th>Otobüs Kodu</th>
+                  <th>Otobüs Adı</th>
+                  <th>Otobüs Plaka</th>
+                  <th>Koltuk Kapasitesi</th>
+                  <th>Durum</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -47,11 +47,11 @@
                   <td><?= strtoupper($row['plaka_otobus']); ?></td>
                   <td><?= $row['kapasite_otobus'] ?></td>
                   <?php if ($row['durum_otobus'] == '1') { ?>
-                    <td class="btn-success"> Active</td> 
+                    <td class="btn-success"> Aktif</td> 
                     <?php } else { ?>
-                    <td class="btn-danger">InActive</td>
+                    <td class="btn-danger">Pasif</td>
                   <?php } ?>
-                  <td align="center"><a href="<?= base_url('backend/bus/viewbus/'.$row['kd_otobus'])?>" class="btn btn btn-info">View</a></a>
+                  <td align="center"><a href="<?= base_url('backend/bus/viewbus/'.$row['kd_otobus'])?>" class="btn btn btn-info">Görüntüle</a></a>
                 </td>
               </tr>
               <?php } ?>
@@ -73,7 +73,7 @@
 <div class="modal-dialog" role="document">
 <div class="modal-content">
   <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Add Bus</h5>
+    <h5 class="modal-title" id="exampleModalLabel">Otobüs Ekle</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
@@ -81,20 +81,20 @@
   <div class="modal-body">
     <form action="<?= base_url()?>backend/bus/tambahbus" method="post">
       <div class="form-group">
-        <label for="platbus" class="">Bus Name</label>
-        <input type="text" class="form-control" name="isim_otobus" placeholder="Bus Name">
+        <label for="platbus" class="">Otobus Adı</label>
+        <input type="text" class="form-control" name="isim_otobus" placeholder="">
       </div>
       <div class="form-group">
-        <label for="platbus" class="">Bus Number Plate</label>
-        <input type="text" class="form-control" name="plaka_otobus" placeholder="Bus Plate">
+        <label for="platbus" class="">Otobus Plaka No</label>
+        <input type="text" class="form-control" name="plaka_otobus" placeholder="">
       </div>
       <div class="form-group">
-        <label for="seat" class="">Number of Seats (Max.23)</label>
-        <input type="number" class="form-control" id="seat" name="seat" placeholder="[Maximum 23]">
+        <label for="seat" class="">Koltuk Sayısı</label>
+        <input type="number" class="form-control" id="seat" name="seat" placeholder="[Max 23]">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+        <button class="btn btn-success">Kaydet</button>
       </div>
     </form>
   </div>

@@ -120,37 +120,37 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <?php foreach ($konfirmasi as $row ) { ?>
                 <div class="col-sm-6">
                   <div class="row form-group">
-                    <label for="nama" class="col-sm-4 control-label">Confirmation code</label>
+                    <label for="nama" class="col-sm-4 control-label">Onay Kodu</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="kd_onaylama" value="<?= $row['kd_onaylama'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="nama" class="col-sm-4 control-label">Bank name</label>
+                    <label for="nama" class="col-sm-4 control-label">Banka Adı</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="nama" value="<?= $row['isim_banka_onaylama'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">Sender's Name</label>
+                    <label for="" class="col-sm-4 control-label">Gönderici Adı</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="a/n" value="<?= $row['isim_onaylama'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">Account Number</label>
+                    <label for="" class="col-sm-4 control-label">Hesap No</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="harga" value="<?php  echo $row['hesapno_onaylama']?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">Total Payment</label>
+                    <label for="" class="col-sm-4 control-label">Toplam Ödeme</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="tgl_beli" value="<?= $row['toplam_onaylama'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">Payment proof</label>
+                    <label for="" class="col-sm-4 control-label">Ödeme Kanıtı</label>
                     <div class="col-sm-8">
                       <img id="myImg" src="<?= base_url($row['resim_onaylama']) ?>" alt="<?= $row['isim_onaylama'] ?>" style="width:100%;max-width:300px">
                     </div>
@@ -159,7 +159,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <?php } ?>
             </div>
             <hr>
-                        <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
+                        <a class="btn btn-danger" href="javascript:history.back()"> Geri Dön</a>
 
           </div>
         </form>

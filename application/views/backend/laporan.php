@@ -17,21 +17,21 @@
         <div class="container-fluid">
             <!-- Page Heading -->
             <!-- Log on to codeastro.com for more projects -->
-            <h1 class="h5 mb-4 text-gray-800">Report Section</h1>
+            <h1 class="h5 mb-4 text-gray-800">Raporlar</h1>s
             <table class="table table-bordered table-condensed"  id="mydata">
             <thead class="thead-dark">
                     <tr>
                         <th style="text-align:center;width:40px;">#</th>
-                        <th>Report</th>
-                        <th style="width:100px;text-align:center;">Action</th>
+                        <th>Rapor</th>
+                        <th style="width:100px;text-align:center;"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td style="text-align:center;vertical-align:middle">1</td>
-                        <td style="vertical-align:middle;">Ticket Sales Report</td>
+                        <td style="vertical-align:middle;">Bilet Satış Raporu</td>
                         <td style="text-align:center;">
-                            <a class="btn btn-sm btn-success" href="#lap_jual_pertanggal" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
+                            <a class="btn btn-sm btn-success" href="#lap_jual_pertanggal" data-toggle="modal"><span class="fa fa-print"></span> Yazdır</a>
                         </td>
                     </tr>
                     <!-- <tr>
@@ -51,15 +51,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="myModalLabel">Select Date</h3>
+                    <h3 class="modal-title" id="myModalLabel">Tarih Seç</h3>
                 </div>
                 <form class="form-horizontal" method="post" action="<?= base_url('backend/laporan/laportanggal') ?>" target="_blank">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label class="control-label col-xs-3" > From Date</label>
+                            <label class="control-label col-xs-3" > Başlangıç</label>
                             <div class="col-xs-9">
                                 <div class='input-group date' id='datepicker' style="width:300px;">
-                                    <input type='text' name="mulai" class="form-control datepicker" value="" placeholder="Date..." required/>
+                                    <input type='text' name="mulai" class="form-control datepicker" value="" placeholder="" required/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -67,10 +67,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-xs-3" > Till Date</label>
+                            <label class="control-label col-xs-3" > Bitiş</label>
                             <div class="col-xs-9">
                                 <div class='input-group date' id='datepicker' style="width:300px;">
-                                    <input type='text' name="sampai" class="form-control datepicker" value="" placeholder="Date..." required/>
+                                    <input type='text' name="sampai" class="form-control datepicker" value="" placeholder="" required/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -79,8 +79,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
-                        <button class="btn btn-success"><span class="fa fa-print"></span> Print</button>
+                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Kapat</button>
+                        <button class="btn btn-success"><span class="fa fa-print"></span> Yazdır</button>
                     </div>
                 </form>
             </div>

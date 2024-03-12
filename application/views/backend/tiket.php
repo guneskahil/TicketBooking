@@ -20,7 +20,7 @@
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-        <h1 class="h5 text-gray-800">Sold Tickets</h1>
+        <h1 class="h5 text-gray-800">Satılan Biletler</h1>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -28,11 +28,11 @@
             <thead class="thead-dark">
                 <tr>
                   <th>#</th>
-                  <th>Ticket Code</th>
-                  <th>Name </th>
-                  <th>Seat </th>
-                  <th>Origin Buy</th>
-                  <th>Action</th>
+                  <th>Bilet Kodu</th>
+                  <th>İsim </th>
+                  <th>Koltuk </th>
+                  <th>Alış yeri</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -43,7 +43,7 @@
                     <td><?= $row['isim_bilet']; ?></td>
                     <td><?= $row['koltuk_bilet']; ?></td>
                     <td><?= strtoupper($row['olusturma_tarih_bilet']);  ?></td>
-                    <td><a href="<?= base_url('backend/tiket/viewtiket/'.$row['kd_bilet']) ?>" class="btn btn btn-info">View</a></td>
+                    <td><a href="<?= base_url('backend/tiket/viewtiket/'.$row['kd_bilet']) ?>" class="btn btn btn-info">Görüntüle</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

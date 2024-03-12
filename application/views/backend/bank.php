@@ -17,13 +17,13 @@
 	<?php $this->load->view('backend/include/base_nav'); ?>
 	<!-- Begin Page Content -->
 	<div class="container-fluid">
-		<h1 class="h5 text-gray-800">Bank List</h1>
+		<h1 class="h5 text-gray-800">Banka Listesi</h1>
 		<!-- DataTales Example -->
 		<!-- Log on to codeastro.com for more projects -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
 				<button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#ModalTujuan">
-				Add Bank
+				Banka Ekle
 				</button>
 			</div>
 			<div class="card-body">
@@ -32,11 +32,11 @@
 					<thead class="thead-dark">
 							<tr>
 								<th>#</th>
-								<th>Bank Code</th>
-								<th>Name</th>
-								<th>Account Number</th>
-								<th>On behalf of</th>
-								<th>Action</th>
+								<th>Banka Kodu</th>
+								<th>İsim</th>
+								<th>Hesap No</th>
+								<th>Kimin Adına</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -48,7 +48,7 @@
 								<td><?= $row['hesapno_banka']; ?></td>
 								<td><?= $row['musteri_banka']; ?></td>
 								<td align="center"><a href="<?= base_url('backend/bank/viewbank/'.$row['kd_banka']) ?>"
-										class="btn btn btn-info">View</a></a>
+										class="btn btn btn-info">Görüntüle</a></a>
 								</td>
 							</tr>
 							<?php } ?>

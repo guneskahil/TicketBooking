@@ -88,16 +88,16 @@
         <td align="right">
             <h1>E-TICKET</h1>
             <pre>
-                <b><span style='font-size:15px'>Ticket Details </span></b>
+                <b><span style='font-size:15px'>Bilet Detayları </span></b>
                 </br>
-                Booking Code : <?php echo $cetak[0]['kd_siparis'];?></br>
-                Schedule Code : <?php echo $cetak[0]['kd_sefer'];?></br>
-                Date : <?php echo $cetak[0]['tarih_alis_siparis'];?></br>
-                Customer : <?php echo $cetak[0]['isim_siparis'];?></br>
-                Schedule : <?php echo hari_indo(date('N',strtotime($cetak[0]['tarih_kalkis_siparis']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$cetak[0]['tarih_kalkis_siparis'].'')));?><br>
-                Departure DateTime : <?php echo date('H:i',strtotime($cetak[0]['kalkis_saati_sefer'])).' To '.date('H:i',strtotime($cetak[0]['jam_tiba_jadwal'])) ?>
-                Departing from : <?php echo strtoupper($asal['sehir_varis']);?></br>
-                Destination to : <?php echo strtoupper($cetak[0]['sehir_varis']); ?>
+                Rezervason Kodu : <?php echo $cetak[0]['kd_siparis'];?></br>
+                Sefer kodu : <?php echo $cetak[0]['kd_sefer'];?></br>
+                Tarih : <?php echo $cetak[0]['tarih_alis_siparis'];?></br>
+                Müşteri : <?php echo $cetak[0]['isim_siparis'];?></br>
+                Sefer : <?php echo hari_indo(date('N',strtotime($cetak[0]['tarih_kalkis_siparis']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$cetak[0]['tarih_kalkis_siparis'].'')));?><br>
+                Kalkış Tarihi : <?php echo date('H:i',strtotime($cetak[0]['kalkis_saati_sefer'])).' To '.date('H:i',strtotime($cetak[0]['jam_tiba_jadwal'])) ?>
+                Kalkış Yeri : <?php echo strtoupper($asal['sehir_varis']);?></br>
+                Varış Yeri : <?php echo strtoupper($cetak[0]['sehir_varis']); ?>
             </pre>
         </td>
     </tr>

@@ -54,10 +54,10 @@
 												<td><?= $row['kd_sefer']." [".$row['kd_otobus'].']' ?></td>
 												<td><?= $now?></td>
 												<td><?= $row['no_koltuk_siparis']; ?></td>
-												<td>$<?= $row['fiyat_sefer']; ?></td>
+												<td><?= $row['fiyat_sefer']; ?> TL</td>
 											</tr>
 											<?php } ?>
-											<td colspan="5"> <b class="pull-right">Total $<?php $total = $count * $tiket[0]['fiyat_sefer'] ; echo $total ?></b></td>
+											<td colspan="5"> <b class="pull-right">Total <?php $total = $count * $tiket[0]['fiyat_sefer'] ; echo $total ?> TL</b></td>
 										</tbody>
 									</table>
 								</div>
@@ -97,7 +97,7 @@
 									<h4><b> <p>a Total Sum of</p></b></h4>
 								</div>
 								<div class="col-12 bigger-title text-orange">
-									<h3 ><p>$<?= number_format($total,0,',','.') ;?></p></h3>
+									<h3 ><p><?= number_format($total,0,',','.') ;?> TL</p></h3>
 								</div>
 								<div class="col-14 mt-15 mb-15">
 									<hr>
