@@ -22,6 +22,39 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 	<!--CSS-->
 	<?php $this->load->view('frontend/include/base_css'); ?>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXVgMKtzaIxsMgtrq8KGCMRzNh4owWano"></script>
+
+	<script>
+        function initMap() {
+            var directionsService = new google.maps.DirectionsService;
+            var directionsDisplay = new google.maps.DirectionsRenderer;
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: {lat: 41.0082, lng: 28.9784} // İstanbul koordinatları, başlangıç noktası olarak kullanılabilir.
+            });
+            directionsDisplay.setMap(map);
+            calculateAndDisplayRoute(directionsService, directionsDisplay);
+        }
+
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            var start = "<?php echo $asal['sehir_varis'];?>" // Başlangıç şehri
+            var end = "<?php echo $jadwal['sehir_varis'];?>"     // Varış şehri
+
+			
+            directionsService.route({
+                origin: start  ,
+                destination: end  ,
+                travelMode: 'DRIVING'
+            }, function(response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Rota bulunamadı: ' + status);
+                }
+            });
+        }
+    </script>
+
 </head>
 
 <body>
@@ -70,8 +103,13 @@
 								<li>► Select a maximum of 4 seats</li>
 							</ul>
 						</div>
+						
 					</div>
+					
 				</div>
+				<div id="map" style="height: 500px; width: 1000px; "></div>
+    <script>initMap();</script>
+					</div>
 				<div class="col-lg-4">
 					<form action="<?php echo base_url('tiket/afterbeli') ?>" method="get">
 						<input type="hidden" name="tgl" value="<?php echo $tanggal ?>">

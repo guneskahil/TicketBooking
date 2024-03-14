@@ -16,7 +16,7 @@
 <script src="<?php echo base_url() ?>assets/frontend/js/waypoints.min.js"></script>
 <script src="<?php echo base_url() ?>assets/frontend/js/jquery.counterup.min.js"></script>
 <script src="<?php echo base_url() ?>assets/frontend/js/mail-script.js"></script>
-<script src="<?php echo base_url() ?>assets/frontend/js/main.js"></script>
+<!-- <script src="<?php echo base_url() ?>assets/frontend/js/main.js"></script>-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="<?php echo base_url() ?>assets/frontend/select2/js/select2.min.js"></script>
 <script src="<?php echo base_url() ?>assets/datepicker/dist/js/bootstrap-datepicker.min.js"></script>
