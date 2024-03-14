@@ -103,13 +103,14 @@
 								<li>► Select a maximum of 4 seats</li>
 							</ul>
 						</div>
-						
 					</div>
-					
-				</div>
-				<div id="map" style="height: 500px; width: 1000px; "></div>
+					<div id="map" style="height: 500px; width: 1000px; "></div>
     <script>initMap();</script>
-					</div>
+				</div>
+				
+					
+				
+				
 				<div class="col-lg-4">
 					<form action="<?php echo base_url('tiket/afterbeli') ?>" method="get">
 						<input type="hidden" name="tgl" value="<?php echo $tanggal ?>">
