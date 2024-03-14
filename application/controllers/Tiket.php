@@ -52,25 +52,27 @@ class Tiket extends CI_Controller {
 	}
 	/* Log on to codeastro.com for more projects */
 	public function beforebeli($jadwal="",$asal='',$tanggal=''){
-		$array = array(
-			'jadwal' => $jadwal,
-			'asal'	=> $asal,
-			'tanggal'	=> $tanggal
-		);
-		$this->session->set_userdata($array);
-		if ($this->session->userdata('username')){
-			$id = $jadwal;
-			$asal = $asal;
-			$data['tanggal'] = $tanggal;
-			$data['asal'] =  $this->db->query("SELECT * FROM varis
-               WHERE kd_varis ='".$asal."'")->row_array();
-			$data['jadwal'] = $this->db->query("SELECT * FROM sefer LEFT JOIN otobus on sefer.kd_otobus = otobus.kd_otobus LEFT JOIN varis on sefer.kd_varis = varis.kd_varis WHERE kd_sefer ='".$id."'")->row_array();
-			$data['kursi'] = $this->db->query("SELECT no_koltuk_siparis FROM siparis WHERE kd_sefer = '".$data['jadwal']['kd_sefer']."' AND tarih_kalkis_siparis = '".$data['tanggal']."' AND kalkis_siparis = '".$asal."'")->result_array();
-			$this->load->view('frontend/beli_step1',$data);
-		}else{ 
-			redirect('login/autlogin');
-		}
-	}
+        $array = array(
+            'jadwal' => $jadwal,
+            'asal'  => $asal,
+            'tanggal'   => $tanggal
+        );
+        $this->session->set_userdata($array);
+        if ($this->session->userdata('username')){
+            $id = $jadwal;
+            $asal = $asal;
+            $data['tanggal'] = $tanggal;
+            $data['asal'] =  $this->db->query("SELECT * FROM varis
+                   WHERE kd_varis ='".$asal."'")->row_array();
+            $data['jadwal'] = $this->db->query("SELECT * FROM sefer LEFT JOIN otobus on sefer.kd_otobus = otobus.kd_otobus LEFT JOIN varis on sefer.kd_varis = varis.kd_varis WHERE kd_sefer ='".$id."'")->row_array();
+            $data['kursi'] = $this->db->query("SELECT no_koltuk_siparis, cinsiyet FROM siparis WHERE kd_sefer = '".$data['jadwal']['kd_sefer']."' AND tarih_kalkis_siparis = '".$data['tanggal']."' AND kalkis_siparis = '".$asal."'")->result_array();
+
+            $this->load->view('frontend/beli_step1',$data);
+        }else{ 
+            redirect('login/autlogin');
+        }
+    }
+
 	public function afterbeli(){
 		$data['kursi'] = $this->input->get('kursi');
 		$data['bank'] = $this->db->query("SELECT * FROM `banka` ")->result_array();
