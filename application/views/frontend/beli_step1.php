@@ -2,6 +2,7 @@
 <html lang="zxx" class="no-js">
 
 <head>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXVgMKtzaIxsMgtrq8KGCMRzNh4owWano"></script>
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon-->
@@ -17,12 +18,12 @@
 	<!-- Log on to codeastro.com for more projects -->
 	<!-- Site Title -->
 	<title>BUS TICKET BOOKING</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
 
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+	
 	<!--CSS-->
 	<?php $this->load->view('frontend/include/base_css'); ?>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXVgMKtzaIxsMgtrq8KGCMRzNh4owWano"></script>
+	
 
 	<script>
         function initMap() {
