@@ -2,7 +2,7 @@
 <html lang="zxx" class="no-js">
 
 <head>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXVgMKtzaIxsMgtrq8KGCMRzNh4owWano"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXVgMKtzaIxsMgtrq8KGCMRzNh4owWano"></script>
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon-->
@@ -18,43 +18,43 @@
 	<!-- Log on to codeastro.com for more projects -->
 	<!-- Site Title -->
 	<title>BUS TICKET BOOKING</title>
-	
 
-	
+
+
 	<!--CSS-->
 	<?php $this->load->view('frontend/include/base_css'); ?>
-	
+
 
 	<script>
-        function initMap() {
-            var directionsService = new google.maps.DirectionsService;
-            var directionsDisplay = new google.maps.DirectionsRenderer;
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 7,
-                center: {lat: 41.0082, lng: 28.9784} // İstanbul koordinatları, başlangıç noktası olarak kullanılabilir.
-            });
-            directionsDisplay.setMap(map);
-            calculateAndDisplayRoute(directionsService, directionsDisplay);
-        }
+		function initMap() {
+			var directionsService = new google.maps.DirectionsService;
+			var directionsDisplay = new google.maps.DirectionsRenderer;
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 7,
+				center: { lat: 41.0082, lng: 28.9784 } // İstanbul koordinatları, başlangıç noktası olarak kullanılabilir.
+			});
+			directionsDisplay.setMap(map);
+			calculateAndDisplayRoute(directionsService, directionsDisplay);
+		}
 
-        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-            var start = "<?php echo $asal['sehir_varis'];?>" // Başlangıç şehri
-            var end = "<?php echo $jadwal['sehir_varis'];?>"     // Varış şehri
+		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+			var start = "<?php echo $asal['sehir_varis']; ?>" // Başlangıç şehri
+			var end = "<?php echo $jadwal['sehir_varis']; ?>"     // Varış şehri
 
-			
-            directionsService.route({
-                origin: start  ,
-                destination: end  ,
-                travelMode: 'DRIVING'
-            }, function(response, status) {
-                if (status === 'OK') {
-                    directionsDisplay.setDirections(response);
-                } else {
-                    window.alert('Rota bulunamadı: ' + status);
-                }
-            });
-        }
-    </script>
+
+			directionsService.route({
+				origin: start,
+				destination: end,
+				travelMode: 'DRIVING'
+			}, function (response, status) {
+				if (status === 'OK') {
+					directionsDisplay.setDirections(response);
+				} else {
+					window.alert('Rota bulunamadı: ' + status);
+				}
+			});
+		}
+	</script>
 
 </head>
 
@@ -106,12 +106,12 @@
 						</div>
 					</div>
 					<div id="map" style="height: 500px; width: 1000px; "></div>
-    <script>initMap();</script>
+					<script>initMap();</script>
 				</div>
-				
-					
-				
-				
+
+
+
+
 				<div class="col-lg-4">
 					<form action="<?php echo base_url('tiket/afterbeli') ?>" method="get">
 						<input type="hidden" name="tgl" value="<?php echo $tanggal ?>">
@@ -276,16 +276,19 @@
 
 	<!-- js -->
 	<script>
+		var selectedSeatsCount = 0;
+
 		jQuery(document).ready(function () {
 			var checkboxes = $("input[type='checkbox']"),
 				submitButt = $("input[type='submit']");
 
 			checkboxes.click(function () {
-				submitButt.attr("disabled", !checkboxes.is(":checked"));
+				selectedSeatsCount = $("input[type='checkbox']:checked").length;
+				submitButt.attr("disabled", selectedSeatsCount === 0);
+				submitButt.attr("disabled", selectedSeatsCount > 4);
 			});
 		});
 
-		var selectedSeatsCount = 0;
 		function cer(checkbox) {
 			var checkboxParent = checkbox.parentNode;
 
@@ -303,6 +306,7 @@
 				checkboxParent.style.backgroundColor = "";
 				selectedSeatsCount--;
 			}
+			enableNextButton();
 		}
 
 		function showGenderPopUp(seatNumber) {
@@ -329,7 +333,15 @@
 			}
 
 			genderPopUp.style.display = 'none';
+			enableNextButton();
 		}
+
+		function enableNextButton() {
+			var submitButt = $("input[type='submit']");
+			var checkboxes = $("input[type='checkbox']:checked");
+			submitButt.attr("disabled", checkboxes.length === 0 || checkboxes.length > 4);
+		}
+
 	</script>
 	<?php $this->load->view('frontend/include/base_js'); ?>
 </body>
