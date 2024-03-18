@@ -38,25 +38,24 @@
 						foreach ($kursi as $row) { ?>
 							<div class="card mb-5">
 								<div class="card-header">
-									<i class="fas fa-id-card"></i> Seat Number
-									<?php echo $row; ?>
+									<i class="fas fa-id-card"></i>
+									<?php echo $row; ?> Numaralı Koltuk
 								</div>
 								<div class="card-body">
 									<div class="form-group">
-										<label for="CN">Passenger's Name</label>
-										<input type="text" id="" class="form-control" id="" name="nama[]"
-											placeholder="Seat Number <?php echo $row ?> On behalf of" required>
+										<label for="CN">Yolcunun İsmi</label>
+										<input type="text" id="" class="form-control" id="" name="nama[]">
 										<input type="hidden" name="kursi[]" value="<?php echo $row ?>">
 									</div>
 									<div class="form-group">
 										<select name="tahun[]" class="form-control js-example-basic-single" required>
-											<option value="" selected disabled="">Age of Passenger</option>
+											<option value="" selected disabled="">Yolcunun Yaşı</option>
 											<?php
 											$thn_skr = 90;
 											for ($x = $thn_skr; $x >= 1; $x--) {
 												?>
 												<option value="<?php echo $x ?>">
-													<?php echo $x ?> Years
+													<?php echo $x ?>
 												</option>
 												<?php
 											}
@@ -66,6 +65,23 @@
 								</div>
 							</div>
 						<?php } ?>
+						<div class="card mb-5">
+							<?php foreach ($kursi as $index => $seat): ?>
+								<div class='form-group'>
+									<div class='col-sm-12'>
+										<label for="cinsiyet_<?php echo $seat; ?>">Koltuk
+											<?php echo $seat; ?> Cinsiyeti:
+										</label>
+										<select name='cinsiyet[]' id="cinsiyet_<?php echo $seat; ?>" class='form-control'
+											required>
+											<option value='' disabled>Cinsiyet Seçiniz</option>
+											<option value='Erkek' <?php echo (isset ($selectedGenders[$seat]) && $selectedGenders[$seat] == 'Erkek') ? 'selected' : ''; ?>>Erkek</option>
+											<option value='Kadin' <?php echo (isset ($selectedGenders[$seat]) && $selectedGenders[$seat] == 'Kadin') ? 'selected' : ''; ?>>Kadın</option>
+										</select>
+									</div>
+								</div>
+							<?php endforeach; ?>
+						</div>
 				</div>
 				<div class="col-sm-4">
 					<?php
@@ -77,21 +93,21 @@
 						?>
 						<div class="card mb-5">
 							<div class="card-header">
-								<i class="fas fa-user"></i> Customer Identity
+								<i class="fas fa-user"></i> Yolcu Bilgileri
 								<?php echo $row; ?>
 							</div>
 							<div class="card-body">
 								<div class='form-group'>
 									<div class='col-sm-12'>
 										<input name='no_ktp' required="" maxlength='64' class='form-control required'
-											placeholder='ID card number' type='text' title='ID number must be filled.'
+											placeholder='Kimlik Numarası' type='text' title='ID number must be filled.'
 											value="<?php echo ($row == $selectedSeat) ? $this->session->userdata('ktp') : ''; ?>">
 									</div>
 								</div>
 								<div class='form-group'>
 									<div class='col-sm-12'>
 										<input name='nama_pemesan' required="" maxlength='64' class='form-control required'
-											placeholder='Customer Name' type='text' title='Customer name is required'
+											placeholder='Müşteri Numarası' type='text' title='Müşteri Numarası'
 											value="<?php echo ($row == $selectedSeat) ? $this->session->userdata('nama_lengkap') : ''; ?>">
 									</div>
 								</div>
@@ -116,6 +132,9 @@
 											value="<?php echo ($row == $selectedSeat) ? $this->session->userdata('email') : ''; ?>">
 									</div>
 								</div>
+
+
+
 							</div>
 							<!-- Diğer input alanları için aynı mantıkla devam edebilirsiniz -->
 						</div>

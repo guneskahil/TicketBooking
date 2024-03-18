@@ -111,14 +111,13 @@
 
 
 
-
 				<div class="col-lg-4">
 					<form action="<?php echo base_url('tiket/afterbeli') ?>" method="get">
 						<input type="hidden" name="tgl" value="<?php echo $tanggal ?>">
 						<!-- Default Card Example -->
 						<div class="card mb-5">
 							<div class="card-header">
-								<i class="fas fa-bus"></i> Seat Selection
+								<i class="fas fa-bus"></i> Koltuk Seçimi
 							</div>
 
 							<center class="">
@@ -137,7 +136,7 @@
 												<?php if ($j == $driver_seat_position): ?>
 													<td class=''>
 														<label class='btn btn-primary'>
-															<a value='' autocomplete='off' disabled='disabled'>Driver's Seat</a>
+															<a value='' autocomplete='off' disabled='disabled'>Sürücü Koltuğu</a>
 														</label>
 													</td>
 												<?php else: ?>
@@ -172,7 +171,7 @@
 																onclick="handleGenderSelection('<?php echo $seat_number; ?>', 'Erkek')">Erkek
 															</button>
 															<button type="button" class="female"
-																onclick="handleGenderSelection('<?php echo $seat_number; ?>', 'Kadın')">Kadın
+																onclick="handleGenderSelection('<?php echo $seat_number; ?>', 'Kadin')">Kadın
 															</button>
 														</div>
 														<?php $seat_number++; ?>
@@ -186,6 +185,7 @@
 
 						</div>
 				</div>
+
 				<!-- Log on to codeastro.com for more projects -->
 				<div class="col-lg-4">
 					<!-- Default Card Example -->
@@ -313,10 +313,8 @@
 			var genderPopUp = document.getElementById('genderPopUp_' + seatNumber);
 			var checkbox = document.getElementById(seatNumber);
 
-			if (checkbox.checked) {
-				if (!checkbox.parentNode.style.backgroundColor || checkbox.parentNode.style.backgroundColor !== "lightgreen") {
-					genderPopUp.style.display = 'block';
-				}
+			if (checkbox.checked && (!checkbox.parentNode.style.backgroundColor || checkbox.parentNode.style.backgroundColor !== "lightgreen")) {
+				genderPopUp.style.display = 'block';
 			} else {
 				genderPopUp.style.display = 'none';
 			}
@@ -328,12 +326,18 @@
 
 			if (selectedGender === 'Erkek') {
 				checkbox.parentNode.style.backgroundColor = 'lightblue';
-			} else if (selectedGender === 'Kadın') {
+			} else if (selectedGender === 'Kadin') {
 				checkbox.parentNode.style.backgroundColor = 'lightpink';
 			}
 
 			genderPopUp.style.display = 'none';
 			enableNextButton();
+			var hiddenGenderInput = document.createElement('input');
+			hiddenGenderInput.type = 'hidden';
+			hiddenGenderInput.name = 'selectedGender[' + seatNumber + ']';
+			hiddenGenderInput.value = selectedGender;
+			document.forms[0].appendChild(hiddenGenderInput);
+
 		}
 
 		function enableNextButton() {

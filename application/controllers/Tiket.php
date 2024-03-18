@@ -59,7 +59,7 @@ class Tiket extends CI_Controller {
         );
         $this->session->set_userdata($array);
         if ($this->session->userdata('username')){
-            $id = $jadwal;
+            $id = $jadwal;	
             $asal = $asal;
             $data['tanggal'] = $tanggal;
             $data['asal'] =  $this->db->query("SELECT * FROM varis
@@ -79,6 +79,7 @@ class Tiket extends CI_Controller {
 		$data['kd_sefer'] = $this->session->userdata('jadwal');
 		$data['asal'] = $this->session->userdata('asal');
 		$data['tglberangkat'] = $this->input->get('tgl');
+		$data['selectedGenders'] = $this->input->get('selectedGender');
 		if ($data['kursi']) {
 			$this->load->view('frontend/beli_step2', $data);
 		}else{
@@ -86,6 +87,7 @@ class Tiket extends CI_Controller {
 			redirect('tiket/beforebeli/'.$data['asal'].'/'.$data['kd_sefer']);
 		}
 	}
+	
 	/* Log on to codeastro.com for more projects */
 	public function gettiket($value=''){
 	    include 'assets/phpqrcode/qrlib.php';
@@ -96,6 +98,7 @@ class Tiket extends CI_Controller {
 		$kd_musteri = $this->session->userdata('kd_musteri');
 		$tglberangkat = $this->input->post('tgl');
 		$jambeli = date("Y-m-d H:i:s");
+		$gender = $this->input->post('cinsiyet');
 		$nama =  $this->input->post('nama');
 		$kursi = $this->input->post('kursi');
 		$tahun = $this->input->post('tahun');
@@ -115,23 +118,26 @@ class Tiket extends CI_Controller {
 			$simpan = array(
 				'kd_siparis' => $getkode,
 				'kd_bilet' => 'T'.$getkode.$kd_sefer.str_replace('-','',$tglberangkat).$kursi[$i],
-				'kd_sefer'	=> $kd_sefer,
+				'kd_sefer'  => $kd_sefer,
 				'kd_musteri' => $kd_musteri,
 				'kalkis_siparis' => $asal['kd_varis'],
-				'isim_siparis'	=> $nama_pemesan,
-				'tarih_alis_siparis'	=> $tanggal,
+				'isim_siparis'  => $nama_pemesan,
+				'tarih_alis_siparis'    => $tanggal,
 				'tarih_kalkis_siparis' => $tglberangkat,
-				'no_koltuk_siparis'		=> $kursi[$i],
+				'no_koltuk_siparis'        => $kursi[$i],
 				'isim_koltuk_siparis' => $nama[$i],
 				'yas_koltuk_siparis' => $tahun[$i],
-				'no_ktp_siparis'	=> $no_ktp,
-				'no_tel_siparis'	=> $hp,
-				'adres_siparis'	=> $alamat,
-				'email_siparis'		=> $email,
+				'no_ktp_siparis'   => $no_ktp,
+				'no_tel_siparis'   => $hp,
+				'adres_siparis'    => $alamat,
+				'email_siparis'        => $email,
 				'kd_banka' => $bank,
-				'gecerlilik_siparis'	=> $expired,
-				'qrcode_siparis'	=> 'assets/frontend/upload/qrcode/'.$getkode.'.png',
-				'durum_siparis'	=> $status
+				'gecerlilik_siparis'    => $expired,
+				'qrcode_siparis'    => 'assets/frontend/upload/qrcode/'.$getkode.'.png',
+				'durum_siparis'    => $status,
+				'cinsiyet' => $gender[$i],
+
+
 			);
 			$this->db->insert('siparis', $simpan);
 		}
