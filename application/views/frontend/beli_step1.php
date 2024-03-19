@@ -191,14 +191,14 @@
 					<!-- Default Card Example -->
 					<div class="card mb-5">
 						<div class="card-header">
-							<i class="fas fa-bookmark"></i> Booking Confirmation
+							<i class="fas fa-bookmark"></i>
 						</div>
 						<div class="alert alert-success" role="alert">
-							<p>After selecting a seat, please click the 'Next' button to proceed.</p>
+							<p>Bir koltuk seçtikten sonra, devam etmek için lütfen 'İleri' düğmesine tıklayın.</p>
 							<div class='btn-group'>
 								<a href="<?php echo base_url('tiket/cekjadwal/' . $tanggal . '/' . $asal['kd_varis'] . '/' . $jadwal['sehir_varis']) ?>"
-									class='btn btn-default'>Go Back</a>
-								<input class="btn btn-info pull-right" disabled="disabled" type="submit" value="Next">
+									class='btn btn-default'>Geri</a> 
+								<input class="btn btn-info pull-right" disabled="disabled" type="submit" value="İleri">
 							</div>
 						</div>
 					</div>
@@ -266,11 +266,11 @@
 		}
 
 		.custom-checkbox.checked-e {
-			background-color: lightblue;
+			background-color: lightskyblue;
 		}
 
 		.custom-checkbox.checked-k {
-			background-color: lightpink;
+			background-color: palevioletred;
 		}
 	</style>
 
