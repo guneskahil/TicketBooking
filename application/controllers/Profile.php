@@ -33,11 +33,25 @@ class Profile extends CI_Controller {
 		redirect('profile/profilesaya/'.$id);
 	}
 	public function tiketsaya($id=''){
+		$id = $this->session->userdata('kd_musteri');
 		$this->getsecurity();
 		$data['tiket'] = $this->db->query("SELECT * FROM siparis WHERE kd_musteri ='".$id."' group by kd_siparis ")->result_array();
 		// die(print_r($data));
 		$this->load->view('frontend/tiketmu',$data);
 	}
+	public function tiketsaya2($id='') {
+		$this->getsecurity();
+		$kd_siparis = $this->uri->segment(3); // Bilet ID'sini URI'den al
+		// Kullanıcı "Evet" dediği takdirde veritabanındaki "siparis" tablosunda belirli biletin durumunu güncelle
+		if ($this->input->post('confirm_cancel')) {
+			$this->db->set('durum_siparis', '3');
+			$this->db->where('kd_siparis', $kd_siparis);
+			$this->db->update('siparis');
+		}
+		// Yönlendirme yap
+		redirect('profile/tiketsaya/' . $this->session->userdata('kd_musteri'));
+	}
+	
 	public function changepassword($id=''){
 		$this->load->library('form_validation');
 		$pelanggan = $this->db->query("SELECT sifre_musteri FROM musteri where kd_musteri ='".$id."'")->row_array();

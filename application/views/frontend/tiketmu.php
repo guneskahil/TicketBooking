@@ -25,38 +25,39 @@
 		<?php $this->load->view('frontend/include/base_nav'); ?>
 		<div class="generic-banner">
 			<br>
-			<h2 class="" align="center">My Ticket </h2>
+			<h2 class="" align="center">Biletlerim </h2>
 			<div class="container ">
 				<div class="row d-flex justify-content-center">
 					<?php foreach ($tiket as $row) { ?>
 					<div class="col-sm-3">
 						&nbsp;
 						<div class="card " style="width: 18rem;">
-							<img class="card-img-top" src="<?php echo base_url($row['qrcode_order']) ?>" alt="Card image cap" >
+							<img class="card-img-top" src="<?php echo base_url($row['qrcode_siparis']) ?>" alt="Card image cap" >
 							<div class="card-body" align="left">
-								<?php if ($row['status_order'] == '3'){ ?>
-									<a href="#" class="card-link">Cancelled by Administrator</a>
+								<?php if ($row['durum_siparis'] == '3'){ ?>
+									<a href="#" class="card-link">İptal Edildi</a>
 								<?php }else {?>
-								<a href="<?php echo base_url().$row['qrcode_order'] ?>" class="card-link" download>Download QrCode</a><?php }?>
-								<h5 class="card-title">Booking Code : <?php echo $row['kd_order']; ?></h5>
-								<p>Name : <?php echo $row['nama_order']; ?>
-								 <br>Booking Date : <?php echo $row['tgl_beli_order']; ?></br>
-								 Payment status : <?php if ($row['status_order'] == '1') { ?>
-									<i class='btn-danger'>Unpaid</i>
-									<?php }else if ($row['status_order'] == '3'){ ?>
-										<i class='btn-warning'>Cancelled</i>
+								<a href="<?php echo base_url().$row['qrcode_siparis'] ?>" class="card-link" download>Download QrCode</a><?php }?>
+								<h5 class="card-title">Rezervasyon Kodu: <?php echo $row['kd_siparis']; ?></h5>
+								<p>İsim : <?php echo $row['isim_siparis']; ?>
+								 <br>Rezervasyon Tarihi : <?php echo $row['tarih_alis_siparis']; ?></br>
+								 Ödeme Durumu: <?php if ($row['durum_siparis'] == '1') { ?>
+									<i class='btn-danger'>Ödenmedi</i>
+									<?php }else if ($row['durum_siparis'] == '3'){ ?>
+										<i class='btn-warning'>İptal Edildi</i>
 									<?php }else{?>
 									
-									<i class='btn-success'>Paid</i>
+									<i class='btn-success'>Ödendi</i>
 									<?php } ?>
 									<hr>
-									<?php if ($row['status_order'] == '1') { ?>
-									<a href="<?php echo base_url('tiket/payment/'.$row['kd_order']) ?>" class="btn btn-primary">Check Payment</a>
-									<?php }else if ($row['status_order'] == '3'){ ?>
-										<a href="<?php echo base_url('tiket/') ?>" class="btn btn-warning pull-right">Book Another</a>
+									<?php if ($row['durum_siparis'] == '1') { ?>
+									<a href="<?php echo base_url('tiket/payment/'.$row['kd_siparis']) ?>" class="btn btn-primary">Ödemeyi Kontrol Et</a>
+									<?php }else if ($row['durum_siparis'] == '3'){ ?>
+										<a href="<?php echo base_url('tiket/') ?>" class="btn btn-warning pull-right">Başka Bir Al</a>
 									<?php }else {?>
-									<!-- <a href="<?php echo base_url('backend/home/refund') ?>" class="btn btn-danger" >Batal Tiket</a> -->
-									<a href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>" class="btn btn-success pull-right" download>Print Ticket</a>
+										<button class="btn btn-danger" id="iptalButton">İptal</button> <!-- İptal butonu eklendi -->
+
+									<a href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_siparis'].'.pdf') ?>" class="btn btn-success pull-right" download>Print Ticket</a>
 									<?php } ?>
 								</div>
 							</div>
@@ -74,5 +75,40 @@
 				<?php $this->load->view('frontend/include/base_footer'); ?>
 				<!-- js -->
 				<?php $this->load->view('frontend/include/base_js'); ?>
+				<script>
+    // İptal butonuna tıklandığında
+	document.getElementById('iptalButton').addEventListener('click', function() {
+    // Swal ile kullanıcıya onay mesajı göster
+    swal({
+        title: "Bileti iptal etmek istediğinize emin misiniz?",
+        text: "Bu işlem geri alınamaz!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+            // Evet denildiğinde formu gönder
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", "<?php echo base_url('profile/tiketsaya2/'.$row['kd_siparis']) ?>");
+
+            // Gizli input oluştur
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", "confirm_cancel");
+            hiddenField.setAttribute("value", "1");
+            form.appendChild(hiddenField);
+
+            // Formu sayfaya ekle
+            document.body.appendChild(form);
+
+            // Formu gönder
+            form.submit();
+        }
+    });
+});
+
+</script>
 			</body>
 		</html>

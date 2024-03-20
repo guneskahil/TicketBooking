@@ -89,6 +89,9 @@ class Tiket extends CI_Controller
 		$data['asal'] = $this->session->userdata('asal');
 		$data['tglberangkat'] = $this->input->get('tgl');
 		$data['selectedGenders'] = $this->input->get('selectedGender');
+		$data['fiyat_sefer'] = $this->db->query("SELECT fiyat_sefer FROM sefer WHERE kd_sefer = '" . $this->session->userdata('jadwal') . "'")->row_array()['fiyat_sefer'];
+
+
 		if ($data['kursi']) {
 			$this->load->view('frontend/beli_step2', $data);
 		} else {
@@ -124,6 +127,11 @@ class Tiket extends CI_Controller
 		QRcode::png($getkode, 'assets/frontend/upload/qrcode/' . $getkode . ".png", "Q", 8, 8);
 		$count = count($kursi);
 
+
+		// Yolcu tipine göre fiyat belirleme
+		$fiyat_query = $this->db->query("SELECT fiyat_sefer FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
+		$fiyat_row = $fiyat_query->row_array();
+		$fiyat = $fiyat_row['fiyat_sefer'];
 
 		$saat = date("H", strtotime($jambeli));
 		$dakika = date("i", strtotime($jambeli));

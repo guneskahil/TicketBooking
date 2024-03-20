@@ -62,6 +62,45 @@
 											?>
 										</select>
 									</div>
+									<div class="form-group">
+										<label for="secenekler">Yolcu Tipi:</label>
+										<div class="d-flex">
+											<select id="secenekler" name="secenekler[]" class="form-control mr-2">
+												<option value="normal">Normal</option>
+												<option value="ogrenci">Öğrenci (-%25)</option>
+												<option value="memur">Memur (-%15)</option>
+												<option value="yas65">65+ Yaş (-%15)</option>
+											</select>
+											<div id="fiyatGoster" class="ml-2">
+												<?php
+												// $fiyat_sefer değerini burada gösterelim
+												if (isset ($fiyat_sefer)) {
+													echo 'Fiyat: <span id="fiyat">' . number_format((float) $fiyat_sefer, 0, ",", ".") . 'TL</span>';
+												}
+												?>
+											</div>
+										</div>
+									</div>
+
+									<script>
+										document.getElementById('secenekler').addEventListener('change', function () {
+											var fiyat = parseFloat(<?php echo json_encode($fiyat_sefer); ?>); // Başlangıç fiyatını al
+											var secenek = this.value;
+											var indirimOrani = 0; // İndirim oranını başlangıçta sıfır olarak ayarla
+											if (secenek == 'ogrenci') { // Eğer seçilen seçenek 'ogrenci' ise %20 indirim uygula
+												indirimOrani = 25; // %25 indirim oranı
+											} else if (secenek != 'normal') { // Eğer seçilen seçenek 'normal' değilse ve 'ogrenci' değilse %15 indirim uygula
+												indirimOrani = 15; // %15 indirim oranı
+											}
+											var indirimMiktari = (fiyat * indirimOrani) / 100; // İndirim miktarını hesapla
+											fiyat -= indirimMiktari; // Fiyattan indirimi çıkar
+											document.getElementById('fiyat').textContent = fiyat.toFixed(2) + 'TL'; // Yeni fiyatı göster
+										});
+									</script>
+
+
+
+
 								</div>
 							</div>
 						<?php } ?>
