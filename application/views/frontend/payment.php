@@ -51,10 +51,15 @@
 										</tr>
 									</thead>
 									<tbody>
-										<?php $i = 1;
-										foreach ($tiket as $row) { ?>
+										<?php
+										$total = 0; 
+										foreach ($tiket as $row) {
+											$total += $row['fiyat']; 
+											?>
 											<tr>
-												<?php $now = hari_indo(date('N', strtotime($row['tarih_kalkis_siparis']))) . ', ' . tanggal_indo(date('Y-m-d', strtotime('' . $row['tarih_kalkis_siparis'] . ''))) . ', ' . date('H:i', strtotime($row['kalkis_saati_sefer'])); ?>
+												<?php
+												$now = hari_indo(date('N', strtotime($row['tarih_kalkis_siparis']))) . ', ' . tanggal_indo(date('Y-m-d', strtotime('' . $row['tarih_kalkis_siparis'] . ''))) . ', ' . date('H:i', strtotime($row['kalkis_saati_sefer']));
+												?>
 												<th scope="row">
 													<?= $row['kd_bilet']; ?>
 												</th>
@@ -68,14 +73,14 @@
 													<?= $row['no_koltuk_siparis']; ?>
 												</td>
 												<td>
-													<?= $row['fiyat_sefer']; ?> TL
+													<?= $row['fiyat']; ?> TL
 												</td>
 											</tr>
 										<?php } ?>
 										<td colspan="5"> <b class="pull-right">Toplam
-												<?php $total = $count * $tiket[0]['fiyat_sefer'];
-												echo $total ?> TL
+												<?= $total ?> TL
 											</b></td>
+
 									</tbody>
 								</table>
 								<div class="card-body" align="center">
