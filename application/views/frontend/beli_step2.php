@@ -50,6 +50,7 @@
 									<div class="form-group">
 										<select name="tahun[]" class="form-control js-example-basic-single" required>
 											<option value="" selected disabled="">Yolcunun Yaşı</option>
+											
 											<?php
 											$thn_skr = 90;
 											for ($x = $thn_skr; $x >= 1; $x--) {
@@ -64,63 +65,43 @@
 									</div>
 									<div class="form-group">
 										<label for="secenekler">Yolcu Tipi:</label>
-										<div class="d-flex">
-											<select id="secenekler" name="secenekler[]" class="form-control mr-2">
+										<div class="d-flex align-items-center">
+											<select name="secenekler[]" class="form-control mr-2 secenekler">
 												<option value="normal">Normal</option>
-												<option value="ogrenci">Öğrenci (-%25)</option>
-												<option value="memur">Memur (-%15)</option>
-												<option value="yas65">65+ Yaş (-%15)</option>
+												<option value="ogrenci">Öğrenci(-%25)</option>
+												<option value="memur">Memur(-%15)</option>
+												<option value="yas65">65+ Yaş(-%15)</option>
+												<option value="yas7">7 Yaş ve Altı</option>
 											</select>
-											<div id="fiyatGoster" class="ml-2">
+											
+											<div class="form-control ml-1 fiyatGoster" style="width: 80%; background-color: limegreen;">
 												<?php
 												// $fiyat_sefer değerini burada gösterelim
 												if (isset ($fiyat_sefer)) {
-													echo 'Fiyat: <span id="fiyat">' . number_format((float) $fiyat_sefer, 0, ",", ".") . 'TL</span>';
+													echo 'Fiyat: <span class="fiyat">' . number_format((float) $fiyat_sefer, 0, ",", ".").'TL';
 												}
 												?>
 											</div>
 										</div>
 									</div>
 
-									<script>
-										document.getElementById('secenekler').addEventListener('change', function () {
-											var fiyat = parseFloat(<?php echo json_encode($fiyat_sefer); ?>); // Başlangıç fiyatını al
-											var secenek = this.value;
-											var indirimOrani = 0; // İndirim oranını başlangıçta sıfır olarak ayarla
-											if (secenek == 'ogrenci') { // Eğer seçilen seçenek 'ogrenci' ise %20 indirim uygula
-												indirimOrani = 25; // %25 indirim oranı
-											} else if (secenek != 'normal') { // Eğer seçilen seçenek 'normal' değilse ve 'ogrenci' değilse %15 indirim uygula
-												indirimOrani = 15; // %15 indirim oranı
-											}
-											var indirimMiktari = (fiyat * indirimOrani) / 100; // İndirim miktarını hesapla
-											fiyat -= indirimMiktari; // Fiyattan indirimi çıkar
-											document.getElementById('fiyat').textContent = fiyat.toFixed(2) + 'TL'; // Yeni fiyatı göster
-										});
-									</script>
+									<div class='form-group'>
 
-
-
-
-								</div>
-							</div>
-						<?php } ?>
-						<div class="card mb-5">
-							<?php foreach ($kursi as $index => $seat): ?>
-								<div class='form-group'>
-									<div class='col-sm-12'>
-										<label for="cinsiyet_<?php echo $seat; ?>">Koltuk
-											<?php echo $seat; ?> Cinsiyeti:
+										<label for="cinsiyet_<?php echo $row; ?>">Cinsiyet:
 										</label>
-										<select name='cinsiyet[]' id="cinsiyet_<?php echo $seat; ?>" class='form-control'
+										<select name='cinsiyet[]' id="cinsiyet_<?php echo $row; ?>" class='form-control'
 											required>
 											<option value='' disabled>Cinsiyet Seçiniz</option>
-											<option value='Erkek' <?php echo (isset ($selectedGenders[$seat]) && $selectedGenders[$seat] == 'Erkek') ? 'selected' : ''; ?>>Erkek</option>
-											<option value='Kadin' <?php echo (isset ($selectedGenders[$seat]) && $selectedGenders[$seat] == 'Kadin') ? 'selected' : ''; ?>>Kadın</option>
+											<option value='Erkek' <?php echo (isset ($selectedGenders[$row]) && $selectedGenders[$row] == 'Erkek') ? 'selected' : ''; ?>>Erkek</option>
+											<option value='Kadin' <?php echo (isset ($selectedGenders[$row]) && $selectedGenders[$row] == 'Kadin') ? 'selected' : ''; ?>>Kadın</option>
 										</select>
+
 									</div>
 								</div>
-							<?php endforeach; ?>
-						</div>
+							</div>
+							<?php $i++;
+						} ?>
+
 				</div>
 				<div class="col-sm-4">
 					<?php
@@ -223,6 +204,39 @@
 			$('.js-example-basic-single').select2();
 		});
 	</script>
+	<script>
+    document.querySelectorAll('.secenekler').forEach(function(secenekler, index) {
+        secenekler.addEventListener('change', function() {
+            var fiyat = parseFloat(<?php echo json_encode($fiyat_sefer); ?>); // Başlangıç fiyatını al
+            var secenek = this.value;
+            var indirimOrani = 0; // İndirim oranını başlangıçta sıfır olarak ayarla
+            
+            if (secenek == 'ogrenci') { // Eğer seçilen seçenek 'ogrenci' ise %20 indirim uygula
+                indirimOrani = 25; // %25 indirim oranı
+            } else if (secenek != 'normal') { // Eğer seçilen seçenek 'normal' değilse ve 'ogrenci' değilse %15 indirim uygula
+                indirimOrani = 15; // %15 indirim oranı
+            }
+            
+            var indirimMiktari = (fiyat * indirimOrani) / 100; // İndirim miktarını hesapla
+            fiyat -= indirimMiktari; // Fiyattan indirimi çıkar
+            
+            var fiyatGosterElement = this.closest('.d-flex').querySelector('.fiyatGoster .fiyat'); // Fiyat gösterim alanını seç
+            fiyatGosterElement.textContent = fiyat.toFixed(1) + 'TL'; // Yeni fiyatı göster
+            
+            // Yolcu tipi 'yas7' seçildiyse ve fiyatı 0 yap
+            if (secenek === 'yas7') {
+                <?php $fiyat_sefer = 0; ?> // Fiyatı 0 yap
+                fiyatGosterElement.textContent = '0TL'; // Fiyat gösterim alanına 0TL yaz
+                document.querySelector('select[name="tahun[]"]').value = '7'; // Yolcu yaşı seçimini 7 olarak ayarla
+                document.querySelector('select[name="tahun[]"]').setAttribute('disabled', true); // Yolcu yaşı seçimini pasif hale getir
+            } else {
+                // Diğer yolcu tipleri seçildiğinde yolcu yaşı seçimini aktif hale getir
+                document.querySelector('select[name="tahun[]"]').removeAttribute('disabled');
+            }
+        });
+    });
+</script>
+
 </body>
 
 </html>

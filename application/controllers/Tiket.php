@@ -102,74 +102,83 @@ class Tiket extends CI_Controller
 
 	/* Log on to codeastro.com for more projects */
 	public function gettiket($value = '')
-	{
-		include 'assets/phpqrcode/qrlib.php';
-		$asal = $this->db->query("SELECT * FROM varis
-               WHERE kd_varis ='" . $this->session->userdata('asal') . "'")->row_array();
-		$getkode = $this->getkod_model->get_kodtmporder();
-		$kd_sefer = $this->session->userdata('jadwal');
-		$kd_musteri = $this->session->userdata('kd_musteri');
-		$tglberangkat = $this->input->post('tgl');
-		$jambeli = date("Y-m-d H:i:s");
-		$gender = $this->input->post('cinsiyet');
-		$nama = $this->input->post('nama');
-		$kursi = $this->input->post('kursi');
-		$tahun = $this->input->post('tahun');
-		$no_ktp = $this->input->post('no_ktp');
-		$nama_pemesan = $this->input->post('nama_pemesan');
-		$hp = $this->input->post('hp');
-		$alamat = $this->input->post('alamat');
-		$email = $this->input->post('email');
-		$bank = $this->input->post('bank');
-		$satu_hari = mktime(0, 0, 0, date("n"), date("j") + 1, date("Y"));
-		$expired = date("d-m-Y", $satu_hari) . " " . date('H:i:s');
-		$status = '1';
-		QRcode::png($getkode, 'assets/frontend/upload/qrcode/' . $getkode . ".png", "Q", 8, 8);
-		$count = count($kursi);
+{
+    include 'assets/phpqrcode/qrlib.php';
+    $asal = $this->db->query("SELECT * FROM varis WHERE kd_varis ='" . $this->session->userdata('asal') . "'")->row_array();
+    $getkode = $this->getkod_model->get_kodtmporder();
+    $kd_sefer = $this->session->userdata('jadwal');
+    $kd_musteri = $this->session->userdata('kd_musteri');
+    $tglberangkat = $this->input->post('tgl');
+    $jambeli = date("Y-m-d H:i:s");
+    $gender = $this->input->post('cinsiyet');
+    $nama = $this->input->post('nama');
+    $kursi = $this->input->post('kursi');
+    $tahun = $this->input->post('tahun');
+    $no_ktp = $this->input->post('no_ktp');
+    $nama_pemesan = $this->input->post('nama_pemesan');
+    $hp = $this->input->post('hp');
+    $alamat = $this->input->post('alamat');
+    $email = $this->input->post('email');
+    $bank = $this->input->post('bank');
+    $satu_hari = mktime(0, 0, 0, date("n"), date("j") + 1, date("Y"));
+    $expired = date("d-m-Y", $satu_hari) . " " . date('H:i:s');
+    $status = '1';
+    QRcode::png($getkode, 'assets/frontend/upload/qrcode/' . $getkode . ".png", "Q", 8, 8);
+    $count = count($kursi);
 
+    $saat = date("H", strtotime($jambeli));
+    $dakika = date("i", strtotime($jambeli));
+    $saniye = date("s", strtotime($jambeli));
+    $zaman = ($saat < 12) ? "ÖÖ" : "ÖS";
+    $tanggal = hari_indo(date('N', strtotime($jambeli))) . ', ' . tanggal_indo(date('Y-m-d', strtotime('' . $jambeli . ''))) . ', ' . date('H:i:s', strtotime($jambeli)) . ' ' . $zaman;
 
-		// Yolcu tipine göre fiyat belirleme
-		$fiyat_query = $this->db->query("SELECT fiyat_sefer FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
-		$fiyat_row = $fiyat_query->row_array();
-		$fiyat = $fiyat_row['fiyat_sefer'];
+    $peron_no = chr(rand(65, 90)); // A-Z arasında rastgele bir harf oluşturur
 
-		$saat = date("H", strtotime($jambeli));
-		$dakika = date("i", strtotime($jambeli));
-		$saniye = date("s", strtotime($jambeli));
-		$zaman = ($saat < 12) ? "ÖÖ" : "ÖS";
-		$tanggal = hari_indo(date('N', strtotime($jambeli))) . ', ' . tanggal_indo(date('Y-m-d', strtotime('' . $jambeli . ''))) . ', ' . date('H:i:s', strtotime($jambeli)) . ' ' . $zaman;
+    for ($i = 0; $i < $count; $i++) {
+        // Calculate discounted price based on passenger type
+        $fiyat = 0; // Default to 0 for "7 Yaş ve Altı"
+        $secenek = $this->input->post('secenekler')[$i];
+        if ($secenek == 'normal') {
+            // Handle normal price
+            $fiyat_query = $this->db->query("SELECT fiyat_sefer FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
+            $fiyat_row = $fiyat_query->row_array();
+            $fiyat = $fiyat_row['fiyat_sefer'];
+        } elseif ($secenek == 'ogrenci') {
+            // Handle student discount
+            $fiyat_query = $this->db->query("SELECT fiyat_sefer * 0.75 AS discounted_price FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
+            $fiyat_row = $fiyat_query->row_array();
+            $fiyat = $fiyat_row['discounted_price'];
+        } elseif ($secenek == 'memur' || $secenek == 'yas65') {
+            // Handle other discounts
+            $fiyat_query = $this->db->query("SELECT fiyat_sefer * 0.85 AS discounted_price FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
+            $fiyat_row = $fiyat_query->row_array();
+            $fiyat = $fiyat_row['discounted_price'];
+        }
 
-		$peron_no = chr(rand(65, 90)); // A-Z arasında rastgele bir harf oluşturur
+        // Plaka değerini belirleme
+        $plaka = '';
+        if ($asal['kd_varis'] == 'TJ020') {
+            $plaka = '41';
+        } elseif ($asal['kd_varis'] == 'TJ021') {
+            $plaka = '31';
+        } elseif ($asal['kd_varis'] == 'TJ022') {
+            $plaka = '53';
+        } else {
+            $plaka = '25';
+        }
 
-		for ($i = 0; $i < $count; $i++) {
-			// Plaka değerini belirleme
-			$plaka = '';
-			if ($asal['kd_varis'] == 'TJ020') {
-				$plaka = '41';
-			} elseif ($asal['kd_varis'] == 'TJ021') {
-				$plaka = '31';
-			} elseif ($asal['kd_varis'] == 'TJ022') {
-				$plaka = '53';
-			} else {
-				$plaka = '25';
-			}
-			;
-		}
+        // Veritabanından ilgili plaka ile başlayan otobüs plakasını sorgula
+        $query = $this->db->query("SELECT * FROM otobus WHERE SUBSTRING(plaka_otobus, 1, 2) = '" . substr($plaka, 0, 2) . "'");
+        $result = $query->row_array();
 
-		// Veritabanından ilgili plaka ile başlayan otobüs plakasını sorgula
-		$query = $this->db->query("SELECT * FROM otobus WHERE SUBSTRING(plaka_otobus, 1, 2) = '" . substr($plaka, 0, 2) . "'");
-		$result = $query->row_array();
+        if ($result) {
+            // Eğer veri bulunduysa, plaka değerini al
+            $otobus_plaka = $result['plaka_otobus'];
+        } else {
+            // Eğer veri bulunamadıysa, varsayılan bir değer ata veya hata mesajı gönder
+            echo "Belirtilen plaka ile başlayan otobüs bulunamadı.";
+        }
 
-		if ($result) {
-			// Eğer veri bulunduysa, plaka değerini al
-			$otobus_plaka = $result['plaka_otobus'];
-		} else {
-			// Eğer veri bulunamadıysa, varsayılan bir değer ata veya hata mesajı gönder
-			echo "Belirtilen plaka ile başlayan otobüs bulunamadı.";
-		}
-
-
-		for ($i = 0; $i < $count; $i++) {
 			$simpan = array(
 				'kd_siparis' => $getkode,
 				'kd_bilet' => $plaka . $zaman . str_replace('-', '', $tglberangkat) . $peron_no . $otobus_plaka,
@@ -191,6 +200,7 @@ class Tiket extends CI_Controller
 				'qrcode_siparis' => 'assets/frontend/upload/qrcode/' . $getkode . '.png',
 				'durum_siparis' => $status,
 				'cinsiyet' => $gender[$i],
+				'fiyat' => $fiyat, 
 
 
 			);

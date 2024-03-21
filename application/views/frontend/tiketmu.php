@@ -38,7 +38,7 @@
 									<a href="#" class="card-link">İptal Edildi</a>
 								<?php }else {?>
 								<a href="<?php echo base_url().$row['qrcode_siparis'] ?>" class="card-link" download>Download QrCode</a><?php }?>
-								<h5 class="card-title">Rezervasyon Kodu: <?php echo $row['kd_siparis']; ?></h5>
+								<h5 class="card-title">PNR: <?php echo $row['kd_bilet']; ?></h5>
 								<p>İsim : <?php echo $row['isim_siparis']; ?>
 								 <br>Rezervasyon Tarihi : <?php echo $row['tarih_alis_siparis']; ?></br>
 								 Ödeme Durumu: <?php if ($row['durum_siparis'] == '1') { ?>
