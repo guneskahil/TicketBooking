@@ -35,7 +35,7 @@
 					<!-- Default Card Example -->
 					<div class="card">
 						<div class="card-header">
-							<i class="fas fa-info-circle"></i> Rezervasyon tamam
+							<i class="fas fa-info-circle"></i> Rezervasyon tamamlandı, ödeme onayına doğru ilerleyiniz.
 						</div>
 
 						<?php
@@ -70,9 +70,11 @@
 							<p><img src="<?php echo base_url('assets/frontend/upload/qrcode/' . $tiket) ?>.png"></p>
 							<a href="<?php echo base_url('assets/frontend/upload/qrcode/' . $tiket) ?>.png"
 								class="btn btn-danger" download> Qr Kodu indir</a>
-							<a href="<?php echo base_url('tiket/payment/' . $tiket) ?>" class="btn btn-success">Ödemeyi Kontrol Et</a>
+							<a href="<?php echo base_url('tiket/payment/' . $tiket) ?>" class="btn btn-success">Ödemeyi
+								Tamamla</a>
 							<br>
-							<p class="card-text">Ödeme İşlemine Devam Etmek İçin Lütfen Rezervasyon Kodunuzu ve QrCode'unuzu Kaydedin.</p>
+							<p class="card-text">Ödeme İşlemine Devam Etmek İçin Lütfen Rezervasyon Kodunuzu ve
+								QrCode'unuzu Kaydedin.</p>
 						</div>
 					</div>
 				</div>
