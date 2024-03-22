@@ -100,8 +100,6 @@
 								<li>► Varış Saati <b>
 										<?php echo $jadwal['varis_saati_sefer']; ?>
 									</b></li>
-								<li>► Lütfen koltuk seçiniz</li>
-								<li>► En fazla 4 koltuk seçebilirsiniz</li>
 							</ul>
 						</div>
 					</div>

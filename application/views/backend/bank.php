@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
 	<meta charset="utf-8">
@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title><?= $title ?></title>
+	<title>
+		<?= $title ?>
+	</title>
 	<!-- css -->
 	<?php $this->load->view('backend/include/base_css'); ?>
 </head>
@@ -23,13 +25,13 @@
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
 				<button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#ModalTujuan">
-				Banka Ekle
+					Banka Ekle
 				</button>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
 					<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-					<thead class="thead-dark">
+						<thead class="thead-dark">
 							<tr>
 								<th>#</th>
 								<th>Banka Kodu</th>
@@ -40,17 +42,28 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php $i = 1 ; foreach ($bank as $row ) { ?>
-							<tr>
-								<td><?= $i++; ?></td>
-								<td><?= $row['kd_banka']; ?></td>
-								<td><?= $row['isim_banka']; ?></td>
-								<td><?= $row['hesapno_banka']; ?></td>
-								<td><?= $row['musteri_banka']; ?></td>
-								<td align="center"><a href="<?= base_url('backend/bank/viewbank/'.$row['kd_banka']) ?>"
-										class="btn btn btn-info">Görüntüle</a></a>
-								</td>
-							</tr>
+							<?php $i = 1;
+							foreach ($bank as $row) { ?>
+								<tr>
+									<td>
+										<?= $i++; ?>
+									</td>
+									<td>
+										<?= $row['kd_banka']; ?>
+									</td>
+									<td>
+										<?= $row['isim_banka']; ?>
+									</td>
+									<td>
+										<?= $row['hesapno_banka']; ?>
+									</td>
+									<td>
+										<?= $row['musteri_banka']; ?>
+									</td>
+									<td align="center"><a href="<?= base_url('backend/bank/viewbank/' . $row['kd_banka']) ?>"
+											class="btn btn btn-info">Görüntüle</a></a>
+									</td>
+								</tr>
 							<?php } ?>
 						</tbody>
 					</table>
@@ -76,7 +89,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="<?= base_url()?>backend/bank/tambahbank" method="post" enctype="multipart/form-data">
+					<form action="<?= base_url() ?>backend/bank/tambahbank" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label class="">Customer Name</label>
 							<input type="text" class="form-control" name="nasabah" required placeholder="Customer Name">
@@ -87,7 +100,8 @@
 						</div>
 						<div class="form-group">
 							<label class="">Account number</label>
-							<input type="number" class="form-control" name="nomor" required placeholder="Account number">
+							<input type="number" class="form-control" name="nomor" required
+								placeholder="Account number">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Upload Photo Logo Bank</label>

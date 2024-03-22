@@ -39,14 +39,19 @@
 						<div class="card-body">
 							<form action="<?= base_url() ?>tiket/insertkonfirmasi" method="post">
 								<div class="form-group">
+									<label for="exampleInputEmail1">Bilet Kodu</label>
+									<input type="text" id="" class="form-control" id="" name="kd_siparis"
+										value="<?= $id ?>" placeholder="Bilet Kodu" readonly>
+								</div>
+								<div class="form-group">
 									<label for="exampleInputEmail1">Kart Sahibinin Adı</label>
 									<input type="text" class="form-control" name="nama" value=""
-										placeholder="Adı Soyadı">
+										placeholder="Adı Soyadı" required>
 								</div>
 								<div class="form-group">
 									<label for="exampleInputEmail1">Kart Numarası</label>
 									<input type="number" class="form-control" name="nomrek" value=""
-										placeholder="Kart numarasını giriniz">
+										placeholder="Kart numarasını giriniz" required>
 								</div>
 								<div class="form-group">
 									<label for="exampleInputEmail1">Son Kullanma Tarihi (Ay/Yıl):</label>
@@ -62,7 +67,15 @@
 										</div>
 									</div>
 								</div>
-
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-6">
+											<label for="exampleInputEmail1">Ödeme Miktarı</label>
+											<input type="number" class="form-control" name="total" value="<?= $total ?>"
+												placeholder="Toplam Ödeme" readonly>
+										</div>
+									</div>
+								</div>
 								<button type="submit" class="btn btn-success pull-right">Onayla </button>
 							</form>
 						</div>

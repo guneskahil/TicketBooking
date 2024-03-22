@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
 	<meta charset="utf-8">
@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title><?= $title ?></title>
+	<title>
+		<?= $title ?>
+	</title>
 	<!-- css -->
 	<link rel="stylesheet"
 		href="<?= base_url('assets/frontend/timepicker') ?>/css/bootstrap-material-datetimepicker.css" />
@@ -32,19 +34,20 @@
 						<div class="col-sm-12">
 							<form class="user" method="post" action="<?= base_url('backend/admin/daftar') ?>">
 								<div class="form-group">
-									<input type="text" class="form-control form-control-user" id="exampleFirstName" name="name"
-										value="<?= set_value('name') ?>" placeholder="İsim">
-									<?= form_error('name'),'<small class="text-danger pl-3">','</small>'; ?>
+									<input type="text" class="form-control form-control-user" id="exampleFirstName"
+										name="name" value="<?= set_value('name') ?>" placeholder="İsim">
+									<?= form_error('name'), '<small class="text-danger pl-3">', '</small>'; ?>
 								</div>
 								<div class="form-group">
-									<input type="email" class="form-control form-control-user" placeholder="E-Posta" name="email"
-										value="<?= set_value('email') ?>">
-									<?= form_error('email'),'<small class="text-danger pl-3">','</small>'; ?>
+									<input type="email" class="form-control form-control-user" placeholder="E-Posta"
+										name="email" value="<?= set_value('email') ?>">
+									<?= form_error('email'), '<small class="text-danger pl-3">', '</small>'; ?>
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control form-control-user" placeholder="Kullanıcı Adı" name="username"
+									<input type="text" class="form-control form-control-user"
+										placeholder="Kullanıcı Adı" name="username"
 										value="<?= set_value('username') ?>">
-									<?= form_error('username'),'<small class="text-danger pl-3">','</small>'; ?>
+									<?= form_error('username'), '<small class="text-danger pl-3">', '</small>'; ?>
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
@@ -61,11 +64,11 @@
 										<option value="2">Yönetici</option>
 										<option value="1">Sahip</option>
 									</select>
-								</div>	
-								<?= form_error('password'),'<small class="text-danger pl-3">','</small>'; ?>
-								<a href="<?= base_url('backend/admin')?>" class="btn btn-danger">Geri Dön</a>
+								</div>
+								<?= form_error('password'), '<small class="text-danger pl-3">', '</small>'; ?>
+								<a href="<?= base_url('backend/admin') ?>" class="btn btn-danger">Geri Dön</a>
 								<button type="submit" class="btn btn-success float-right">
-								Hesap Ekle
+									Hesap Ekle
 								</button>
 							</form>
 						</div>

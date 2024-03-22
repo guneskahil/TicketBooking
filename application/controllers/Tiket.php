@@ -291,7 +291,7 @@ class Tiket extends CI_Controller
 		$data = array(
 			'kd_onaylama' => $this->getkod_model->get_kodkon(),
 			'kd_siparis' => $this->input->post('kd_siparis'),
-			'isim_banka_onaylama' => $this->input->post('bank_km'),
+			'isim_banka_onaylama' => '',
 			'isim_onaylama' => $this->input->post('nama'),
 			'hesapno_onaylama' => $this->input->post('nomrek'),
 			'toplam_onaylama' => $this->input->post('total'),

@@ -12,16 +12,16 @@
 if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plugin requires jQuery'); }
 +function ($) {
 
-	Date.prototype.getDays = function() { return new Date(this.getFullYear(), this.getMonth() + 1, 0).getDate(); };
+	Date.prototype.getDays = function () { return new Date(this.getFullYear(), this.getMonth() + 1, 0).getDate(); };
 
-	var months = ['January','February','March','April','May','June','July','August','September','October','November','December'],
-		short_months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-		daysofweek = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
-		short_days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
-		ex_keys = [9,112,113,114,115,116,117,118,119,120,121,122,123],
+	var months = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
+		short_months = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
+		daysofweek = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'],
+		short_days = ['paz', 'pts', 'sal', 'çar', 'per', 'cum', 'cts'],
+		ex_keys = [9, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123],
 		DCAL_DATA = 'dcalendar',
 
-		DCalendar = function(elem, options) {
+		DCalendar = function (elem, options) {
 			this.elem = $(elem);
 			this.options = options;
 			this.calendar = null;		//calendar container
@@ -34,9 +34,9 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			this.maxDate = this.elem.data('maxdate');
 			this.rangeFromEl = this.elem.data('rangefrom');
 			this.rangeToEl = this.elem.data('rangeto');
-			
+
 			this.selected = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate());
-			
+
 			var that = this;
 
 			this.create(this.viewMode);
@@ -51,13 +51,13 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			this.calendar.find('.calendar-prev').click(function () { that.getNewMonth('left', true); });
 			this.calendar.find('.calendar-next').click(function () { that.getNewMonth('right', true); });
 			this.calendar.find('.calendar-curr-month').click(function () { that.getMonths(); });
-		    this.calendar.find('.calendar-date-holder').on('click', '.calendar-dates .date:not(.date.month) a', function () {
-		    	var span = $(this).parent(),
-		    		day = parseInt($(this).text()),
+			this.calendar.find('.calendar-date-holder').on('click', '.calendar-dates .date:not(.date.month) a', function () {
+				var span = $(this).parent(),
+					day = parseInt($(this).text()),
 					plus = span.hasClass('pm') ? -1 : span.hasClass('nm') ? 1 : 0,
 					selectedDate = new Date(that.date.getFullYear(), that.date.getMonth() + plus, day);
-				
-				if(that.disabledDate(selectedDate)) return;
+
+				if (that.disabledDate(selectedDate)) return;
 
 				that.selected = selectedDate;
 				that.calendar.find('.calendar-dates .date').removeClass('selected');
@@ -76,9 +76,9 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 		};
 
 	DCalendar.prototype = {
-		constructor : DCalendar,
+		constructor: DCalendar,
 		/* Parses date string using default or specified format. */
-		reformatDate : function (date, dateFormat) {
+		reformatDate: function (date, dateFormat) {
 			var that = this,
 				format = typeof dateFormat === 'undefined' ? that.options.format : dateFormat,
 				dayLength = (format.match(/d/g) || []).length,
@@ -92,7 +92,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 				month = '', day = '', year = '';
 
 			// Get month on given date string using the format (default or specified)
-			if(isFullMonth) {
+			if (isFullMonth) {
 				var monthIdx = -1;
 				$.each(months, function (i, m) { if (date.indexOf(m) >= 0) monthIdx = i; });
 				month = months[monthIdx];
@@ -120,7 +120,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 				day = date.substr(firstD, dayLength);
 			} else {
 				var lastIndexD = format.lastIndexOf('d');
-					before = format.substring(firstD - 1, firstD),
+				before = format.substring(firstD - 1, firstD),
 					after = format.substring(lastIndexD + 1, lastIndexD + 2);
 
 				if (lastIndexD == format.length - 1) {
@@ -144,26 +144,26 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			return { m: month, d: day, y: year, date: isNaN(parseInt(month)) ? new Date(month + " " + day + ", " + year) : new Date(year, month - 1, day) };
 		},
 		/* Returns formatted string representation of selected date */
-		formatDate : function (format) {
+		formatDate: function (format) {
 			var d = new Date(this.selected), day = d.getDate(), m = d.getMonth(), y = d.getFullYear();
 			return format.replace(/(yyyy|yy|mmmm|mmm|mm|m|dd|d)/gi, function (e) {
-				switch(e.toLowerCase()){
+				switch (e.toLowerCase()) {
 					case 'd': return day;
-					case 'dd': return (day < 10 ? "0"+day: day);
-					case 'm': return m+1;
-					case 'mm': return (m+1 < 10 ? "0"+(m+1): (m+1));
+					case 'dd': return (day < 10 ? "0" + day : day);
+					case 'm': return m + 1;
+					case 'mm': return (m + 1 < 10 ? "0" + (m + 1) : (m + 1));
 					case 'mmm': return short_months[m];
 					case 'mmmm': return months[m];
-					case 'yy': return y.toString().substr(2,2);
+					case 'yy': return y.toString().substr(2, 2);
 					case 'yyyy': return y;
 				}
 			});
 		},
 		/* Selects date and trigger event (for other actions - if specified) */
-		selectDate : function () {
+		selectDate: function () {
 			var that = this,
 				newDate = that.formatDate(that.options.format),
-				e = $.Event('dateselected', {date: newDate});
+				e = $.Event('dateselected', { date: newDate });
 
 			that.elem.trigger(e);
 		},
@@ -178,7 +178,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			if (that.rangeFromEl) {
 				var fromEl = $(that.rangeFromEl),
 					fromData = fromEl.data(DCAL_DATA);
-					fromFormat = fromData.options.format,
+				fromFormat = fromData.options.format,
 					fromVal = fromEl.val();
 
 				rangeFrom = that.reformatDate(fromVal, fromFormat).date;
@@ -188,7 +188,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			if (that.rangeToEl) {
 				var toEl = $(that.rangeToEl),
 					toData = toEl.data(DCAL_DATA);
-					toFormat = toData.options.format,
+				toFormat = toData.options.format,
 					toVal = toEl.val();
 
 				rangeTo = that.reformatDate(toVal, toFormat).date;
@@ -199,14 +199,14 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 				(rangeMin && date < rangeMin) || (rangeMax && date > rangeMax);
 		},
 		/* Gets list of months (for month view) */
-		getMonths : function () {
+		getMonths: function () {
 			var that = this,
 				currentYear = that.today.getFullYear(),
 				currentMonth = that.today.getMonth();
 
-			if(that.viewMode !== 'days') return;
+			if (that.viewMode !== 'days') return;
 			var cal = that.calendar;
-				curr = cal.find('.calendar-dates'),
+			curr = cal.find('.calendar-dates'),
 				dayLabel = cal.find('.calendar-labels'),
 				currMonth = cal.find('.calendar-curr-month'),
 				container = cal.find('.calendar-date-holder'),
@@ -224,9 +224,9 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 				}
 				rows.push(row);
 			}
-			$.each(rows, function(i, v){
-			    var row = $('<span class="cal-row"></span>'), l = v.length;
-				for(var i = 0; i < l; i++) { row.append(v[i]); }
+			$.each(rows, function (i, v) {
+				var row = $('<span class="cal-row"></span>'), l = v.length;
+				for (var i = 0; i < l; i++) { row.append(v[i]); }
 				cells.push(row);
 			});
 			container.parent().height(container.parent().outerHeight(true));
@@ -236,35 +236,35 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			setTimeout(function () { curr.remove(); }, 300);
 		},
 		/* Gets days for month of 'newDate'*/
-		getDays : function (newDate, callback) {
-		    var that = this,
+		getDays: function (newDate, callback) {
+			var that = this,
 				ndate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate()),
 				today = new Date(that.today.getFullYear(), that.today.getMonth(), that.today.getDate()),
 				days = ndate.getDays(), day = 1,
-		        d = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate()),
+				d = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate()),
 				nmStartDay = 1, weeks = [], dates = [];
 
-			for(var i = 1; i <= 6; i++){
+			for (var i = 1; i <= 6; i++) {
 				var week = [$('<span class="date"></span>'), $('<span class="date"></span>'), $('<span class="date"></span>'),
-							$('<span class="date"></span>'), $('<span class="date"></span>'), $('<span class="date"></span>'),
-							$('<span class="date"></span>')];
+				$('<span class="date"></span>'), $('<span class="date"></span>'), $('<span class="date"></span>'),
+				$('<span class="date"></span>')];
 
-				while(day <= days) {
+				while (day <= days) {
 					d.setDate(day);
 					var dayOfWeek = d.getDay();
 
 					if (d.getTime() == today.getTime()) week[dayOfWeek].addClass('current');
 
-                    if (that.disabledDate(d)) week[dayOfWeek].addClass('disabled');
+					if (that.disabledDate(d)) week[dayOfWeek].addClass('disabled');
 
-					if(i === 1 && dayOfWeek === 0){
+					if (i === 1 && dayOfWeek === 0) {
 						break;
 					} else if (dayOfWeek < 6) {
-					    if (d.getTime() == that.selected.getTime()) week[dayOfWeek].addClass('selected');
+						if (d.getTime() == that.selected.getTime()) week[dayOfWeek].addClass('selected');
 
 						week[dayOfWeek].html('<a href="javascript:void(0);">' + (day++) + '</a>');
 					} else {
-					    if (d.getTime() == that.selected.getTime()) week[dayOfWeek].addClass('selected');
+						if (d.getTime() == that.selected.getTime()) week[dayOfWeek].addClass('selected');
 
 						week[dayOfWeek].html('<a href="javascript:void(0);">' + (day++) + '</a>');
 						break;
@@ -273,30 +273,30 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 				/* For days of previous and next month */
 				if (i === 1 || i > 4) {
 					// First week
-				    if (i === 1) {
-				        var pmDate = new Date(newDate.getFullYear(), newDate.getMonth() - 1, 1);
-				        var pMonth = pmDate.getMonth(), pDays = 0;
-				        pDays = pmDate.getDays();
+					if (i === 1) {
+						var pmDate = new Date(newDate.getFullYear(), newDate.getMonth() - 1, 1);
+						var pMonth = pmDate.getMonth(), pDays = 0;
+						pDays = pmDate.getDays();
 						for (var a = 6; a >= 0; a--) {
-						    if (week[a].text() !== '') continue;
+							if (week[a].text() !== '') continue;
 
-						    pmDate.setDate(pDays);
-						    week[a].html('<a href="javascript:void(0);">' + (pDays--) + '</a>').addClass('pm');
+							pmDate.setDate(pDays);
+							week[a].html('<a href="javascript:void(0);">' + (pDays--) + '</a>').addClass('pm');
 
 							if (that.disabledDate(pmDate)) week[a].addClass('disabled');
 
 							if (pmDate.getTime() == that.selected.getTime()) week[a].addClass('selected');
 							if (pmDate.getTime() == today.getTime()) week[a].addClass('current');
 						}
-					} 
+					}
 					// Last week
 					else if (i > 4) {
-					    var nmDate = new Date(d.getFullYear(), d.getMonth() + 1, 1);
+						var nmDate = new Date(d.getFullYear(), d.getMonth() + 1, 1);
 						for (var a = 0; a <= 6; a++) {
-						    if (week[a].text() !== '') continue;
+							if (week[a].text() !== '') continue;
 
-						    nmDate.setDate(nmStartDay);
-						    week[a].html('<a href="javascript:void(0);">' + (nmStartDay++) + '</a>').addClass('nm');
+							nmDate.setDate(nmStartDay);
+							week[a].html('<a href="javascript:void(0);">' + (nmStartDay++) + '</a>').addClass('nm');
 
 							if (that.disabledDate(nmDate)) week[a].addClass('disabled');
 
@@ -307,18 +307,18 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 				}
 				weeks.push(week);
 			}
-			$.each(weeks, function(i, v){
+			$.each(weeks, function (i, v) {
 				var row = $('<span class="cal-row"></span>'), l = v.length;
-				for(var i = 0; i < l; i++) { row.append(v[i]); }
+				for (var i = 0; i < l; i++) { row.append(v[i]); }
 				dates.push(row);
 			});
 			callback(dates);
 		},
 		/* Sets current view based on user interaction (on arrows) */
-		getNewMonth : function (dir, isTrigger) {
+		getNewMonth: function (dir, isTrigger) {
 			var that = this,
 				cal = that.calendar;
-				curr = cal.find('.calendar-dates:not(.left):not(.right)'),
+			curr = cal.find('.calendar-dates:not(.left):not(.right)'),
 				lblTodayDay = cal.find('.calendar-dayofweek'),
 				lblTodayMonth = cal.find('.calendar-month'),
 				lblTodayDate = cal.find('.calendar-date'),
@@ -329,17 +329,17 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			if (that.viewMode === 'days') {
 				if (isTrigger) {
 					that.date.setDate(1);
-					that.date.setMonth(that.date.getMonth() + ( dir === 'right' ? 1 : -1));
+					that.date.setMonth(that.date.getMonth() + (dir === 'right' ? 1 : -1));
 				}
-				if(isTrigger || that.options.mode === 'calendar' || curr.hasClass('months')) {
+				if (isTrigger || that.options.mode === 'calendar' || curr.hasClass('months')) {
 					that.getDays(that.date, function (dates) {
 						if (isTrigger) {
 							var cElem = curr.clone();
 							cElem.addClass(dir).empty().append(dates)[dir == 'left' ? 'prependTo' : 'appendTo'](container);
-							setTimeout(function() {
+							setTimeout(function () {
 								curr.addClass(dir == 'left' ? 'right' : 'left');
 								cElem.removeClass(dir);
-								setTimeout(function () { cal.find('.calendar-dates.'+(dir == 'left' ? 'right' : 'left')+'').remove(); }, 300);
+								setTimeout(function () { cal.find('.calendar-dates.' + (dir == 'left' ? 'right' : 'left') + '').remove(); }, 300);
 							}, 10);
 						} else {
 							if (curr.hasClass('months')) {
@@ -359,9 +359,9 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 						}
 					});
 				}
-				
+
 				lblMonth.text(months[that.date.getMonth()] + ' ' + that.date.getFullYear());
-				
+
 				if (!isTrigger && !curr.hasClass('months')) {
 					lblTodayDay.text(short_days[that.today.getDay()]);
 					lblTodayMonth.text(short_months[that.today.getMonth()]);
@@ -369,15 +369,15 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 					lblTodayYear.text(that.today.getFullYear());
 				}
 			} else {
-				that.date.setYear(that.date.getFullYear() + ( dir === 'right' ? 1 : -1))
+				that.date.setYear(that.date.getFullYear() + (dir === 'right' ? 1 : -1))
 				lblMonth.text(that.date.getFullYear());
 			}
 		},
 		/* Sets current view to selected date */
-		selectedView : function () {
+		selectedView: function () {
 			var that = this,
 				cal = that.calendar;
-				curr = cal.find('.calendar-dates:eq(0)'),
+			curr = cal.find('.calendar-dates:eq(0)'),
 				lblMonth = cal.find('.calendar-curr-month'),
 				lblDays = cal.find('.calendar-labels');
 
@@ -390,7 +390,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			that.viewMode = 'days';
 		},
 		/* Creates components for the calendar */
-		create : function(){
+		create: function () {
 			var that = this,
 				mode = that.options.mode,
 				theme = that.options.theme,
@@ -400,8 +400,8 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 				container = $('<div class="calendar-container"></div>'),
 				calhead = $('<section class="calendar-top-selector"><span class="calendar-prev">&lsaquo;</span><span class="calendar-curr-month"></span><span class="calendar-next">&rsaquo;</span></section>'),
 				datesgrid = $('<section class="calendar-grid">'
-							+ '<div class="calendar-labels"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>'
-							+ '<div class="calendar-date-holder"><section class="calendar-dates"></section></div></section>');
+					+ '<div class="calendar-labels"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>'
+					+ '<div class="calendar-date-holder"><section class="calendar-dates"></section></div></section>');
 
 			calhead.appendTo(container);
 			datesgrid.appendTo(container);
@@ -412,7 +412,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			wrapper.append(cardhead).append(container).appendTo(mode === 'calendar' ? that.elem : overlay);
 			that.calendar = mode === 'calendar' ? that.elem : wrapper;
 
-			switch(theme) {
+			switch (theme) {
 				case 'red':
 				case 'blue':
 				case 'green':
@@ -420,19 +420,19 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 				case 'indigo':
 				case 'teal':
 					wrapper.attr('data-theme', theme);
-				break;
+					break;
 				default:
 					wrapper.attr('data-theme', $.fn.dcalendar.defaults.theme);
-				break;
+					break;
 			}
 
-			if(mode !== 'calendar') { 
+			if (mode !== 'calendar') {
 				wrapper.addClass('picker');
 				overlay.appendTo('body');
 			}
 		},
 		/* Shows the calendar (date picker) */
-		show : function () {
+		show: function () {
 			$('body').attr('datepicker-display', 'on');
 			this.date = new Date(this.selected.getFullYear(), this.selected.getMonth(), this.selected.getDate());
 			this.selectedView();
@@ -440,33 +440,33 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 			this.calendar.removeClass('load');
 		},
 		/* Hides the calendar (date picker) */
-		hide : function (callback) {
+		hide: function (callback) {
 			var that = this;
 			that.calendar.addClass('load');
 			that.calendar.parent().fadeOut(function () {
 				$('body').removeAttr('datepicker-display');
-				if(callback) callback();
-				if(that.elem.is('input')) that.elem.focus();
+				if (callback) callback();
+				if (that.elem.is('input')) that.elem.focus();
 			});
 		}
 	};
 
 	/* DEFINITION FOR DCALENDAR */
-	$.fn.dcalendar = function(opts){
-		return $(this).each(function(index, elem){
+	$.fn.dcalendar = function (opts) {
+		return $(this).each(function (index, elem) {
 			var that = this;
- 			var $this = $(that),
- 				data = $(that).data(DCAL_DATA),
- 				options = $.extend({}, $.fn.dcalendar.defaults, $this.data(), typeof opts === 'object' && opts);
- 			if(!data){
- 				$this.data(DCAL_DATA, (data = new DCalendar(this, options)));
- 			}
- 			if(typeof opts === 'string') data[opts]();
+			var $this = $(that),
+				data = $(that).data(DCAL_DATA),
+				options = $.extend({}, $.fn.dcalendar.defaults, $this.data(), typeof opts === 'object' && opts);
+			if (!data) {
+				$this.data(DCAL_DATA, (data = new DCalendar(this, options)));
+			}
+			if (typeof opts === 'string') data[opts]();
 		});
 	};
 
 	$.fn.dcalendar.defaults = {
-		mode : 'calendar',
+		mode: 'calendar',
 		format: 'yyyy-dd-mm',
 		theme: 'blue',
 		readOnly: true
@@ -475,15 +475,15 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 	$.fn.dcalendar.Constructor = DCalendar;
 
 	/* DEFINITION FOR DCALENDAR PICKER */
-	$.fn.dcalendarpicker = function(opts){
-		return $(this).each(function(){
+	$.fn.dcalendarpicker = function (opts) {
+		return $(this).each(function () {
 			var that = $(this);
 
-			if(opts){
+			if (opts) {
 				opts.mode = 'datepicker';
 				that.dcalendar(opts);
-			} else{
-				that.dcalendar({mode: 'datepicker'});
+			} else {
+				that.dcalendar({ mode: 'datepicker' });
 			}
 
 			that.on('click', function (e) {
@@ -494,13 +494,13 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 				var cal = that.data(DCAL_DATA);
 				that.val(e.date).trigger('onchange');
 				cal.hide(function () {
-					that.trigger($.Event('datechanged', {date: e.date}));
-				});				
-			}).on('keydown', function(e){
-				if(ex_keys.indexOf(e.which) < 0 && that.data(DCAL_DATA).options.readOnly) return false; 
+					that.trigger($.Event('datechanged', { date: e.date }));
+				});
+			}).on('keydown', function (e) {
+				if (ex_keys.indexOf(e.which) < 0 && that.data(DCAL_DATA).options.readOnly) return false;
 			});
 			$(document).on('keydown', function (e) {
-				if(e.keyCode != 27) return;
+				if (e.keyCode != 27) return;
 				that.data(DCAL_DATA).hide();
 			});
 		});

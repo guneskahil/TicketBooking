@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
 	<meta charset="utf-8">
@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title><?= $title ?></title>
+	<title>
+		<?= $title ?>
+	</title>
 	<style>
 		body {
 			font-family: Arial, Helvetica, sans-serif;
@@ -120,7 +122,6 @@
 				width: 100%;
 			}
 		}
-
 	</style>
 	<!-- css -->
 	<?php $this->load->view('backend/include/base_css'); ?>
@@ -136,23 +137,31 @@
 		<!-- Basic Card Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">Bank code [<?= $bank['kd_banka']; ?>] </h6>
+				<h6 class="m-0 font-weight-bold text-primary">Bank code [
+					<?= $bank['kd_banka']; ?>]
+				</h6>
 			</div>
 			<div class="card-body">
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-6">
-							<p>Banka Adı : <b> <?= $bank['isim_banka']?></b></p>
-							<p>Müşteri Adı: <b><?= strtoupper($bank['musteri_banka']) ?></b></p>
-							<p>Hesap No : <b><?= $bank['hesapno_banka']; ?></b></p>
-							<p>Banka Logosu : <img id="myImg" src="<?= base_url($bank['resim_banka']) ?>" alt="<?= $bank['isim_banka'] ?>"
-									style="width:100%;max-width:300px"></p>
+							<p>Banka Adı : <b>
+									<?= $bank['isim_banka'] ?>
+								</b></p>
+							<p>Müşteri Adı: <b>
+									<?= strtoupper($bank['musteri_banka']) ?>
+								</b></p>
+							<p>Hesap No : <b>
+									<?= $bank['hesapno_banka']; ?>
+								</b></p>
+							<p>Banka Logosu : <img id="myImg" src="<?= base_url($bank['resim_banka']) ?>"
+									alt="<?= $bank['isim_banka'] ?>" style="width:100%;max-width:300px"></p>
 						</div>
 						<div class="col-sm-6">
 						</div>
 					</div>
 					<hr>
-					<a class="btn btn-danger" href="<?= base_url('backend/bank')?>"> Geri Dön</a>
+					<a class="btn btn-danger" href="<?= base_url('backend/bank') ?>"> Geri Dön</a>
 					<!-- <button data-toggle="modal" data-target="#edit" class="btn btn-info float-right">Edit</button> -->
 				</div>
 			</div>
@@ -194,7 +203,8 @@
 
 	</script>
 	<?php $this->load->view('backend/include/base_js'); ?>
-	<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">

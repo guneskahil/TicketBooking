@@ -2,64 +2,63 @@
 <html lang="tr" class="no-js">
 
 <head>
+	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
 	<link rel="shortcut icon" href="img/elements/fav.png">
+	<!-- Author Meta -->
 	<meta name="author" content="colorlib">
+	<!-- Meta Description -->
 	<meta name="description" content="">
+	<!-- Meta Keyword -->
 	<meta name="keywords" content="">
+	<!-- meta character set -->
 	<meta charset="UTF-8">
-	<title>Umuttepe Turizm</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+	<!-- Log on to codeastro.com for more projects -->
+	<!-- Site Title -->
+	<title>BUS TICKET BOOKING</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 	<style type="text/css">
-		body {
-			font-family: 'Roboto', sans-serif;
-			color: #333;
-			line-height: 1.6;
-		}
-
 		.services-container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
 			gap: 20px;
 			padding: 20px;
+			position: relative;
+		}
+
+		.service-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.5);
+			/* Or any other overlay effect */
+			z-index: -1;
 		}
 
 		.service {
-			background: #fff;
-			border: 1px solid #ddd;
-			border-radius: 5px;
+			background: #ffffff;
+			border-radius: 10px;
 			padding: 20px;
 			text-align: center;
-			width: calc(33.333% - 20px);
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 		}
 
 		.service-icon img {
-			width: 100px;
-			height: 100px;
+			width: 150px;
+			height: 150px;
 			margin-bottom: 15px;
 		}
 
 		.service-info h4 {
 			margin-bottom: 10px;
-			color: #007bff;
+			color: #333333;
 		}
 
 		.service-info p {
-			color: #666;
-		}
-
-		@media (max-width: 768px) {
-			.service {
-				width: calc(50% - 20px);
-			}
-		}
-
-		@media (max-width: 480px) {
-			.service {
-				width: 100%;
-			}
+			color: #666666;
 		}
 	</style>
 
@@ -97,18 +96,38 @@
 							'Payment'</p>
 					</div>
 				</div>
-				<div class="service">
-					<div class="service-icon">
-						<img src="<?php echo base_url() ?>assets/frontend/img/b3.png" alt="Easy Payment Method">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-service">
+						<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b2.png" width="150"
+							height="150" alt="">
+						<h4>Choose your bus and seat</h4>
+						<p>
+							Select bus, seat, place of departure, destination, fill in passenger details and click
+							'Payment'
+						</p>
 					</div>
-					<div class="service-info">
-						<h4>Easy Payment Method</h4>
-						<p>Payment can be made via ATM transfer, Internet banking.</p>
+					<div class="col-lg-4 col-md-6">
+						<div class="single-service">
+							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b2.png" width="150"
+								height="150" alt="">
+							<h4>Choose your bus and seat</h4>
+							<p>
+								Select bus, seat, place of departure, destination, fill in passenger details and click
+								'Payment'
+							</p>
+						</div>
+						<div class="service">
+							<div class="service-icon">
+								<img src="<?php echo base_url() ?>assets/frontend/img/b3.png" alt="Easy Payment Method">
+							</div>
+							<div class="service-info">
+								<h4>Easy Payment Method</h4>
+								<p>Payment can be made via ATM transfer, Internet banking.</p>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
 
-		</div>
+				</div>
 	</section>
 	<!-- End service Area -->
 	<!-- End feature Area -->

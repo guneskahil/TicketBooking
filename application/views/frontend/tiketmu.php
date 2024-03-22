@@ -27,60 +27,64 @@
 	<?php $this->load->view('frontend/include/base_nav'); ?>
 	<div class="generic-banner">
 		<br>
-		<h2 class="" align="center">Biletlerim </h2>
-		<div class="container ">
-			<div class="row d-flex justify-content-center">
-				<?php foreach ($tiket as $row) { ?>
-					<div class="col-sm-3">
-						&nbsp;
-						<div class="card " style="width: 18rem;">
-							<img class="card-img-top" src="<?php echo base_url($row['qrcode_siparis']) ?>"
-								alt="Card image cap">
-							<div class="card-body" align="left">
-								<?php if ($row['durum_siparis'] == '3') { ?>
-									<a href="#" class="card-link">İptal Edildi</a>
-								<?php } else { ?>
-									<a href="<?php echo base_url() . $row['qrcode_siparis'] ?>" class="card-link" download>QR
-										Kodu İndir</a>
-								<?php } ?>
-								<h5 class="card-title">PNR:
-									<?php echo $row['kd_bilet']; ?>
-								</h5>
-								<p>İsim :
-									<?php echo $row['isim_siparis']; ?>
-									<br>Rezervasyon Tarihi :
-									<?php echo $row['tarih_alis_siparis']; ?></br>
-									Ödeme Durumu:
-									<?php if ($row['durum_siparis'] == '1') { ?>
-										<i class='btn-danger'>Ödenmedi</i>
-									<?php } else if ($row['durum_siparis'] == '3') { ?>
-											<i class='btn-warning'>İptal Edildi</i>
+		<div class="section-top-border">
+			<h2 class="" align="center">Biletlerim </h2>
+			<div class="container ">
+				<div class="row d-flex justify-content-center">
+					<?php foreach ($tiket as $row) { ?>
+						<div class="col-sm-3">
+							&nbsp;
+							<div class="card " style="width: 18rem;">
+								<img class="card-img-top" src="<?php echo base_url($row['qrcode_siparis']) ?>"
+									alt="Card image cap">
+								<div class="card-body" align="left">
+									<?php if ($row['durum_siparis'] == '3') { ?>
+										<a href="#" class="card-link">İptal Edildi</a>
 									<?php } else { ?>
-
-											<i class='btn-success'>Ödendi</i>
+										<a href="<?php echo base_url() . $row['qrcode_siparis'] ?>" class="card-link"
+											download>QR
+											Kodu İndir</a>
 									<?php } ?>
-									<hr>
-									<?php if ($row['durum_siparis'] == '1') { ?>
-										<a href="<?php echo base_url('tiket/payment/' . $row['kd_siparis']) ?>"
-											class="btn btn-primary">Ödemeyi Tamamla</a>
-									<?php } else if ($row['durum_siparis'] == '3') { ?>
-											<a href="<?php echo base_url('tiket/') ?>" class="btn btn-warning pull-right">Yeni Bilet
-												Al</a>
-									<?php } else { ?>
-											<button class="btn btn-danger" id="iptalButton">İptal Et</button>
-											<!-- İptal butonu eklendi -->
+									<h5 class="card-title">PNR:
+										<?php echo $row['kd_bilet']; ?>
+									</h5>
+									<p>İsim :
+										<?php echo $row['isim_siparis']; ?>
+										<br>Bilet Tarihi :
+										<?php echo $row['tarih_kalkis_siparis']; ?></br>
+										Ödeme Durumu:
+										<?php if ($row['durum_siparis'] == '1') { ?>
+											<i class='btn-danger'>Ödenmedi</i>
+										<?php } else if ($row['durum_siparis'] == '3') { ?>
+												<i class='btn-warning'>İptal Edildi</i>
+										<?php } else { ?>
 
-											<a href="<?php echo base_url('assets/backend/upload/etiket/' . $row['kd_siparis'] . '.pdf') ?>"
-												class="btn btn-success pull-right" download>Bileti Yazdır</a>
-									<?php } ?>
+												<i class='btn-success'>Ödendi</i>
+										<?php } ?>
+										<hr>
+										<?php if ($row['durum_siparis'] == '1') { ?>
+											<a href="<?php echo base_url('tiket/payment/' . $row['kd_siparis']) ?>"
+												class="btn btn-primary">Ödemeyi Tamamla</a>
+										<?php } else if ($row['durum_siparis'] == '3') { ?>
+												<a href="<?php echo base_url('tiket') ?>" class="btn btn-warning pull-right">Yeni
+													Bilet
+													Al</a>
+										<?php } else { ?>
+												<button class="btn btn-danger" id="iptalButton">İptal Et</button>
+												<!-- İptal butonu eklendi -->
+
+												<a href="<?php echo base_url('assets/backend/upload/etiket/' . $row['kd_siparis'] . '.pdf') ?>"
+													class="btn btn-success pull-right" download>Bileti Yazdır</a>
+										<?php } ?>
+								</div>
 							</div>
 						</div>
-					</div>
-					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-				<?php } ?>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					<?php } ?>
+				</div>
 			</div>
+			<br><br>
 		</div>
-		<br><br>
 	</div>
 	<!-- Log on to codeastro.com for more projects -->
 	<!-- End banner Area -->

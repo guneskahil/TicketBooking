@@ -18,9 +18,9 @@
 <header id="header" id="home">
 	<div class="container">
 		<div class=" align-items-center justify-content-between ">
-			<div id="logo" style="text-align:center">
+			<div id="logo" style="text-align:center; margin-bottom: 15px;">
 				<a href="<?php echo base_url() ?>tiket">
-					<h3> <b><i class="fas fa-ticket-alt"></i> Umuttepe Turizm</b></h3>
+					<h3> <b><i class=" fas fa-ticket-alt"></i> Umuttepe Turizm</b></h3>
 				</a>
 			</div>
 			<nav id="nav-menu">
