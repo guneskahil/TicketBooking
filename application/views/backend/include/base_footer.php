@@ -1,7 +1,9 @@
 <footer class="sticky-footer bg-white">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>&copy; <?= date('Y') ?> Bus Ticket Booking System - Developed by Bahyu Sanciko </span>
+			<span>&copy;
+				<?= date('Y') ?> Bus Ticket Booking System - Developed by Bahyu Sanciko
+			</span>
 		</div>
 	</div>
 </footer>
@@ -34,7 +36,7 @@
 </div>
 <div class="preloader">
 	<div class="loading">
-		<img src="<?= base_url('assets/frontend/img/preloader.gif') ?>" width="100">
-		<p>Please Wait...</p>
+		<img src="<?= base_url('assets/frontend/img/loading.jpeg') ?>" width="100">
+		<p>Lütfen Bekleyiniz...</p>
 	</div>
 </div>

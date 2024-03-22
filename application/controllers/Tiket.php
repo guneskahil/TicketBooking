@@ -102,82 +102,82 @@ class Tiket extends CI_Controller
 
 	/* Log on to codeastro.com for more projects */
 	public function gettiket($value = '')
-{
-    include 'assets/phpqrcode/qrlib.php';
-    $asal = $this->db->query("SELECT * FROM varis WHERE kd_varis ='" . $this->session->userdata('asal') . "'")->row_array();
-    $getkode = $this->getkod_model->get_kodtmporder();
-    $kd_sefer = $this->session->userdata('jadwal');
-    $kd_musteri = $this->session->userdata('kd_musteri');
-    $tglberangkat = $this->input->post('tgl');
-    $jambeli = date("Y-m-d H:i:s");
-    $gender = $this->input->post('cinsiyet');
-    $nama = $this->input->post('nama');
-    $kursi = $this->input->post('kursi');
-    $tahun = $this->input->post('tahun');
-    $no_ktp = $this->input->post('no_ktp');
-    $nama_pemesan = $this->input->post('nama_pemesan');
-    $hp = $this->input->post('hp');
-    $alamat = $this->input->post('alamat');
-    $email = $this->input->post('email');
-    $bank = $this->input->post('bank');
-    $satu_hari = mktime(0, 0, 0, date("n"), date("j") + 1, date("Y"));
-    $expired = date("d-m-Y", $satu_hari) . " " . date('H:i:s');
-    $status = '1';
-    QRcode::png($getkode, 'assets/frontend/upload/qrcode/' . $getkode . ".png", "Q", 8, 8);
-    $count = count($kursi);
+	{
+		include 'assets/phpqrcode/qrlib.php';
+		$asal = $this->db->query("SELECT * FROM varis WHERE kd_varis ='" . $this->session->userdata('asal') . "'")->row_array();
+		$getkode = $this->getkod_model->get_kodtmporder();
+		$kd_sefer = $this->session->userdata('jadwal');
+		$kd_musteri = $this->session->userdata('kd_musteri');
+		$tglberangkat = $this->input->post('tgl');
+		$jambeli = date("Y-m-d H:i:s");
+		$gender = $this->input->post('cinsiyet');
+		$nama = $this->input->post('nama');
+		$kursi = $this->input->post('kursi');
+		$tahun = $this->input->post('tahun');
+		$no_ktp = $this->input->post('no_ktp');
+		$nama_pemesan = $this->input->post('nama_pemesan');
+		$hp = $this->input->post('hp');
+		$alamat = $this->input->post('alamat');
+		$email = $this->input->post('email');
+		$bank = $this->input->post('bank');
+		$satu_hari = mktime(0, 0, 0, date("n"), date("j") + 1, date("Y"));
+		$expired = date("d-m-Y", $satu_hari) . " " . date('H:i:s');
+		$status = '1';
+		QRcode::png($getkode, 'assets/frontend/upload/qrcode/' . $getkode . ".png", "Q", 8, 8);
+		$count = count($kursi);
 
-    $saat = date("H", strtotime($jambeli));
-    $dakika = date("i", strtotime($jambeli));
-    $saniye = date("s", strtotime($jambeli));
-    $zaman = ($saat < 12) ? "ÖÖ" : "ÖS";
-    $tanggal = hari_indo(date('N', strtotime($jambeli))) . ', ' . tanggal_indo(date('Y-m-d', strtotime('' . $jambeli . ''))) . ', ' . date('H:i:s', strtotime($jambeli)) . ' ' . $zaman;
+		$saat = date("H", strtotime($jambeli));
+		$dakika = date("i", strtotime($jambeli));
+		$saniye = date("s", strtotime($jambeli));
+		$zaman = ($saat < 12) ? "ÖÖ" : "ÖS";
+		$tanggal = hari_indo(date('N', strtotime($jambeli))) . ', ' . tanggal_indo(date('Y-m-d', strtotime('' . $jambeli . ''))) . ', ' . date('H:i:s', strtotime($jambeli)) . ' ' . $zaman;
 
-    $peron_no = chr(rand(65, 90)); // A-Z arasında rastgele bir harf oluşturur
+		$peron_no = chr(rand(65, 90)); // A-Z arasında rastgele bir harf oluşturur
 
-    for ($i = 0; $i < $count; $i++) {
-        // Calculate discounted price based on passenger type
-        $fiyat = 0; // Default to 0 for "7 Yaş ve Altı"
-        $secenek = $this->input->post('secenekler')[$i];
-        if ($secenek == 'normal') {
-            // Handle normal price
-            $fiyat_query = $this->db->query("SELECT fiyat_sefer FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
-            $fiyat_row = $fiyat_query->row_array();
-            $fiyat = $fiyat_row['fiyat_sefer'];
-        } elseif ($secenek == 'ogrenci') {
-            // Handle student discount
-            $fiyat_query = $this->db->query("SELECT fiyat_sefer * 0.75 AS discounted_price FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
-            $fiyat_row = $fiyat_query->row_array();
-            $fiyat = $fiyat_row['discounted_price'];
-        } elseif ($secenek == 'memur' || $secenek == 'yas65') {
-            // Handle other discounts
-            $fiyat_query = $this->db->query("SELECT fiyat_sefer * 0.85 AS discounted_price FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
-            $fiyat_row = $fiyat_query->row_array();
-            $fiyat = $fiyat_row['discounted_price'];
-        }
+		for ($i = 0; $i < $count; $i++) {
+			// Calculate discounted price based on passenger type
+			$fiyat = 0; // Default to 0 for "7 Yaş ve Altı"
+			$secenek = $this->input->post('secenekler')[$i];
+			if ($secenek == 'normal') {
+				// Handle normal price
+				$fiyat_query = $this->db->query("SELECT fiyat_sefer FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
+				$fiyat_row = $fiyat_query->row_array();
+				$fiyat = $fiyat_row['fiyat_sefer'];
+			} elseif ($secenek == 'ogrenci') {
+				// Handle student discount
+				$fiyat_query = $this->db->query("SELECT fiyat_sefer * 0.75 AS discounted_price FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
+				$fiyat_row = $fiyat_query->row_array();
+				$fiyat = $fiyat_row['discounted_price'];
+			} elseif ($secenek == 'memur' || $secenek == 'yas65') {
+				// Handle other discounts
+				$fiyat_query = $this->db->query("SELECT fiyat_sefer * 0.85 AS discounted_price FROM sefer WHERE kd_sefer = '" . $kd_sefer . "'");
+				$fiyat_row = $fiyat_query->row_array();
+				$fiyat = $fiyat_row['discounted_price'];
+			}
 
-        // Plaka değerini belirleme
-        $plaka = '';
-        if ($asal['kd_varis'] == 'TJ020') {
-            $plaka = '41';
-        } elseif ($asal['kd_varis'] == 'TJ021') {
-            $plaka = '31';
-        } elseif ($asal['kd_varis'] == 'TJ022') {
-            $plaka = '53';
-        } else {
-            $plaka = '25';
-        }
+			// Plaka değerini belirleme
+			$plaka = '';
+			if ($asal['kd_varis'] == 'TJ020') {
+				$plaka = '41';
+			} elseif ($asal['kd_varis'] == 'TJ021') {
+				$plaka = '31';
+			} elseif ($asal['kd_varis'] == 'TJ022') {
+				$plaka = '53';
+			} else {
+				$plaka = '25';
+			}
 
-        // Veritabanından ilgili plaka ile başlayan otobüs plakasını sorgula
-        $query = $this->db->query("SELECT * FROM otobus WHERE SUBSTRING(plaka_otobus, 1, 2) = '" . substr($plaka, 0, 2) . "'");
-        $result = $query->row_array();
+			// Veritabanından ilgili plaka ile başlayan otobüs plakasını sorgula
+			$query = $this->db->query("SELECT * FROM otobus WHERE SUBSTRING(plaka_otobus, 1, 2) = '" . substr($plaka, 0, 2) . "'");
+			$result = $query->row_array();
 
-        if ($result) {
-            // Eğer veri bulunduysa, plaka değerini al
-            $otobus_plaka = $result['plaka_otobus'];
-        } else {
-            // Eğer veri bulunamadıysa, varsayılan bir değer ata veya hata mesajı gönder
-            echo "Belirtilen plaka ile başlayan otobüs bulunamadı.";
-        }
+			if ($result) {
+				// Eğer veri bulunduysa, plaka değerini al
+				$otobus_plaka = $result['plaka_otobus'];
+			} else {
+				// Eğer veri bulunamadıysa, varsayılan bir değer ata veya hata mesajı gönder
+				echo "Belirtilen plaka ile başlayan otobüs bulunamadı.";
+			}
 
 			$simpan = array(
 				'kd_siparis' => $getkode,
@@ -200,7 +200,7 @@ class Tiket extends CI_Controller
 				'qrcode_siparis' => 'assets/frontend/upload/qrcode/' . $getkode . '.png',
 				'durum_siparis' => $status,
 				'cinsiyet' => $gender[$i],
-				'fiyat' => $fiyat, 
+				'fiyat' => $fiyat,
 
 
 			);
@@ -210,18 +210,18 @@ class Tiket extends CI_Controller
 	}
 	/* Log on to codeastro.com for more projects */
 	public function cekorder($id = '')
-{
-    $id = $this->input->post('kodetiket');
-    $sqlcek = $this->db->query("SELECT * FROM siparis LEFT JOIN sefer on siparis.kd_sefer = sefer.kd_sefer LEFT JOIN otobus on sefer.kd_otobus = otobus.kd_otobus LEFT JOIN banka on siparis.kd_banka = banka.kd_banka WHERE kd_bilet ='$id' AND durum_siparis != 3 AND durum_siparis != 2")->result_array();
-    if ($sqlcek) {
-        $data['tiket'] = $sqlcek;
-        $data['count'] = count($sqlcek);
-        $this->load->view('frontend/payment', $data);
-    } else {
-        $this->session->set_flashdata('message', 'swal("Empty", "No Pending Tickets Found", "error");');
-        redirect('tiket/cektiket');
-    }
-}
+	{
+		$id = $this->input->post('kodetiket');
+		$sqlcek = $this->db->query("SELECT * FROM siparis LEFT JOIN sefer on siparis.kd_sefer = sefer.kd_sefer LEFT JOIN otobus on sefer.kd_otobus = otobus.kd_otobus LEFT JOIN banka on siparis.kd_banka = banka.kd_banka WHERE kd_bilet ='$id' AND durum_siparis != 3 AND durum_siparis != 2")->result_array();
+		if ($sqlcek) {
+			$data['tiket'] = $sqlcek;
+			$data['count'] = count($sqlcek);
+			$this->load->view('frontend/payment', $data);
+		} else {
+			$this->session->set_flashdata('message', 'swal("Empty", "No Pending Tickets Found", "error");');
+			redirect('tiket/cektiket');
+		}
+	}
 
 	public function payment($id = '')
 	{
@@ -257,11 +257,11 @@ class Tiket extends CI_Controller
 		$this->email->subject($subject);
 		$this->email->message($message);
 		if ($this->email->send()) {
-			$this->session->set_flashdata('message', 'swal("Success", "Please proceed towards payment confirmation!", "success");');
+			$this->session->set_flashdata('message', 'swal("Başarılı", "Lütfen ödeme onayına doğru ilerleyin!", "success");');
 			$this->load->view('frontend/checkout', $data);
 		} else {
 			//    echo 'Error! Send an error email';
-			$this->session->set_flashdata('message', 'swal("Success", "Please proceed towards payment confirmation!", "success");');
+			$this->session->set_flashdata('message', 'swal("Başarılı", "Lütfen ödeme onayına doğru ilerleyin!", "success");');
 			$this->load->view('frontend/checkout', $data);
 		}
 	}
@@ -288,29 +288,25 @@ class Tiket extends CI_Controller
 	public function insertkonfirmasi($value = '')
 	{
 		$this->getsecurity();
-		$config['upload_path'] = './assets/frontend/upload/payment';
-		$config['allowed_types'] = 'gif|jpg|png|jpeg';
-		$this->load->library('upload', $config);
-		if (!$this->upload->do_upload('userfile')) {
-			$error = array('error' => $this->upload->display_errors());
-			$this->session->set_flashdata('message', 'swal("Fail", "Check Your Confirmation Again", "error");');
-			redirect('tiket/konfirmasi/' . $this->input->post('kd_siparis') . '/' . $this->input->post('total'));
-		} else {
-			$upload_data = $this->upload->data();
-			$featured_image = '/assets/frontend/upload/payment/' . $upload_data['file_name'];
-			$data = array(
-				'kd_konfirmasi' => $this->getkod_model->get_kodkon(),
-				'kd_siparis' => $this->input->post('kd_siparis'),
-				'nama_bank_konfirmasi' => $this->input->post('bank_km'),
-				'nama_konfirmasi' => $this->input->post('nama'),
-				'norek_konfirmasi' => $this->input->post('nomrek'),
-				'total_konfirmasi' => $this->input->post('total'),
-				'photo_konfirmasi' => $featured_image
-			);
-			$this->db->insert('tbl_konfirmasi', $data);
-			$this->session->set_flashdata('message', 'swal("Success", "Thank you. Please wait for the verification!", "success");');
-			redirect('profile/tiketsaya/' . $this->session->userdata('kd_musteri'));
-		}
+		$data = array(
+			'kd_onaylama' => $this->getkod_model->get_kodkon(),
+			'kd_siparis' => $this->input->post('kd_siparis'),
+			'isim_banka_onaylama' => $this->input->post('bank_km'),
+			'isim_onaylama' => $this->input->post('nama'),
+			'hesapno_onaylama' => $this->input->post('nomrek'),
+			'toplam_onaylama' => $this->input->post('total'),
+			'resim_onaylama' => ''
+		);
+		$this->db->insert('onaylama', $data);
+
+		$siparis_id = $this->input->post('kd_siparis');
+		$this->db->set('durum_siparis', 2); // durum 2 olarak güncellenir
+		$this->db->where('kd_siparis', $siparis_id);
+		$this->db->update('siparis');
+
+		// Başarılı mesaj gösterilir ve kullanıcı profil sayfasına yönlendirilir
+		$this->session->set_flashdata('message', 'swal("Başarılı", "Ödeme Tamamlandı", "success");');
+		redirect('profile/tiketsaya/' . $this->session->userdata('kd_musteri'));
 	}
 	/* Log on to codeastro.com for more projects */
 	public function cetak($id = '')

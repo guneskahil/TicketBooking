@@ -16,7 +16,7 @@
 	<meta charset="UTF-8">
 	<!-- Log on to codeastro.com for more projects -->
 	<!-- Site Title -->
-	<title>BUS TICKET BOOKING</title>
+	<title>Umuttepe Turizm</title>
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 	<!--CSS-->
 	<?php $this->load->view('frontend/include/base_css'); ?>
@@ -50,7 +50,7 @@
 									<div class="form-group">
 										<select name="tahun[]" class="form-control js-example-basic-single" required>
 											<option value="" selected disabled="">Yolcunun Yaşı</option>
-											
+
 											<?php
 											$thn_skr = 90;
 											for ($x = $thn_skr; $x >= 1; $x--) {
@@ -73,12 +73,13 @@
 												<option value="yas65">65+ Yaş(-%15)</option>
 												<option value="yas7">7 Yaş ve Altı</option>
 											</select>
-											
-											<div class="form-control ml-1 fiyatGoster" style="width: 80%; background-color: limegreen;">
+
+											<div class="form-control ml-1 fiyatGoster"
+												style="width: 80%; background-color: limegreen;">
 												<?php
 												// $fiyat_sefer değerini burada gösterelim
 												if (isset ($fiyat_sefer)) {
-													echo 'Fiyat: <span class="fiyat">' . number_format((float) $fiyat_sefer, 0, ",", ".").'TL';
+													echo 'Fiyat: <span class="fiyat">' . number_format((float) $fiyat_sefer, 0, ",", ".") . 'TL';
 												}
 												?>
 											</div>
@@ -120,29 +121,29 @@
 								<div class='form-group'>
 									<div class='col-sm-12'>
 										<input name='no_ktp' required="" maxlength='64' class='form-control required'
-											placeholder='Kimlik Numarası' type='text' title='ID number must be filled.'
+											placeholder='Kimlik Numarası' type='text' title='Zorunlu alan'
 											value="<?php echo ($row == $selectedSeat) ? $this->session->userdata('ktp') : ''; ?>">
 									</div>
 								</div>
 								<div class='form-group'>
 									<div class='col-sm-12'>
 										<input name='nama_pemesan' required="" maxlength='64' class='form-control required'
-											placeholder='Müşteri Numarası' type='text' title='Müşteri Numarası'
+											placeholder='Müşteri Numarası' type='text' title='Zorunlu alan'
 											value="<?php echo ($row == $selectedSeat) ? $this->session->userdata('nama_lengkap') : ''; ?>">
 									</div>
 								</div>
 								<div class='form-group'>
 									<div class='col-sm-12'>
 										<input name='hp' required="" maxlength='16' class='form-control required'
-											placeholder='Handphone' type='text' title='Required Field'
+											placeholder='Telefon Numarası' type='text' title='Zorunlu alan'
 											value="<?php echo ($row == $selectedSeat) ? $this->session->userdata('telpon') : ''; ?>">
 									</div>
 								</div>
 								<div class='form-group'>
 									<div class='col-sm-12'>
 										<textarea name='alamat' cols='20' rows='3' id='alamat' required="" maxlength='256'
-											class='form-control required' placeholder='Address'
-											title='Address Required.'><?php echo ($row == $selectedSeat) ? $this->session->userdata('alamat') : ''; ?></textarea>
+											class='form-control required' placeholder='Adres'
+											title='Zorunlu alan'><?php echo ($row == $selectedSeat) ? $this->session->userdata('alamat') : ''; ?></textarea>
 									</div>
 								</div>
 								<div class='form-group'>
@@ -165,14 +166,14 @@
 				<div class="col">
 					<div class="card">
 						<div class="card-header">
-							<i class="fas fa-dollar-sign"></i> Payment Method
+							<i class="fas fa-dollar-sign"></i> Ödeme Yöntemi
 						</div>
 						<div class="card-body">
 							<form action="<?php echo base_url() ?>tiket/cektiketmu" method="post">
 								<div class="form-group">
-									<label for="exampleInputEmail1">Select Bank </label>
+									<label for="exampleInputEmail1">Banka </label>
 									<select class="form-control" name="bank" required>
-										<option value="" selected disabled="">Select Bank</option>
+										<option value="" selected disabled="">Banka seçiniz</option>
 										<?php foreach ($bank as $row) { ?>
 											<option value="<?php echo $row['kd_banka'] ?>">
 												<?php echo $row['isim_banka']; ?>
@@ -182,8 +183,8 @@
 								</div>
 								<hr>
 								<div class='form-group'>
-									<a href='javascript:history.back()' class='btn btn-default pull-left'>Go Back</a>
-									<button class="btn btn-success pull-right">Process Ticket</button>
+									<a href='javascript:history.back()' class='btn btn-default pull-left'>Geri</a>
+									<button class="btn btn-success pull-right">Bilet Onayı</button>
 								</div>
 							</form>
 							<!-- Log on to codeastro.com for more projects -->
@@ -205,37 +206,37 @@
 		});
 	</script>
 	<script>
-    document.querySelectorAll('.secenekler').forEach(function(secenekler, index) {
-        secenekler.addEventListener('change', function() {
-            var fiyat = parseFloat(<?php echo json_encode($fiyat_sefer); ?>); // Başlangıç fiyatını al
-            var secenek = this.value;
-            var indirimOrani = 0; // İndirim oranını başlangıçta sıfır olarak ayarla
-            
-            if (secenek == 'ogrenci') { // Eğer seçilen seçenek 'ogrenci' ise %20 indirim uygula
-                indirimOrani = 25; // %25 indirim oranı
-            } else if (secenek != 'normal') { // Eğer seçilen seçenek 'normal' değilse ve 'ogrenci' değilse %15 indirim uygula
-                indirimOrani = 15; // %15 indirim oranı
-            }
-            
-            var indirimMiktari = (fiyat * indirimOrani) / 100; // İndirim miktarını hesapla
-            fiyat -= indirimMiktari; // Fiyattan indirimi çıkar
-            
-            var fiyatGosterElement = this.closest('.d-flex').querySelector('.fiyatGoster .fiyat'); // Fiyat gösterim alanını seç
-            fiyatGosterElement.textContent = fiyat.toFixed(1) + 'TL'; // Yeni fiyatı göster
-            
-            // Yolcu tipi 'yas7' seçildiyse ve fiyatı 0 yap
-            if (secenek === 'yas7') {
-                <?php $fiyat_sefer = 0; ?> // Fiyatı 0 yap
-                fiyatGosterElement.textContent = '0TL'; // Fiyat gösterim alanına 0TL yaz
-                document.querySelector('select[name="tahun[]"]').value = '7'; // Yolcu yaşı seçimini 7 olarak ayarla
-                document.querySelector('select[name="tahun[]"]').setAttribute('disabled', true); // Yolcu yaşı seçimini pasif hale getir
-            } else {
-                // Diğer yolcu tipleri seçildiğinde yolcu yaşı seçimini aktif hale getir
-                document.querySelector('select[name="tahun[]"]').removeAttribute('disabled');
-            }
-        });
-    });
-</script>
+		document.querySelectorAll('.secenekler').forEach(function (secenekler, index) {
+			secenekler.addEventListener('change', function () {
+				var fiyat = parseFloat(<?php echo json_encode($fiyat_sefer); ?>); // Başlangıç fiyatını al
+				var secenek = this.value;
+				var indirimOrani = 0; // İndirim oranını başlangıçta sıfır olarak ayarla
+
+				if (secenek == 'ogrenci') { // Eğer seçilen seçenek 'ogrenci' ise %20 indirim uygula
+					indirimOrani = 25; // %25 indirim oranı
+				} else if (secenek != 'normal') { // Eğer seçilen seçenek 'normal' değilse ve 'ogrenci' değilse %15 indirim uygula
+					indirimOrani = 15; // %15 indirim oranı
+				}
+
+				var indirimMiktari = (fiyat * indirimOrani) / 100; // İndirim miktarını hesapla
+				fiyat -= indirimMiktari; // Fiyattan indirimi çıkar
+
+				var fiyatGosterElement = this.closest('.d-flex').querySelector('.fiyatGoster .fiyat'); // Fiyat gösterim alanını seç
+				fiyatGosterElement.textContent = fiyat.toFixed(1) + 'TL'; // Yeni fiyatı göster
+
+				// Yolcu tipi 'yas7' seçildiyse ve fiyatı 0 yap
+				if (secenek === 'yas7') {
+					<?php $fiyat_sefer = 0; ?> // Fiyatı 0 yap
+					fiyatGosterElement.textContent = '0TL'; // Fiyat gösterim alanına 0TL yaz
+					document.querySelector('select[name="tahun[]"]').value = '7'; // Yolcu yaşı seçimini 7 olarak ayarla
+					document.querySelector('select[name="tahun[]"]').setAttribute('disabled', true); // Yolcu yaşı seçimini pasif hale getir
+				} else {
+					// Diğer yolcu tipleri seçildiğinde yolcu yaşı seçimini aktif hale getir
+					document.querySelector('select[name="tahun[]"]').removeAttribute('disabled');
+				}
+			});
+		});
+	</script>
 
 </body>
 

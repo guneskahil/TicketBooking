@@ -43,7 +43,7 @@
 								<table class="table table-striped table-bordered">
 									<thead>
 										<tr>
-											<th scope="col">Bilet</th>
+											<th scope="col">PNR Kodu</th>
 											<th scope="col">Sefer Kodu [Otobüs Kodu]</th>
 											<th scope="col">Tarih</th>
 											<th scope="col">Koltuk Numarası</th>
@@ -52,9 +52,9 @@
 									</thead>
 									<tbody>
 										<?php
-										$total = 0; 
+										$total = 0;
 										foreach ($tiket as $row) {
-											$total += $row['fiyat']; 
+											$total += $row['fiyat'];
 											?>
 											<tr>
 												<?php

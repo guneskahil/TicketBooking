@@ -17,7 +17,7 @@
 	<meta charset="UTF-8">
 	<!-- Log on to codeastro.com for more projects -->
 	<!-- Site Title -->
-	<title>BUS TICKET BOOKING</title>
+	<title>Umuttepe Turizm</title>
 
 
 
@@ -69,44 +69,42 @@
 					<!-- Default Card Example -->
 					<div class="card mb-5">
 						<div class="card-header">
-							<i class="fas fa-info-circle"></i> Ticket Description
+							<i class="fas fa-info-circle"></i> Bilet Bilgileri
 						</div>
 						<div class="card-body">
 							<ul>
-								<li>► Destination <b>
+								<li>► Rota <b>
 										<?php echo $asal['sehir_varis'] . " - " . $jadwal['sehir_varis'] . " [" . $jadwal['kd_varis'] . "]"; ?>
 									</b></li>
-								<li>► Name of Bus <b>
+								<li>►Otobüs Firması <b>
 										<?php echo $jadwal['isim_otobus']; ?>
 									</b></li>
-								<li>► Bus Number <b>
+								<li>► Otobüs Plakası <b>
 										<?php echo $jadwal['plaka_otobus']; ?>
 									</b></li>
-								<li>► Departure <b>
+								<li>► Kalkış Noktası <b>
 										<?php echo strtoupper($asal['sehir_varis']) . " - " . $asal['terminal_varis']; ?>
 									</b></li>
-								<li>► Arrival <b>
+								<li>► Varış Noktası <b>
 										<?php echo strtoupper($jadwal['sehir_varis']) . " - " . $jadwal['terminal_varis']; ?>
 									</b></li>
-								<li>► Prices: <b>$
+								<li>► Fiyat: <b>
 										<?php echo number_format((float) ($jadwal['fiyat_sefer']), 0, ",", "."); ?>
-									</b></li>
-								<li>► Depart Date <b>
+									</b> TL</li>
+								<li>► Kalkış Tarihi <b>
 										<?php echo nama_hari($tanggal) . "," . tgl_indo($tanggal) ?>
 									</b></li>
-								<li>► Depart. Time <b>at
+								<li>► Kalkış Saati <b>
 										<?php echo $jadwal['kalkis_saati_sefer']; ?>
 									</b></li>
-								<li>► Arrival Time <b>at
+								<li>► Varış Saati <b>
 										<?php echo $jadwal['varis_saati_sefer']; ?>
 									</b></li>
-								<li>► Please select a seat</li>
-								<li>► Select a maximum of 4 seats</li>
+								<li>► Lütfen koltuk seçiniz</li>
+								<li>► En fazla 4 koltuk seçebilirsiniz</li>
 							</ul>
 						</div>
 					</div>
-					<div id="map" style="height: 500px; width: 1000px; "></div>
-					<script>initMap();</script>
 				</div>
 
 
@@ -197,11 +195,15 @@
 							<p>Bir koltuk seçtikten sonra, devam etmek için lütfen 'İleri' düğmesine tıklayın.</p>
 							<div class='btn-group'>
 								<a href="<?php echo base_url('tiket/cekjadwal/' . $tanggal . '/' . $asal['kd_varis'] . '/' . $jadwal['sehir_varis']) ?>"
-									class='btn btn-default'>Geri</a> 
+									class='btn btn-default'>Geri</a>
 								<input class="btn btn-info pull-right" disabled="disabled" type="submit" value="İleri">
 							</div>
 						</div>
 					</div>
+				</div>
+				<div class="col-lg-4">
+					<div id="map" style="height: 500px; width: 1000px; "></div>
+					<script>initMap();</script>
 				</div>
 			</div>
 		</div>

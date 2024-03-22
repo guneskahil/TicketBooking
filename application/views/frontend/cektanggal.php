@@ -32,6 +32,7 @@
 	<section class="service-area section-gap relative"
 		style="background-image: url('assets/frontend/img/otobüs.jpeg');">
 		<div class="container">
+			<br><br><br><br><br>
 			<div class="row">
 				<div class="col-lg-6">
 					<!-- Default Card Example -->

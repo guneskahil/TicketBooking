@@ -47,41 +47,80 @@
 							<div class="card-header">
 								<i class="fas fa-user"></i> Hesap Bilgileri
 							</div>
-							<div class="card-body" align="left">
+							<div class="card-body">
+								<table>
+									<tr>
+										<td>
+											<h5 class="card-title">Kimlik Numarası </h5>
+										</td>
+										<td>
+											<p class="card-title">
+												<?php echo $profile['no_ktp_musteri'] ?>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<h5 class="card-title">Ad-Soyad </h5>
+										</td>
+										<td>
+											<p class="card-title">
+												<?php echo $profile['isim_musteri'] ?>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<h5 class="card-title">Email </h5>
+										</td>
+										<td>
+											<p class="card-title">
+												<?php echo $profile['email_musteri'] ?>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<h5 class="card-title">Telefon Numarası </h5>
+										</td>
+										<td>
+											<p class="card-title">
+												<?php echo $profile['telpon_musteri'] ?>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<h5 class="card-title">Adres </h5>
+										</td>
+										<td>
+											<p class="card-title">
+												<?php echo $profile['adres_musteri'] ?>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<h5 class="card-title">Profil Fotoğrafı </h5>
+										</td>
+										<td>
+											<p class="card-title">
+												<img src="<?php echo base_url($profile['resim_musteri']) ?>" height="40"
+													width="40">
+											</p>
+										</td>
+									</tr>
+								</table>
 								<div class="row">
-									<div class="col-sm-8">
-										<h5 class="card-title">Kimlik Numarası</h5>
-										<p class="card-text">
-											<?php echo $profile['no_ktp_musteri'] ?>
-										</p>
-										<h5 class="card-title">Ad-Soyad</h5>
-										<p class="card-text">
-											<?php echo $profile['isim_musteri'] ?>
-										</p>
-										<h5 class="card-title">Email</h5>
-										<p class="card-text">
-											<?php echo $profile['email_musteri'] ?>
-										</p>
-										<h5 class="card-title">Telefon Numarası</h5>
-										<p class="card-text">
-											<?php echo $profile['telpon_musteri'] ?>
-										</p>
-									</div>
-									<div class="col-sm-14">
-										<h5 class="card-title">Adres</h5>
-										<p class="card-text">
-											<?php echo $profile['adres_musteri'] ?>
-										</p>
-										<h5 class="card-title">Profil Fotoğrafı</h5>
-										<p><img src="<?php echo base_url($profile['resim_musteri']) ?>" height="50"
-												width="50"></p>
-										<p><a href="<?php echo base_url('profile/changepassword/' . $profile['kd_musteri']) ?>"
-												class="btn btn-primary">Şifremi Değiştir</a></p>
-										<p><button data-toggle="modal" data-target="#exampleModal"
-												class="btn btn-primary">Bilgilerimi Düzenle</button></p>
+									<div class="col-sm-12" align="center">
+										<button data-toggle="modal" data-target="#exampleModal"
+											class="btn btn-primary">Bilgilerimi Düzenle</button>
+										<a href="<?php echo base_url('profile/changepassword/' . $profile['kd_musteri']) ?>"
+											class="btn btn-primary">Şifremi Değiştir</a>
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
