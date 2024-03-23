@@ -51,7 +51,10 @@
 								<table>
 									<tr>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 										<center>
 											<p class="card-title">
 												<img src="<?php echo base_url('assets/frontend/img/default.png') ?>"
@@ -60,6 +63,9 @@
 										</center>
 									</tr>
 									<tr>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 										<td>
 											<h5 class="card-title">Kimlik Numarası </h5>
@@ -111,6 +117,7 @@
 										</td>
 									</tr>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 									<tr>
 										<td>
 											<h5 class="card-title">Profil Fotoğrafı </h5>
@@ -122,6 +129,8 @@
 											</p>
 										</td>
 									</tr>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 								</table>

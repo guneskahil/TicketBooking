@@ -38,6 +38,7 @@
 			z-index: -1;
 		}
 
+<<<<<<< Updated upstream
 		.service {
 			background: #ffffff;
 			border-radius: 10px;
@@ -59,6 +60,35 @@
 
 		.service-info p {
 			color: #666666;
+=======
+		/* Define the hover effect */
+		.service:hover {
+			background-color: #e6f7e8;
+			/* Light green color */
+		}
+
+		/* Style for service cards */
+		.service {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin: 10px;
+			background-color: #fff;
+			/* White background color */
+			transition: background-color 0.3s ease;
+		}
+
+		.service-icon img {
+			width: 100px;
+			/* Adjust as needed */
+		}
+
+		.service-info {
+			text-align: center;
+>>>>>>> Stashed changes
 		}
 	</style>
 
@@ -82,6 +112,7 @@
 						<img src="<?php echo base_url() ?>assets/frontend/img/b1.png" alt="Select Trip Details">
 					</div>
 					<div class="service-info">
+<<<<<<< Updated upstream
 						<h4>Select Trip Details</h4>
 						<p>Enter the place of departure, destination, travel date and then click 'Search'</p>
 					</div>
@@ -94,18 +125,26 @@
 						<h4>Choose Your Bus and Seat</h4>
 						<p>Select bus, seat, place of departure, destination, fill in passenger details and click
 							'Payment'</p>
+=======
+						<h4>Gezi Ayrıntılarını Seçin</h4>
+						<br>
+						<p>
+							Kalkış yerini, varış yerini, seyahat tarihini girin ve ardından 'Bilet Ara'ya tıklayın.</p>
+>>>>>>> Stashed changes
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-service">
-						<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b2.png" width="150"
-							height="150" alt="">
-						<h4>Choose your bus and seat</h4>
-						<p>
-							Select bus, seat, place of departure, destination, fill in passenger details and click
-							'Payment'
-						</p>
+				<div class="service">
+					<div class="service-icon">
+						<img src="<?php echo base_url() ?>assets/frontend/img/b2.png" alt="Choose Your Bus and Seat">
 					</div>
+					<div class="service-info">
+						<h4>Otobüsünüzü Seçin</h4>
+						<br>
+						<p>
+							Otobüs, koltuk, kalkış yeri, varış yeri seçin, yolcu bilgilerini doldurun ve 'Ödeme Onayı'
+							butonuna tıklayın</p>
+					</div>
+<<<<<<< Updated upstream
 					<div class="col-lg-4 col-md-6">
 						<div class="single-service">
 							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b2.png" width="150"
@@ -125,6 +164,17 @@
 								<p>Payment can be made via ATM transfer, Internet banking.</p>
 							</div>
 						</div>
+=======
+				</div>
+				<div class="service">
+					<div class="service-icon">
+						<img src="<?php echo base_url() ?>assets/frontend/img/b3.png" alt="Easy Payment Method">
+					</div>
+					<div class="service-info">
+						<h4>Kolay Ödeme Yöntemi</h4>
+						<br>
+						<p>Ödeme internet bankacılığı yoluyla yapılabilir.</p>
+>>>>>>> Stashed changes
 					</div>
 
 				</div>

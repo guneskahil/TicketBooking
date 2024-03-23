@@ -30,7 +30,11 @@ class Profile extends CI_Controller
 			'isim_musteri' => $this->input->post('nama'),
 			'email_musteri' => $this->input->post('email'),
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			'resim_musteri' => 'assets/frontend/img/default.png',
+=======
+			'resim_musteri' => $this->input->post('img'),
+>>>>>>> Stashed changes
 =======
 			'resim_musteri' => $this->input->post('img'),
 >>>>>>> Stashed changes
@@ -69,6 +73,7 @@ class Profile extends CI_Controller
 		$pelanggan = $this->db->query("SELECT sifre_musteri FROM musteri where kd_musteri ='" . $id . "'")->row_array();
 		// die(print_r($pelanggan));
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		$this->form_validation->set_rules('currentpassword', 'currentpassword', 'trim|required|min_length[8]', array(
 			'required' => 'Enter Password',
 		)
@@ -85,6 +90,8 @@ class Profile extends CI_Controller
 			'min_length' => 'Password Minimal 8 Characters.'
 		)
 =======
+=======
+>>>>>>> Stashed changes
 		$this->form_validation->set_rules(
 			'currentpassword',
 			'currentpassword',
@@ -112,6 +119,9 @@ class Profile extends CI_Controller
 				'matches' => 'Password Not Same.',
 				'min_length' => 'Password Minimal 8 Characters.'
 			)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		);
 		if ($this->form_validation->run() == false) {
