@@ -24,8 +24,7 @@ Projeyi çalıştırmak ve kullanmaya başlamak için aşağıdaki adımları ta
 
 ## Adım Adım Kurulum
 
-1. Projeyi GitHub'dan klonlayın:
-   git clone [proje-linki]
+1. Projeyi GitHub'dan klonlayın.
 2. XAMPP’ı kurun ve MySQL servisini başlatın.
 3. XAMPP MySQL’de umuttepe_turizm adında bir SQL veritabanı oluşturun.
 4. Klonlanan proje dosyasını XAMPP’ın htdocs klasörüne kopyalayın.
