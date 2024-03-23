@@ -86,7 +86,7 @@ class Login extends CI_Controller
 			'trim|required|is_unique[musteri.telpon_musteri]',
 			array(
 				'required' => 'Mobile number is required to be filled in.',
-				'is_unique' => 'Number Already In Use.'
+				'is_unique' => 'Bu telefon numarası mevcut'
 			)
 		);
 		$this->form_validation->set_rules(
@@ -104,7 +104,7 @@ class Login extends CI_Controller
 			'trim|required|min_length[5]|is_unique[musteri.kullanici_adi_musteri]',
 			array(
 				'required' => 'Username Required.',
-				'is_unique' => 'Username Already In Use.'
+				'is_unique' => 'Bu kullanıcı adı mevcut'
 			)
 		);
 		$this->form_validation->set_rules(
@@ -114,7 +114,7 @@ class Login extends CI_Controller
 			array(
 				'required' => 'Email Required.',
 				'valid_email' => 'Enter Email Correctly',
-				'is_unique' => 'Email Already In Use.'
+				'is_unique' => 'Bu email mevcut'
 			)
 		);
 		$this->form_validation->set_rules(
@@ -153,7 +153,7 @@ class Login extends CI_Controller
 			$this->db->insert('musteri', $data);
 			$this->db->insert('musteri_token', $data1);
 			$this->_sendmail($token, 'verify');
-			$this->session->set_flashdata('message', 'swal("Success", "Successfully Registered. Welcome to BTBS!", "success");');
+			$this->session->set_flashdata('message', 'swal("Başarılı", "Kayıt Başarılı.", "success");');
 			redirect('login');
 		}
 

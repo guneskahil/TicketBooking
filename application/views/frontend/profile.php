@@ -52,7 +52,10 @@
 									<tr>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 										<center>
@@ -64,6 +67,9 @@
 									</tr>
 									<tr>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -118,6 +124,7 @@
 									</tr>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 									<tr>
 										<td>
 											<h5 class="card-title">Profil Fotoğrafı </h5>
@@ -129,6 +136,8 @@
 											</p>
 										</td>
 									</tr>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======

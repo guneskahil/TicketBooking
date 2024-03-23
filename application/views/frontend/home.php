@@ -39,6 +39,7 @@
 		}
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		.service {
 			background: #ffffff;
 			border-radius: 10px;
@@ -61,6 +62,8 @@
 		.service-info p {
 			color: #666666;
 =======
+=======
+>>>>>>> Stashed changes
 		/* Define the hover effect */
 		.service:hover {
 			background-color: #e6f7e8;
@@ -88,6 +91,9 @@
 
 		.service-info {
 			text-align: center;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		}
 	</style>
@@ -113,6 +119,7 @@
 					</div>
 					<div class="service-info">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 						<h4>Select Trip Details</h4>
 						<p>Enter the place of departure, destination, travel date and then click 'Search'</p>
 					</div>
@@ -126,10 +133,13 @@
 						<p>Select bus, seat, place of departure, destination, fill in passenger details and click
 							'Payment'</p>
 =======
+=======
+>>>>>>> Stashed changes
 						<h4>Gezi Ayrıntılarını Seçin</h4>
 						<br>
 						<p>
 							Kalkış yerini, varış yerini, seyahat tarihini girin ve ardından 'Bilet Ara'ya tıklayın.</p>
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 					</div>
 				</div>
@@ -178,6 +188,32 @@
 					</div>
 
 				</div>
+=======
+					</div>
+				</div>
+				<div class="service">
+					<div class="service-icon">
+						<img src="<?php echo base_url() ?>assets/frontend/img/b2.png" alt="Choose Your Bus and Seat">
+					</div>
+					<div class="service-info">
+						<h4>Otobüsünüzü Seçin</h4>
+						<br>
+						<p>
+							Otobüs, koltuk, kalkış yeri, varış yeri seçin, yolcu bilgilerini doldurun ve 'Ödeme Onayı'
+							butonuna tıklayın</p>
+					</div>
+				</div>
+				<div class="service">
+					<div class="service-icon">
+						<img src="<?php echo base_url() ?>assets/frontend/img/b3.png" alt="Easy Payment Method">
+					</div>
+					<div class="service-info">
+						<h4>Kolay Ödeme Yöntemi</h4>
+						<br>
+						<p>Ödeme internet bankacılığı yoluyla yapılabilir.</p>
+					</div>
+				</div>
+>>>>>>> Stashed changes
 	</section>
 	<!-- End service Area -->
 	<!-- End feature Area -->
