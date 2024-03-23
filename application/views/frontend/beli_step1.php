@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="tr" class="no-js">
 
 <head>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXVgMKtzaIxsMgtrq8KGCMRzNh4owWano"></script>
@@ -132,51 +132,58 @@
 												<?php if ($j == $driver_seat_position): ?>
 													<td class=''>
 														<label class='btn btn-primary'>
-															<a value='' autocomplete='off' disabled='disabled'>Sürücü Koltuğu</a>
+															<a value='' autocomplete='off' disabled='disabled'>Sürücü
+																Koltuğu</a>
 														</label>
 													</td>
 												<?php else: ?>
+
 													<td class=''>
-														<?php
-														$isChecked = false;
-														foreach ($kursi as $koltuk) {
-															if ($koltuk['no_koltuk_siparis'] == $seat_number) {
-																if ($koltuk['cinsiyet'] == 'Erkek') {
-																	echo "<label class='custom-checkbox checked-e'>";
-																} elseif ($koltuk['cinsiyet'] == 'Kadin') {
-																	echo "<label class='custom-checkbox checked-k'>";
+														<div>
+															<?php
+															$isChecked = false;
+															foreach ($kursi as $koltuk) {
+																if ($koltuk['no_koltuk_siparis'] == $seat_number) {
+																	if ($koltuk['cinsiyet'] == 'Erkek') {
+																		echo "<label class='custom-checkbox checked-e'>";
+																	} elseif ($koltuk['cinsiyet'] == 'Kadin') {
+																		echo "<label class='custom-checkbox checked-k'>";
+																	}
+																	$isChecked = true;
+																	break;
 																}
-																$isChecked = true;
-																break;
 															}
-														}
-														if (!$isChecked) {
-															echo "<label class='custom-checkbox'>";
-														}
-														?>
-														<input name='kursi[]' value='<?php echo $seat_number; ?>'
-															id='<?php echo $seat_number; ?>'
-															onclick='cer(this); showGenderPopUp(<?php echo $seat_number; ?>);'
-															autocomplete='off' type='checkbox' <?php if ($isChecked) {
-																echo "disabled";
-															} ?>>
-														<?php echo $seat_number; ?>
-														</label>
-														<div id="genderPopUp_<?php echo $seat_number; ?>" class="pop-up">
-															<button type="button" class="male"
-																onclick="handleGenderSelection('<?php echo $seat_number; ?>', 'Erkek')">Erkek
-															</button>
-															<button type="button" class="female"
-																onclick="handleGenderSelection('<?php echo $seat_number; ?>', 'Kadin')">Kadın
-															</button>
+
+															if (!$isChecked) {
+																echo "<label class='custom-checkbox'>";
+															}
+
+															?>
+															<input name='kursi[]' value='<?php echo $seat_number; ?>'
+																id='<?php echo $seat_number; ?>'
+																onclick='cer(this); showGenderPopUp(<?php echo $seat_number; ?>);'
+																autocomplete='off' type='checkbox' <?php if ($isChecked) {
+																	echo "disabled";
+																} ?>>
+															<?php echo $seat_number; ?>
+															</label>
+															<div id="genderPopUp_<?php echo $seat_number; ?>" class="pop-up">
+																<button type="button" class="male"
+																	onclick="handleGenderSelection('<?php echo $seat_number; ?>', 'Erkek')">Erkek
+																</button>
+																<button type="button" class="female"
+																	onclick="handleGenderSelection('<?php echo $seat_number; ?>', 'Kadin')">Kadın
+																</button>
+															</div>
+															<?php $seat_number++; ?>
 														</div>
-														<?php $seat_number++; ?>
 													</td>
 												<?php endif; ?>
 											<?php endfor; ?>
 										</tr>
 									<?php endfor; ?>
 								</table>
+
 							</center>
 
 						</div>
@@ -246,9 +253,17 @@
 			display: inline-block;
 			cursor: pointer;
 			text-align: center;
-			border: 1px solid #ccc;
+			border: 1px solid transparent;
 			padding: 5px;
 			margin: 5px;
+			background-image: url('<?php echo base_url('assets/frontend/img/armchair.png'); ?>');
+			background-size: cover;
+			/* Ensure the background image covers the entire area */
+			background-clip: padding-box;
+			/* Clip the background image to the padding box */
+			border-radius: 7px;
+			/* Rounded corners for the checkbox */
+
 		}
 
 		.pop-up {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="tr" class="no-js">
 
 <head>
 	<!-- Mobile Specific Meta -->

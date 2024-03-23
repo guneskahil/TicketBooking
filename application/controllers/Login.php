@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or exit ('No direct script access allowed');
 
 class Login extends CI_Controller
 {
@@ -136,7 +136,7 @@ class Login extends CI_Controller
 				'kd_musteri' => $this->getkod_model->get_kodpel(),
 				'isim_musteri' => $this->input->post('name'),
 				'email_musteri' => $this->input->post('email'),
-				'resim_musteri' => 'assets/frontend/img/default.png',
+				'resim_musteri' => $this->input->post('img'),
 				'adres_musteri' => $this->input->post('alamat'),
 				'telpon_musteri' => $this->input->post('nomor'),
 				'kullanici_adi_musteri' => $this->input->post('username'),

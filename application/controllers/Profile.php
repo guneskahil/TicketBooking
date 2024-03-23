@@ -29,7 +29,11 @@ class Profile extends CI_Controller
 			'no_ktp_musteri' => $this->input->post('ktp'),
 			'isim_musteri' => $this->input->post('nama'),
 			'email_musteri' => $this->input->post('email'),
+<<<<<<< Updated upstream
 			'resim_musteri' => 'assets/frontend/img/default.png',
+=======
+			'resim_musteri' => $this->input->post('img'),
+>>>>>>> Stashed changes
 			'adres_musteri' => $this->input->post('alamat'),
 			'telpon_musteri' => $this->input->post('hp'),
 		);
@@ -64,6 +68,7 @@ class Profile extends CI_Controller
 		$this->load->library('form_validation');
 		$pelanggan = $this->db->query("SELECT sifre_musteri FROM musteri where kd_musteri ='" . $id . "'")->row_array();
 		// die(print_r($pelanggan));
+<<<<<<< Updated upstream
 		$this->form_validation->set_rules('currentpassword', 'currentpassword', 'trim|required|min_length[8]', array(
 			'required' => 'Enter Password',
 		)
@@ -79,6 +84,35 @@ class Profile extends CI_Controller
 			'matches' => 'Password Not Same.',
 			'min_length' => 'Password Minimal 8 Characters.'
 		)
+=======
+		$this->form_validation->set_rules(
+			'currentpassword',
+			'currentpassword',
+			'trim|required|min_length[8]',
+			array(
+				'required' => 'Enter Password',
+			)
+		);
+		$this->form_validation->set_rules(
+			'new_password1',
+			'new_password1',
+			'trim|required|min_length[8]|matches[new_password2]',
+			array(
+				'required' => 'Enter Password.',
+				'matches' => 'Password Not Same.',
+				'min_length' => 'Password Minimal 8 Characters.'
+			)
+		);
+		$this->form_validation->set_rules(
+			'new_password2',
+			'new_password2',
+			'trim|required|min_length[8]|matches[new_password1]',
+			array(
+				'required' => 'Enter Password.',
+				'matches' => 'Password Not Same.',
+				'min_length' => 'Password Minimal 8 Characters.'
+			)
+>>>>>>> Stashed changes
 		);
 		if ($this->form_validation->run() == false) {
 			$this->load->view('frontend/changepassword');

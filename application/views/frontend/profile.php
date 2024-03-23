@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="tr" class="no-js">
 
 <head>
 	<!-- Mobile Specific Meta -->
@@ -50,6 +50,17 @@
 							<div class="card-body">
 								<table>
 									<tr>
+<<<<<<< Updated upstream
+=======
+										<center>
+											<p class="card-title">
+												<img src="<?php echo base_url('assets/frontend/img/default.png') ?>"
+													height="60" width="60">
+											</p>
+										</center>
+									</tr>
+									<tr>
+>>>>>>> Stashed changes
 										<td>
 											<h5 class="card-title">Kimlik Numarası </h5>
 										</td>
@@ -99,6 +110,7 @@
 											</p>
 										</td>
 									</tr>
+<<<<<<< Updated upstream
 									<tr>
 										<td>
 											<h5 class="card-title">Profil Fotoğrafı </h5>
@@ -110,6 +122,8 @@
 											</p>
 										</td>
 									</tr>
+=======
+>>>>>>> Stashed changes
 								</table>
 								<div class="row">
 									<div class="col-sm-12" align="center">
