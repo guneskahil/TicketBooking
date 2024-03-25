@@ -32,12 +32,16 @@ class Profile extends CI_Controller
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			'resim_musteri' => 'assets/frontend/img/default.png',
 =======
 			'resim_musteri' => $this->input->post('img'),
 >>>>>>> Stashed changes
 =======
 			'resim_musteri' => $this->input->post('img'),
+>>>>>>> Stashed changes
+=======
+			'resim_musteri' => 'assets/frontend/img/default.png',
 >>>>>>> Stashed changes
 =======
 			'resim_musteri' => 'assets/frontend/img/default.png',
@@ -79,6 +83,7 @@ class Profile extends CI_Controller
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		$this->form_validation->set_rules('currentpassword', 'currentpassword', 'trim|required|min_length[8]', array(
 			'required' => 'Enter Password',
 		)
@@ -95,6 +100,8 @@ class Profile extends CI_Controller
 			'min_length' => 'Password Minimal 8 Characters.'
 		)
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -128,6 +135,9 @@ class Profile extends CI_Controller
 			)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

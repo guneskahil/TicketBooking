@@ -40,6 +40,7 @@
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		.service {
 			background: #ffffff;
 			border-radius: 10px;
@@ -62,6 +63,8 @@
 		.service-info p {
 			color: #666666;
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 		/* Define the hover effect */
@@ -92,6 +95,9 @@
 		.service-info {
 			text-align: center;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -120,6 +126,7 @@
 					<div class="service-info">
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 						<h4>Select Trip Details</h4>
 						<p>Enter the place of departure, destination, travel date and then click 'Search'</p>
 					</div>
@@ -135,10 +142,13 @@
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 						<h4>Gezi Ayrıntılarını Seçin</h4>
 						<br>
 						<p>
 							Kalkış yerini, varış yerini, seyahat tarihini girin ve ardından 'Bilet Ara'ya tıklayın.</p>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
 					</div>
@@ -189,6 +199,8 @@
 
 				</div>
 =======
+=======
+>>>>>>> Stashed changes
 					</div>
 				</div>
 				<div class="service">
@@ -213,6 +225,9 @@
 						<p>Ödeme internet bankacılığı yoluyla yapılabilir.</p>
 					</div>
 				</div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	</section>
 	<!-- End service Area -->

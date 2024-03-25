@@ -53,6 +53,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 =======
 >>>>>>> Stashed changes
@@ -62,12 +63,22 @@
 											<p class="card-title">
 												<img src="<?php echo base_url('assets/frontend/img/default.png') ?>"
 													height="60" width="60">
+=======
+										<center>
+											<p class="card-title">
+												<img src="<?php echo base_url($profile['resim_musteri']) ?>"
+													alt="<?php echo $this->session->userdata('ktp') ?>"
+													style="width:100px;height:100px">
+>>>>>>> Stashed changes
 											</p>
 										</center>
 									</tr>
 									<tr>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -125,6 +136,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 									<tr>
 										<td>
 											<h5 class="card-title">Profil Fotoğrafı </h5>
@@ -136,6 +148,8 @@
 											</p>
 										</td>
 									</tr>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
