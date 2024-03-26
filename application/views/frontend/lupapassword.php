@@ -1,21 +1,5 @@
 <!DOCTYPE html>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<html lang="zxx" class="no-js">
-=======
 <html lang="tr" class="no-js">
->>>>>>> Stashed changes
-=======
-<html lang="tr" class="no-js">
->>>>>>> Stashed changes
-=======
-<html lang="tr" class="no-js">
->>>>>>> Stashed changes
-=======
-<html lang="tr" class="no-js">
->>>>>>> Stashed changes
 
 <head>
 	<!-- Mobile Specific Meta -->
@@ -48,23 +32,24 @@
 			<div class="row height align-items-center justify-content-center">
 				<div class="col-lg-5">
 					<div class="card card-login mx-auto mt-10">
-						<div class="card-header">Forgot password</div>
+						<div class="card-header">Şifremi Unuttum</div>
 						<div class="card-body" align="left">
 							<?php echo $this->session->flashdata('pesan'); ?>
 							<form action="<?php echo base_url('login/lupapassword') ?>" method="post">
 								<div class="form-group">
 									<input type="email" class="form-control form-control-user" id="exampleInputEmail"
-										aria-describedby="emailHelp" name="email" placeholder="Enter Email Address...">
+										aria-describedby="emailHelp" name="email"
+										placeholder="Email adresinizi giriniz.">
 								</div>
 								<?php echo form_error('email'), '<small class="text-danger pl-3">', '</small>'; ?>
 								<button class="btn btn-primary btn-user btn-block">
-									Reset Password
+									Şifremi Sıfırla
 								</button>
 							</form>
 							<div class="text-center">
-								<p><a class="d-block small mt-3"
-										href="<?php echo base_url() ?>login/daftar">Register</a>
-									<a class="d-block small" href="<?php echo base_url() ?>login">Login</a>
+								<p><a class="d-block small mt-3" href="<?php echo base_url() ?>login/daftar">Kayıt
+										Ol</a>
+									<a class="d-block small" href="<?php echo base_url() ?>login">Giriş Yap</a>
 								</p>
 							</div>
 						</div>

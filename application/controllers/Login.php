@@ -71,7 +71,7 @@ class Login extends CI_Controller
 			}
 		} else {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-            Username not found. Please try again!
+            Kullanıcı adı bulunamadı. Lütfen tekrar deneyiniz.
                     </div>');
 			redirect('login');
 		}
@@ -85,7 +85,7 @@ class Login extends CI_Controller
 			'Nomor',
 			'trim|required|is_unique[musteri.telpon_musteri]',
 			array(
-				'required' => 'Mobile number is required to be filled in.',
+				'required' => 'Telefon numarası alanı boş olamaz',
 				'is_unique' => 'Bu telefon numarası mevcut'
 			)
 		);
@@ -103,7 +103,7 @@ class Login extends CI_Controller
 			'Username',
 			'trim|required|min_length[5]|is_unique[musteri.kullanici_adi_musteri]',
 			array(
-				'required' => 'Username Required.',
+				'required' => 'Kullanıcı adı alanı boş olamaz',
 				'is_unique' => 'Bu kullanıcı adı mevcut'
 			)
 		);
@@ -122,8 +122,8 @@ class Login extends CI_Controller
 			'Password',
 			'trim|required|min_length[8]|matches[password2]',
 			array(
-				'matches' => 'Password Not Same.',
-				'min_length' => 'Password Minimum 8 Characters.'
+				'matches' => 'Şifreler aynı değil.',
+				'min_length' => 'Şifreniz en az 8 karakterli olmalıdır'
 			)
 		);
 		$this->form_validation->set_rules('password2', 'Password', 'trim|required|matches[password1]');
@@ -136,7 +136,7 @@ class Login extends CI_Controller
 				'kd_musteri' => $this->getkod_model->get_kodpel(),
 				'isim_musteri' => $this->input->post('name'),
 				'email_musteri' => $this->input->post('email'),
-				'resim_musteri' => $this->input->post('img'),
+				'resim_musteri' => 'assets/frontend/img/default.png',
 				'adres_musteri' => $this->input->post('alamat'),
 				'telpon_musteri' => $this->input->post('nomor'),
 				'kullanici_adi_musteri' => $this->input->post('username'),
@@ -254,7 +254,7 @@ class Login extends CI_Controller
 				);
 				$this->db->insert('musteri_token', $data);
 				$this->_sendmail($token, 'forgot');
-				$this->session->set_flashdata('message', 'swal("Success", "Successfully Reset Password Please Check Your Email", "success");');
+				$this->session->set_flashdata('message', 'swal("Başarılı", "Şifre başarıyla sıfırlandı lütfen e-postanızı kontrol edin", "success");');
 				redirect('login');
 			} else {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
