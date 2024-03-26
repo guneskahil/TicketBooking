@@ -30,21 +30,6 @@ class Admin extends CI_Controller
 	public function daftar()
 	{
 		$this->form_validation->set_rules('name', 'İsim', 'trim|required');
-<<<<<<< Updated upstream
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|is_unique[yonetici.kullanici_adi_yonetici]', array(
-			'required' => 'E-Posta Gerekli',
-			'is_unique' => 'Kullanıcı Adı Farklı Olmalı'
-		)
-		);
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email', array(
-			'required' => 'E-Posta Gerekli',
-		)
-		);
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|matches[password2]', array(
-			'matches' => 'Şifre Aynı Değil',
-			'min_length' => 'Şifre En Az Dört Karakter İçermeli'
-		)
-=======
 		$this->form_validation->set_rules(
 			'username',
 			'Username',
@@ -70,7 +55,32 @@ class Admin extends CI_Controller
 				'matches' => 'Şifre Aynı Değil',
 				'min_length' => 'Şifre En Az Dört Karakter İçermeli'
 			)
->>>>>>> Stashed changes
+		);
+		$this->form_validation->set_rules(
+			'username',
+			'Username',
+			'trim|required|min_length[5]|is_unique[yonetici.kullanici_adi_yonetici]',
+			array(
+				'required' => 'E-Posta Gerekli',
+				'is_unique' => 'Kullanıcı Adı Farklı Olmalı'
+			)
+		);
+		$this->form_validation->set_rules(
+			'email',
+			'Email',
+			'trim|required|valid_email',
+			array(
+				'required' => 'E-Posta Gerekli',
+			)
+		);
+		$this->form_validation->set_rules(
+			'password',
+			'Password',
+			'trim|required|min_length[4]|matches[password2]',
+			array(
+				'matches' => 'Şifre Aynı Değil',
+				'min_length' => 'Şifre En Az Dört Karakter İçermeli'
+			)
 		);
 		$this->form_validation->set_rules('password2', 'Password2', 'trim|required|matches[password]');
 		if ($this->form_validation->run() == false) {
@@ -84,11 +94,7 @@ class Admin extends CI_Controller
 				'kd_yonetici' => $kode,
 				'isim_yonetici' => $this->input->post('name'),
 				'email_yonetici' => $this->input->post('email'),
-<<<<<<< Updated upstream
-				'resim_yonetici' => $this->input->post('img'),
-=======
 				'resim_yonetici' => 'assets/frontend/img/default.png',
->>>>>>> Stashed changes
 				'kullanici_adi_yonetici' => strtolower($this->input->post('username')),
 				'sifre_yonetici' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
 				'seviye_yonetici' => 2,

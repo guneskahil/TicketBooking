@@ -38,35 +38,6 @@
 			z-index: -1;
 		}
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-		.service {
-			background: #ffffff;
-			border-radius: 10px;
-			padding: 20px;
-			text-align: center;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		}
-
-		.service-icon img {
-			width: 150px;
-			height: 150px;
-			margin-bottom: 15px;
-		}
-
-		.service-info h4 {
-			margin-bottom: 10px;
-			color: #333333;
-		}
-
-		.service-info p {
-			color: #666666;
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 		/* Define the hover effect */
 		.service:hover {
 			background-color: #e6f7e8;
@@ -94,13 +65,6 @@
 
 		.service-info {
 			text-align: center;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 		}
 	</style>
 
@@ -124,83 +88,10 @@
 						<img src="<?php echo base_url() ?>assets/frontend/img/b1.png" alt="Select Trip Details">
 					</div>
 					<div class="service-info">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-						<h4>Select Trip Details</h4>
-						<p>Enter the place of departure, destination, travel date and then click 'Search'</p>
-					</div>
-				</div>
-				<div class="service">
-					<div class="service-icon">
-						<img src="<?php echo base_url() ?>assets/frontend/img/b2.png" alt="Choose Your Bus and Seat">
-					</div>
-					<div class="service-info">
-						<h4>Choose Your Bus and Seat</h4>
-						<p>Select bus, seat, place of departure, destination, fill in passenger details and click
-							'Payment'</p>
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 						<h4>Gezi Ayrıntılarını Seçin</h4>
 						<br>
 						<p>
 							Kalkış yerini, varış yerini, seyahat tarihini girin ve ardından 'Bilet Ara'ya tıklayın.</p>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-					</div>
-				</div>
-				<div class="service">
-					<div class="service-icon">
-						<img src="<?php echo base_url() ?>assets/frontend/img/b2.png" alt="Choose Your Bus and Seat">
-					</div>
-					<div class="service-info">
-						<h4>Otobüsünüzü Seçin</h4>
-						<br>
-						<p>
-							Otobüs, koltuk, kalkış yeri, varış yeri seçin, yolcu bilgilerini doldurun ve 'Ödeme Onayı'
-							butonuna tıklayın</p>
-					</div>
-<<<<<<< Updated upstream
-					<div class="col-lg-4 col-md-6">
-						<div class="single-service">
-							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b2.png" width="150"
-								height="150" alt="">
-							<h4>Choose your bus and seat</h4>
-							<p>
-								Select bus, seat, place of departure, destination, fill in passenger details and click
-								'Payment'
-							</p>
-						</div>
-						<div class="service">
-							<div class="service-icon">
-								<img src="<?php echo base_url() ?>assets/frontend/img/b3.png" alt="Easy Payment Method">
-							</div>
-							<div class="service-info">
-								<h4>Easy Payment Method</h4>
-								<p>Payment can be made via ATM transfer, Internet banking.</p>
-							</div>
-						</div>
-=======
-				</div>
-				<div class="service">
-					<div class="service-icon">
-						<img src="<?php echo base_url() ?>assets/frontend/img/b3.png" alt="Easy Payment Method">
-					</div>
-					<div class="service-info">
-						<h4>Kolay Ödeme Yöntemi</h4>
-						<br>
-						<p>Ödeme internet bankacılığı yoluyla yapılabilir.</p>
->>>>>>> Stashed changes
-					</div>
-
-				</div>
-=======
-=======
->>>>>>> Stashed changes
 					</div>
 				</div>
 				<div class="service">
@@ -225,10 +116,6 @@
 						<p>Ödeme internet bankacılığı yoluyla yapılabilir.</p>
 					</div>
 				</div>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	</section>
 	<!-- End service Area -->
 	<!-- End feature Area -->

@@ -50,40 +50,15 @@
 							<div class="card-body">
 								<table>
 									<tr>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-										<center>
-											<p class="card-title">
-												<img src="<?php echo base_url('assets/frontend/img/default.png') ?>"
-													height="60" width="60">
-=======
 										<center>
 											<p class="card-title">
 												<img src="<?php echo base_url($profile['resim_musteri']) ?>"
 													alt="<?php echo $this->session->userdata('ktp') ?>"
 													style="width:100px;height:100px">
->>>>>>> Stashed changes
 											</p>
 										</center>
 									</tr>
 									<tr>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 										<td>
 											<h5 class="card-title">Kimlik Numarası </h5>
 										</td>
@@ -133,29 +108,6 @@
 											</p>
 										</td>
 									</tr>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-									<tr>
-										<td>
-											<h5 class="card-title">Profil Fotoğrafı </h5>
-										</td>
-										<td>
-											<p class="card-title">
-												<img src="<?php echo base_url($profile['resim_musteri']) ?>" height="40"
-													width="40">
-											</p>
-										</td>
-									</tr>
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 								</table>
 								<div class="row">
 									<div class="col-sm-12" align="center">

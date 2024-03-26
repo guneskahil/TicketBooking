@@ -1,21 +1,5 @@
 <!DOCTYPE html>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<html lang="zxx" class="no-js">
-=======
 <html lang="tr" class="no-js">
->>>>>>> Stashed changes
-=======
-<html lang="tr" class="no-js">
->>>>>>> Stashed changes
-=======
-<html lang="tr" class="no-js">
->>>>>>> Stashed changes
-=======
-<html lang="tr" class="no-js">
->>>>>>> Stashed changes
 
 <head>
 	<!-- Mobile Specific Meta -->
