@@ -25,7 +25,7 @@ class Home extends CI_Controller {
 		$username = $this->session->userdata('kullanici_adi_yonetici');
 		if (empty($username)) {
 			$this->session->sess_destroy();
-			redirect('backend/login');
+			redirect('backend/giris');
 		}
 	}
 }

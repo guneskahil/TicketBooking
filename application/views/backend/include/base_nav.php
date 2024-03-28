@@ -20,30 +20,30 @@
         <a class="nav-link" href="<?= base_url() ?>backend/home">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Panel </span></a>
-          <a class="nav-link" href="<?= base_url() ?>backend/bus">
+          <a class="nav-link" href="<?= base_url() ?>backend/otobus">
             <i class="fas fa fa-bus"></i>
             <span>Otobüsler</span></a>
             <a class="nav-link" href="<?= base_url() ?>backend/rute">
               <i class="fas fa fa-compass"></i>
               <span>Terminaller</span></a>
-              <a class="nav-link" href="<?= base_url() ?>backend/jadwal">
+              <a class="nav-link" href="<?= base_url() ?>backend/sefer">
                 <i class="fas fa fa-clipboard-list"></i>
                 <span>Seferler</span></a>
-        <a class="nav-link" href="<?= base_url() ?>backend/order">
+        <a class="nav-link" href="<?= base_url() ?>backend/siparis">
           <i class="fas fa-bookmark"></i>
           <span>Rezervasyonlar</span></a>
-        <a class="nav-link" href="<?= base_url() ?>backend/tiket">
+        <a class="nav-link" href="<?= base_url() ?>backend/bilet">
           <i class="fas fa-ticket-alt"></i>
           <span>Biletler</span></a>
-        <a class="nav-link" href="<?= base_url() ?>backend/konfirmasi">
+        <a class="nav-link" href="<?= base_url() ?>backend/onay">
           <i class="fa fa-dollar-sign"></i>
           <span>Ödemeler</span>
         </a>
-        <a class="nav-link" href="<?= base_url() ?>backend/bank">
+        <a class="nav-link" href="<?= base_url() ?>backend/banka">
           <i class="fas fa fa-piggy-bank"></i>
           <span>Banka Listesi</span>
         </a>
-        <a class="nav-link" href="<?= base_url() ?>backend/laporan">
+        <a class="nav-link" href="<?= base_url() ?>backend/rapor">
           <i class="fa fa fa-file"></i>
           <span>Raporlar</span></a>
              <!-- Nav Item - Pages Collapse Menu -->
@@ -54,7 +54,7 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('backend/pelanggan') ?>">Kullanıcılar</a>
+                <a class="collapse-item" href="<?= base_url('backend/musteri') ?>">Kullanıcılar</a>
                 <a class="collapse-item" href="<?= base_url() ?>backend/admin">Yöneticiler</a>
               </div>
             </div>
@@ -87,7 +87,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?= base_url('backend/order/vieworder') ?>" method="GET">
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?= base_url('backend/siparis/vieworder') ?>" method="GET">
             <div class="input-group">
               <input type="text" name="order" class="form-control bg-light border-0 small" placeholder="Sipariş Ara" aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">

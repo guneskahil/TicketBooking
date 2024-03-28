@@ -29,7 +29,7 @@
 			<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-danger" href="<?= base_url('backend/login/logout') ?>">Logout</a>
+				<a class="btn btn-danger" href="<?= base_url('backend/giris/logout') ?>">Logout</a>
 			</div>
 		</div>
 	</div>

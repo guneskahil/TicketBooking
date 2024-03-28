@@ -77,4 +77,4 @@ use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
         $printer -> pulse();
         $printer -> close();
     $printer -> close();
-        redirect('tiket/tiketsaya/'.$cetak[0]['kd_musteri']);
+        redirect('bilet/tiketsaya/'.$cetak[0]['kd_musteri']);

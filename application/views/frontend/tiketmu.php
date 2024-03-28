@@ -63,7 +63,7 @@
 										<?php } ?>
 										<hr>
 										<?php if ($row['durum_siparis'] == '1') { ?>
-											<a href="<?php echo base_url('tiket/payment/' . $row['kd_siparis']) ?>"
+											<a href="<?php echo base_url('bilet/payment/' . $row['kd_siparis']) ?>"
 												class="btn btn-primary">Ödemeyi Tamamla</a>
 										<?php } else if ($row['durum_siparis'] == '3') { ?>
 												<a href="<?php echo base_url('tiket') ?>" class="btn btn-warning pull-right">Yeni
@@ -73,7 +73,7 @@
 												<button class="btn btn-danger" id="iptalButton">İptal Et</button>
 												<!-- İptal butonu eklendi -->
 
-												<a href="<?php echo base_url('assets/backend/upload/etiket/' . $row['kd_siparis'] . '.pdf') ?>"
+												<a href="<?php echo base_url('assets/backend/upload/ebilet/' . $row['kd_siparis'] . '.pdf') ?>"
 													class="btn btn-success pull-right" download>Bileti Yazdır</a>
 										<?php } ?>
 								</div>

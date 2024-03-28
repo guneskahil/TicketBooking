@@ -6,19 +6,19 @@
 					<h4 class="text-white">Umuttepe Turizm</h4>
 					<ul>
 						<li>
-							<h5><a href="<?php echo base_url() ?>tiket">Bilet Al</a>
+							<h5><a href="<?php echo base_url() ?>bilet">Bilet Al</a>
 								<h5>
 						</li>
 						<li>
-							<h5><a href="<?php echo base_url() ?>tiket/cektiket">Bilet Kontrol</a>
+							<h5><a href="<?php echo base_url() ?>bilet/cektiket">Bilet Kontrol</a>
 								<h5>
 						</li>
 						<li>
-							<h5><a href="<?php echo base_url() ?>login/Daftar">Kayıt Ol</a>
+							<h5><a href="<?php echo base_url() ?>giris/daftar">Kayıt Ol</a>
 								<h5>
 						</li>
 						<li>
-							<h5><a href="<?php echo base_url() ?>login">Giriş</a>
+							<h5><a href="<?php echo base_url() ?>giris">Giriş</a>
 								<h5>
 						</li>
 					</ul>

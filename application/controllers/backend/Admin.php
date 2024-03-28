@@ -17,7 +17,7 @@ class Admin extends CI_Controller
 		$username = $this->session->userdata('level');
 		if ($username == '2') {
 			$this->session->sess_destroy();
-			redirect('backend/login');
+			redirect('backend/giris');
 		}
 	}
 	public function index()
@@ -85,7 +85,7 @@ class Admin extends CI_Controller
 		$this->form_validation->set_rules('password2', 'Password2', 'trim|required|matches[password]');
 		if ($this->form_validation->run() == false) {
 			$data['title'] = "Add Admin";
-			$this->load->view('backend/daftar', $data);
+			$this->load->view('backend/liste', $data);
 		} else {
 			// die(print_r($_POST));
 			/* Log on to codeastro.com for more projects */

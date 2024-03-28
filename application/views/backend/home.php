@@ -37,7 +37,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a
-                    href="<?= base_url('backend/order') ?>">Bekleyen Rezervasyonlar</a></div>
+                    href="<?= base_url('backend/siparis') ?>">Bekleyen Rezervasyonlar</a></div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                   <?= $order[0]['count(kd_siparis)']; ?>
                 </div>
@@ -57,7 +57,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a
-                    href="<?= base_url('backend/tiket') ?>">Satılan Toplam Bilet</a></div>
+                    href="<?= base_url('backend/bilet') ?>">Satılan Toplam Bilet</a></div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                   <?= $tiket[0]['count(kd_bilet)']; ?>
                 </div>
@@ -77,7 +77,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"><a
-                    href="<?= base_url('backend/konfirmasi') ?>">Ödemeler</a></div>
+                    href="<?= base_url('backend/onay') ?>">Ödemeler</a></div>
                 <div class="row no-gutters align-items-center">
                   <div class="col-auto">
                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
@@ -127,7 +127,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a
-                    href="<?= base_url('backend/jadwal') ?>">Mevcut Seferler</a></div>
+                    href="<?= base_url('backend/sefer') ?>">Mevcut Seferler</a></div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                   <?= $schedules[0]['count(kd_sefer)']; ?>
                 </div>
@@ -147,7 +147,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a
-                    href="<?= base_url('backend/bus') ?>">Mevcut Otobusler</a></div>
+                    href="<?= base_url('backend/otobus') ?>">Mevcut Otobusler</a></div>
                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
                   <?= $bus[0]['count(kd_otobus)']; ?>
                 </div>

@@ -21,14 +21,14 @@ class Home extends CI_Controller {
             'script_captcha' => $this->recaptcha->getScriptTag(), // javascript recaptcha ditaruh di head
         );
         // die(print_r($data));
-		$this->load->view('frontend/home',$data);		
+		$this->load->view('frontend/giris',$data);		
 	}
 	public function profile($value='')
 	{
-		$this->load->view('frontend/profile');
+		$this->load->view('frontend/profil');
 	}
 	public function editprofile($id=''){
-		$this->load->view('frontend/profile');
+		$this->load->view('frontend/profil');
 	}
 	public function newslatter($value=''){
         $this->form_validation->set_rules('news', ' ', 'trim|required');
