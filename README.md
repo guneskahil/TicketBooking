@@ -1,6 +1,6 @@
 # Otobüs Bileti Satış Uygulaması
 
-Bu uygulama, kullanıcıların gidiş seferleri için otobüs biletleri satın almasını, koltuk seçmesini ve cinsiyet belirtmesini sağlar. Yolcu bilgileri girişi ve yolcu tipi seçimi de dahil olmak üzere, kullanıcı dostu bir arayüz sunar.
+Bu uygulama, kullanıcıların gidiş seferleri için otobüs biletleri satın almasını, koltuk seçmesini ve cinsiyet belirtmesini sağlar. Yolcu bilgileri girişi ve yolcu tipi seçimi de dahil olmak üzere, kullanıcı dostu bir arayüz sunar. Proje hazır bir şablon olarak codeastro.com sitesinden alınıp üstüne eklemeler yapılmıştır. 
 
 ## Özellikler
 
